@@ -1,5 +1,11 @@
-# Digital Biopsy - Unet Membrane Segmentation
-This is the unet segmentation tool for digital biopsy project. It also contains some useful git command instructions for the reference.
+# Digital Biopsy - Deep Segmentation
+This is the segmentation tool for digital biopsy project. It also contains some useful git command instructions for the reference.
+## To Do List
+- [ ] Add grayscale augmentation methods to prevent overfitting on color.
+- [ ] Refactor code to enable training on server/local pc.
+- [ ] Modulize code and seperate original data from augmentated training data.
+- [ ] Potentially develop an end-to-end prediction method.
+- [ ] Potentially use more advanced method when segmenting podocytes.
 ## Git Commands
 The easiest way to use github is through [Github Desktop](https://desktop.github.com/). But here are some commands that might be helpful in case of necessary.
 #### 1. Clone the repository
@@ -7,7 +13,7 @@ The easiest way to use github is through [Github Desktop](https://desktop.github
 git clone <http address of the repository>
 ```
 ```
-git clone https://github.com/digital-biopsy/unet-membrane.git
+git clone https://github.com/digital-biopsy/deep-segmentation.git
 ```
 Github might prompt user to enter their token before access the repository. Setup instructions are [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). Don't forget to take down the token somewhere.
 #### 2. Create a branch
