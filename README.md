@@ -1,6 +1,9 @@
 # Digital Biopsy - Deep Segmentation
 This is the segmentation tool for digital biopsy project. It also contains some useful git command instructions for the reference.
 ## To Do List
+- [ ] Randomize the train test split.
+- [ ] Add data into .gitignore.
+- [ ] Intergrate the image tiling with the training script.
 - [ ] Add grayscale augmentation methods to prevent overfitting on color.
 - [ ] Refactor code to enable training on server/local pc.
 - [ ] Modulize code and seperate original data from augmentated training data.
