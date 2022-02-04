@@ -5,7 +5,7 @@ import shutil
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-class ImgPrep:
+class UnetPrep:
 
   # initialize class
   def __init__(self):
@@ -15,8 +15,9 @@ class ImgPrep:
     self.shrink_factor = 0.5
 
     # change to your local data path (where raw image/labels are stored)
-    self.data_path = '/Users/ericwang/Desktop/Research/Digital Biopsy/train-data/'
-    self.train_dir = 'data'
+    self.seg_type = '-GBMlabels'
+    self.data_path = ''
+    self.train_dir = 'data/dataseg'
 
 
   def get_image_list(self, sub_dir):
@@ -50,7 +51,7 @@ class ImgPrep:
     for i in range(len(input_list)):
       file_name = input_list[i].split('inputs/')[1].split('.jpg')[0]
       label_name = label_list[i].split('labels/')[1].split('.png')[0]
-      if (file_name + '-GBMlabels' != label_name):
+      if (file_name + self.seg_type != label_name):
         print('train test sets don\'t match at ', callback)
         print(file_name, label_name)
         return False
@@ -95,8 +96,8 @@ class ImgPrep:
         raw = np.array(cv2.resize(raw, reshape))
         label = np.array(cv2.resize(label, reshape))
         if raw.shape == label.shape:
-          input_dir = os.path.join(sys.path[0], 'data', input_dir)
-          label_dir = os.path.join(sys.path[0], 'data', label_dir)
+          input_dir = os.path.join(sys.path[0], self.train_dir, input_dir)
+          label_dir = os.path.join(sys.path[0], self.train_dir, label_dir)
           self.crop(raw, label, i, input_dir, label_dir)
         else:
           print('image size and label size does not match')

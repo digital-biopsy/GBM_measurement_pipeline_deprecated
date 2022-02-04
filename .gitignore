@@ -1,6 +1,6 @@
 **/.DS_Store
 __pycache__/
-data/inputs/
-data/labels/
-data/test/
-data/val/
+data/dataseg/inputs/
+data/dataseg/labels/
+data/dataseg/test/
+data/dataseg/val/
