@@ -8,7 +8,7 @@ Original file is located at
 """
 
 from typing import List, Callable, Tuple
-
+import random
 import numpy as np
 import albumentations as A
 from sklearn.externals._pilutil import bytescale
@@ -58,6 +58,16 @@ def re_normalize(inp: np.ndarray,
                  high: int = 255
                  ):
     """Normalize the data to a certain range. Default: [0-255]"""
+    inp_out = bytescale(inp, low=low, high=high)
+    return inp_out
+
+def rand_normalize(inp: np.ndarray,
+                   min: int = 0,
+                   max: int = 255,
+                   randrange: int = 5):
+    """Randomize the data to a certain range. Default: [0-255] +- 5"""
+    low = random.randint(min, min + randrange*2)
+    high = random.randint(max - randrange*2, max)
     inp_out = bytescale(inp, low=low, high=high)
     return inp_out
 
