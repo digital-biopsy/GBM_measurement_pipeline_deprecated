@@ -1,0 +1,576 @@
+
+######################### Loading and Augmenting Images #########################
+/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+x = shape: torch.Size([1, 1, 512, 512]); type: torch.float32
+x = min: 0.0; max: 1.0
+y = shape: torch.Size([1, 512, 512]); class: tensor([0, 1]); type: torch.int64
+Out: torch.Size([1, 2, 512, 512])
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1         [-1, 32, 512, 512]             320
+              ReLU-2         [-1, 32, 512, 512]               0
+       BatchNorm2d-3         [-1, 32, 512, 512]              64
+            Conv2d-4         [-1, 32, 512, 512]           9,248
+              ReLU-5         [-1, 32, 512, 512]               0
+       BatchNorm2d-6         [-1, 32, 512, 512]              64
+         MaxPool2d-7         [-1, 32, 256, 256]               0
+         DownBlock-8  [[-1, 32, 256, 256], [-1, 32, 512, 512]]               0
+            Conv2d-9         [-1, 64, 256, 256]          18,496
+             ReLU-10         [-1, 64, 256, 256]               0
+      BatchNorm2d-11         [-1, 64, 256, 256]             128
+           Conv2d-12         [-1, 64, 256, 256]          36,928
+             ReLU-13         [-1, 64, 256, 256]               0
+      BatchNorm2d-14         [-1, 64, 256, 256]             128
+        MaxPool2d-15         [-1, 64, 128, 128]               0
+        DownBlock-16  [[-1, 64, 128, 128], [-1, 64, 256, 256]]               0
+           Conv2d-17        [-1, 128, 128, 128]          73,856
+             ReLU-18        [-1, 128, 128, 128]               0
+      BatchNorm2d-19        [-1, 128, 128, 128]             256
+           Conv2d-20        [-1, 128, 128, 128]         147,584
+             ReLU-21        [-1, 128, 128, 128]               0
+      BatchNorm2d-22        [-1, 128, 128, 128]             256
+        MaxPool2d-23          [-1, 128, 64, 64]               0
+        DownBlock-24  [[-1, 128, 64, 64], [-1, 128, 128, 128]]               0
+           Conv2d-25          [-1, 256, 64, 64]         295,168
+             ReLU-26          [-1, 256, 64, 64]               0
+      BatchNorm2d-27          [-1, 256, 64, 64]             512
+           Conv2d-28          [-1, 256, 64, 64]         590,080
+             ReLU-29          [-1, 256, 64, 64]               0
+      BatchNorm2d-30          [-1, 256, 64, 64]             512
+        DownBlock-31  [[-1, 256, 64, 64], [-1, 256, 64, 64]]               0
+  ConvTranspose2d-32        [-1, 128, 128, 128]         131,200
+             ReLU-33        [-1, 128, 128, 128]               0
+      BatchNorm2d-34        [-1, 128, 128, 128]             256
+      Concatenate-35        [-1, 256, 128, 128]               0
+           Conv2d-36        [-1, 128, 128, 128]         295,040
+             ReLU-37        [-1, 128, 128, 128]               0
+      BatchNorm2d-38        [-1, 128, 128, 128]             256
+           Conv2d-39        [-1, 128, 128, 128]         147,584
+             ReLU-40        [-1, 128, 128, 128]               0
+      BatchNorm2d-41        [-1, 128, 128, 128]             256
+          UpBlock-42        [-1, 128, 128, 128]               0
+  ConvTranspose2d-43         [-1, 64, 256, 256]          32,832
+             ReLU-44         [-1, 64, 256, 256]               0
+      BatchNorm2d-45         [-1, 64, 256, 256]             128
+      Concatenate-46        [-1, 128, 256, 256]               0
+           Conv2d-47         [-1, 64, 256, 256]          73,792
+             ReLU-48         [-1, 64, 256, 256]               0
+      BatchNorm2d-49         [-1, 64, 256, 256]             128
+           Conv2d-50         [-1, 64, 256, 256]          36,928
+             ReLU-51         [-1, 64, 256, 256]               0
+      BatchNorm2d-52         [-1, 64, 256, 256]             128
+          UpBlock-53         [-1, 64, 256, 256]               0
+  ConvTranspose2d-54         [-1, 32, 512, 512]           8,224
+             ReLU-55         [-1, 32, 512, 512]               0
+      BatchNorm2d-56         [-1, 32, 512, 512]              64
+      Concatenate-57         [-1, 64, 512, 512]               0
+           Conv2d-58         [-1, 32, 512, 512]          18,464
+             ReLU-59         [-1, 32, 512, 512]               0
+      BatchNorm2d-60         [-1, 32, 512, 512]              64
+           Conv2d-61         [-1, 32, 512, 512]           9,248
+             ReLU-62         [-1, 32, 512, 512]               0
+      BatchNorm2d-63         [-1, 32, 512, 512]              64
+          UpBlock-64         [-1, 32, 512, 512]               0
+           Conv2d-65          [-1, 2, 512, 512]              66
+================================================================
+Total params: 1,928,322
+Trainable params: 1,928,322
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 1.00
+Forward/backward pass size (MB): 184547280.00
+Params size (MB): 7.36
+Estimated Total Size (MB): 184547288.36
+----------------------------------------------------------------
+Progress:   0%|                                                                                                                           | 0/40 [00:00<?, ?it/s]
+Training: (loss 0.6834):   8%|████████                                                                                          | 15/182 [00:01<00:18,  9.04it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Progress:   0%|                                                                                                                            | 0/3 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Training:  73%|█████████████████████████████████████████████████████████████████████████████████▊                              | 133/182 [00:12<00:04, 10.00it/s]
+Traceback (most recent call last):
+  File "main.py", line 56, in <module>
+    train_model(
+  File "main.py", line 43, in train_model
+    DeepSeg.load_val_images()
+  File "/root/research/deep-segmentation/segmentation/unet/segmentation.py", line 288, in load_val_images
+    model_weights = torch.load(pathlib.Path.cwd() / model_name, map_location=device)
+  File "/usr/local/lib/python3.8/dist-packages/torch/serialization.py", line 594, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/usr/local/lib/python3.8/dist-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.8/dist-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/root/research/deep-segmentation/membrane_model_40epochs.pt'

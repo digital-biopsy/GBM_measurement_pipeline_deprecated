@@ -16,9 +16,9 @@ from segmentation import Segmentation
 # initialize image preprocess
 def preprocess_data(verbose):
   Preprocess = UnetPrep(verbose)
-  Preprocess.sliding_step = 256
+  Preprocess.sliding_step = 512
   # Preprocess.seg_type = '-SDDlabels' # change to -GBMlabel when cropping GBMs
-  Preprocess.data_path = '/Users/ericwang/Desktop/Research/Digital Biopsy/train-data/' # change to train-data when cropping GBMs
+  Preprocess.data_path = '/root/research/train-data/' # change to train-data when cropping GBMs
   Preprocess.update_image_stats()
   Preprocess.update_image_list()
   Preprocess.generate_image_tiles()
@@ -58,7 +58,7 @@ if __name__ == '__main__':
       nums_epochs = 40,
       cross_entropy_weight = 0.045,
       fit_steps = 500,
-      device = torch.device('cpu')
+      device = "cuda"
     )
   elif args.evaluation:
     evaluate_results()

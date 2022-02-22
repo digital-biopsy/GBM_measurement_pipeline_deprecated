@@ -41,19 +41,22 @@ class Segmentation:
         # constants
         self.channel_dims = 1
         self.out_shape = 512
+        self.learning_rate = 0.01
 
         # initialize weights and bias
-        wandb.init(project="digital-biopsy", entity="zhaoze")
-        wandb.config = {
-            "learning_rate": 0.01,
-            "cross_entropy_weight": weight,
-            "epochs": epochs,
-            "fit_steps": fit_steps
-        }
+        wandb.init(
+            project="digital-biopsy",
+            entity="zhaoze",
+            config = {
+            "learning_rate": self.learning_rate,
+            "cross_entropy_weight": self.cross_entropy_weight,
+            "epochs": self.epochs,
+            "fit_steps": self.fit_steps
+        })
     
     def load_and_augment(self):
         """Load and preprocess the training images"""
-        print('#'*15 + 'Loading and Augmenting Images' + '#'*15)
+        print('#'*25 + ' Loading and Augmenting Images ' + '#'*25)
         root = pathlib.Path.cwd()/self.path
 
         def get_filenames_of_path(path: pathlib.Path, ext: str = "*"):
@@ -184,36 +187,46 @@ class Segmentation:
 
     def initialize_model(self):
         # model
+        if self.verbose:
+            model = UNet(in_channels=self.channel_dims, #3
+                        out_channels=2,
+                        n_blocks=4,
+                        start_filters=32,
+                        activation='relu',
+                        normalization='batch',
+                        conv_mode='same',
+                        dim=2)
+
+            x = torch.randn(size=(1, 1, 512, 512), dtype=torch.float32)
+            with torch.no_grad():
+                out = model(x)
+            print(f"Out: {out.shape}")
+            summary(model, (1, 512, 512), device="cpu")
+
+        device = torch.device(self.device)
         self.model = UNet(in_channels=self.channel_dims, #3
-                    out_channels=2,
-                    n_blocks=4,
-                    start_filters=32,
-                    activation='relu',
-                    normalization='batch',
-                    conv_mode='same',
-                    dim=2).to(self.device)
+             out_channels=2,
+             n_blocks=4,
+             start_filters=32,
+             activation='relu',
+             normalization='batch',
+             conv_mode='same',
+             dim=2).to(device)
 
         # criterion
         weights = [1, self.cross_entropy_weight]
-        self.class_weights = torch.FloatTensor(weights)
+        self.class_weights = torch.FloatTensor(weights).cuda()
         self.criterion = torch.nn.CrossEntropyLoss(weight=self.class_weights) #CrossEntropyLoss
-
-        x = torch.randn(size=(1, 1, 512, 512), dtype=torch.float32)
-        with torch.no_grad():
-            out = self.model(x)
-
-        if self.verbose:
-            print(f"Out: {out.shape}")
-            summary(self.model, (1, 512, 512), device=self.device)
 
         # optimizer
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.learning_rate) #learning rate
 
     def train_model(self):
         """Train the model and find the best learning rate."""
-        print('#'*15 + 'Start Training' + '#'*15)
+        print('#'*25 + ' Start Training ' + '#'*25)
+        device = torch.device(self.device)
         trainer = Trainer(model=self.model,
-                        device=self.device,
+                        device=device,
                         criterion=self.criterion,
                         optimizer=self.optimizer,
                         training_DataLoader=self.dataloader_training,
@@ -221,7 +234,8 @@ class Segmentation:
                         lr_scheduler=None,
                         epochs=self.epochs,
                         epoch=0,
-                        notebook=False)
+                        notebook=False,
+                        verbose=self.verbose)
 
         # start training
         training_losses, validation_losses, lr_rates = trainer.run_trainer()
@@ -232,7 +246,7 @@ class Segmentation:
         #find best learning rate
         from lr_rate_finder import LearningRateFinder
 
-        lrf = LearningRateFinder(self.model, self.criterion, self.optimizer, self.device)
+        lrf = LearningRateFinder(self.model, self.criterion, self.optimizer, device)
         lrf.fit(self.dataloader_training, steps=self.fit_steps)
         lrf.plot()
 
@@ -247,7 +261,7 @@ class Segmentation:
     
     def load_val_images(self):
         """Load and preprocess validation images"""
-        print('#'*15 + 'Loading Validation Images' + '#'*15)
+        print('#'*25 + 'Loading Validation Images' + '#'*25)
         # root directory
         root = pathlib.Path.cwd() / "GBM_data_shuffled" / "test"
 
