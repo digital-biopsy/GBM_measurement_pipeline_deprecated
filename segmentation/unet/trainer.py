@@ -65,7 +65,7 @@ class Trainer:
                 "training_loss": self.train_loss
                 })
 
-            # Learning rate scheduler block
+            # run learning rate scheduler if defined
             if self.lr_scheduler is not None:
                 if self.validation_dataLoader is not None and self.lr_scheduler.__class__.__name__ == 'ReduceLROnPlateau':
                     self.lr_scheduler.batch(self.validation_loss[i])  # learning rate scheduler step with validation loss
@@ -75,7 +75,7 @@ class Trainer:
 
 
     def _train(self):
-        self.model.train()  # train mode
+        self.model.train()  # train model
         train_losses = []  # accumulate the losses here
         batch_iter = self.tqdm(enumerate(self.training_dataLoader), 'Training', total=len(self.training_dataLoader),
                           leave=False)

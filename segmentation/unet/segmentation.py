@@ -69,9 +69,6 @@ class Segmentation:
         inputs = get_filenames_of_path(root / "inputs")
         targets = get_filenames_of_path(root / "labels")
 
-        # print(inputs)
-        # print(targets)
-
         # pre-transformations
         pre_transforms = ComposeDouble(
             [
