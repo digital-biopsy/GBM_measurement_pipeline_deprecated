@@ -1,0 +1,11 @@
+
+######################### Loading and Augmenting Images #########################
+######################### Start Training #########################
+Traceback (most recent call last):
+  File "main.py", line 71, in <module>
+    train_model(
+  File "main.py", line 57, in train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/segmentation.py", line 225, in train_model
+    trainer = Trainer(model=self.model,
+TypeError: __init__() got an unexpected keyword argument 'training_DataLoader'

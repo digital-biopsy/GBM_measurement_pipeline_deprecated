@@ -1,0 +1,301 @@
+
+######################### Loading and Augmenting Images #########################
+Process ForkPoolWorker-10:
+Process ForkPoolWorker-11:
+Process ForkPoolWorker-15:
+Process ForkPoolWorker-2:
+Process ForkPoolWorker-13:
+Process ForkPoolWorker-14:
+Process ForkPoolWorker-4:
+Process ForkPoolWorker-17:
+Process ForkPoolWorker-9:
+Process ForkPoolWorker-8:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 367, in put
+    with self._wlock:
+  File "/usr/lib/python3.8/multiprocessing/synchronize.py", line 95, in __enter__
+    return self._semlock.__enter__()
+Process ForkPoolWorker-6:
+Traceback (most recent call last):
+KeyboardInterrupt
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 367, in put
+    with self._wlock:
+  File "/usr/lib/python3.8/multiprocessing/synchronize.py", line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+Process ForkPoolWorker-16:
+Process ForkPoolWorker-3:
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 367, in put
+    with self._wlock:
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/synchronize.py", line 95, in __enter__
+    return self._semlock.__enter__()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 367, in put
+    with self._wlock:
+  File "/usr/lib/python3.8/multiprocessing/synchronize.py", line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 51, in starmapstar
+    return list(itertools.starmap(args[0], args[1]))
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 51, in starmapstar
+    return list(itertools.starmap(args[0], args[1]))
+  File "/root/research/deep-segmentation/segmentation/unet/customdatasets3.py", line 65, in read_images
+    inp, tar = imread(str(inp)), imread(str(tar))
+  File "/root/research/deep-segmentation/segmentation/unet/customdatasets3.py", line 65, in read_images
+    inp, tar = imread(str(inp)), imread(str(tar))
+  File "/usr/local/lib/python3.8/dist-packages/skimage/io/_io.py", line 53, in imread
+    img = call_plugin('imread', fname, plugin=plugin, **plugin_args)
+  File "/usr/local/lib/python3.8/dist-packages/skimage/io/_io.py", line 53, in imread
+    img = call_plugin('imread', fname, plugin=plugin, **plugin_args)
+  File "/usr/local/lib/python3.8/dist-packages/skimage/io/manage_plugins.py", line 207, in call_plugin
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/skimage/io/manage_plugins.py", line 207, in call_plugin
+    return func(*args, **kwargs)
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/lib/python3.8/dist-packages/skimage/io/_plugins/imageio_plugin.py", line 10, in imread
+    return np.asarray(imageio_imread(*args, **kwargs))
+  File "/usr/local/lib/python3.8/dist-packages/skimage/io/_plugins/imageio_plugin.py", line 10, in imread
+    return np.asarray(imageio_imread(*args, **kwargs))
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/__init__.py", line 86, in imread
+    return imread_v2(uri, format=format, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/__init__.py", line 86, in imread
+    return imread_v2(uri, format=format, **kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/local/lib/python3.8/dist-packages/imageio/v2.py", line 160, in imread
+    return file.read(index=0, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/v2.py", line 160, in imread
+    return file.read(index=0, **kwargs)
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 368, in put
+    self._writer.send_bytes(obj)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/core/legacy_plugin_wrapper.py", line 132, in read
+    reader = self.legacy_get_reader(**kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/core/legacy_plugin_wrapper.py", line 132, in read
+    reader = self.legacy_get_reader(**kwargs)
+  File "/usr/lib/python3.8/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/usr/local/lib/python3.8/dist-packages/imageio/core/legacy_plugin_wrapper.py", line 104, in legacy_get_reader
+    return self._format.get_reader(self._request)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/core/legacy_plugin_wrapper.py", line 104, in legacy_get_reader
+    return self._format.get_reader(self._request)
+  File "/usr/lib/python3.8/multiprocessing/connection.py", line 405, in _send_bytes
+    self._send(buf)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/core/format.py", line 190, in get_reader
+    return self.Reader(self, request)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/core/format.py", line 190, in get_reader
+    return self.Reader(self, request)
+  File "/usr/lib/python3.8/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/core/format.py", line 281, in __init__
+    self._open(**self.request.kwargs.copy())
+  File "/usr/local/lib/python3.8/dist-packages/imageio/core/format.py", line 281, in __init__
+    self._open(**self.request.kwargs.copy())
+  File "/usr/local/lib/python3.8/dist-packages/imageio/plugins/pillow_legacy.py", line 394, in _open
+    return PillowFormat.Reader._open(self, pilmode=pilmode, as_gray=as_gray)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/plugins/pillow_legacy.py", line 394, in _open
+    return PillowFormat.Reader._open(self, pilmode=pilmode, as_gray=as_gray)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/plugins/pillow_legacy.py", line 300, in _open
+    pil_try_read(self._im)
+KeyboardInterrupt
+  File "/usr/local/lib/python3.8/dist-packages/imageio/plugins/pillow_legacy.py", line 300, in _open
+    pil_try_read(self._im)
+  File "/usr/local/lib/python3.8/dist-packages/imageio/plugins/pillow_legacy.py", line 654, in pil_try_read
+    im.getdata()[0]
+  File "/usr/local/lib/python3.8/dist-packages/imageio/plugins/pillow_legacy.py", line 654, in pil_try_read
+    im.getdata()[0]
+  File "/usr/local/lib/python3.8/dist-packages/PIL/Image.py", line 1294, in getdata
+    self.load()
+  File "/usr/local/lib/python3.8/dist-packages/PIL/Image.py", line 1294, in getdata
+    self.load()
+  File "/usr/local/lib/python3.8/dist-packages/PIL/ImageFile.py", line 253, in load
+    n, err_code = decoder.decode(b)
+  File "/usr/local/lib/python3.8/dist-packages/PIL/ImageFile.py", line 253, in load
+    n, err_code = decoder.decode(b)
+KeyboardInterrupt
+KeyboardInterrupt
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 51, in starmapstar
+    return list(itertools.starmap(args[0], args[1]))
+  File "/root/research/deep-segmentation/segmentation/unet/customdatasets3.py", line 67, in read_images
+    inp, tar = pre_transform(inp, tar)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 132, in __call__
+    inp, target = t(inp, target)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 114, in __call__
+    if self.target: tar = self.function(tar)
+  File "/usr/local/lib/python3.8/dist-packages/skimage/transform/_warps.py", line 187, in resize
+    out = ndi.zoom(image, zoom_factors, order=order, mode=ndi_mode,
+  File "/usr/local/lib/python3.8/dist-packages/scipy/ndimage/interpolation.py", line 817, in zoom
+    _nd_image.zoom_shift(filtered, zoom, None, output, order, mode, cval, npad,
+KeyboardInterrupt
+Process ForkPoolWorker-7:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 51, in starmapstar
+    return list(itertools.starmap(args[0], args[1]))
+  File "/root/research/deep-segmentation/segmentation/unet/customdatasets3.py", line 67, in read_images
+    inp, tar = pre_transform(inp, tar)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 132, in __call__
+    inp, target = t(inp, target)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 113, in __call__
+    if self.input: inp = self.function(inp)
+  File "/usr/local/lib/python3.8/dist-packages/skimage/transform/_warps.py", line 187, in resize
+    out = ndi.zoom(image, zoom_factors, order=order, mode=ndi_mode,
+  File "/usr/local/lib/python3.8/dist-packages/scipy/ndimage/interpolation.py", line 817, in zoom
+    _nd_image.zoom_shift(filtered, zoom, None, output, order, mode, cval, npad,
+KeyboardInterrupt
+Process ForkPoolWorker-5:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 51, in starmapstar
+    return list(itertools.starmap(args[0], args[1]))
+  File "/root/research/deep-segmentation/segmentation/unet/customdatasets3.py", line 67, in read_images
+    inp, tar = pre_transform(inp, tar)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 132, in __call__
+    inp, target = t(inp, target)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 113, in __call__
+    if self.input: inp = self.function(inp)
+  File "/usr/local/lib/python3.8/dist-packages/skimage/transform/_warps.py", line 187, in resize
+    out = ndi.zoom(image, zoom_factors, order=order, mode=ndi_mode,
+  File "/usr/local/lib/python3.8/dist-packages/scipy/ndimage/interpolation.py", line 817, in zoom
+    _nd_image.zoom_shift(filtered, zoom, None, output, order, mode, cval, npad,
+KeyboardInterrupt
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 367, in put
+    with self._wlock:
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 367, in put
+    with self._wlock:
+  File "/usr/lib/python3.8/multiprocessing/synchronize.py", line 95, in __enter__
+    return self._semlock.__enter__()
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 367, in put
+    with self._wlock:
+KeyboardInterrupt
+  File "/usr/lib/python3.8/multiprocessing/synchronize.py", line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 51, in starmapstar
+    return list(itertools.starmap(args[0], args[1]))
+  File "/root/research/deep-segmentation/segmentation/unet/customdatasets3.py", line 67, in read_images
+    inp, tar = pre_transform(inp, tar)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 132, in __call__
+    inp, target = t(inp, target)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 114, in __call__
+    if self.target: tar = self.function(tar)
+  File "/usr/local/lib/python3.8/dist-packages/skimage/transform/_warps.py", line 187, in resize
+    out = ndi.zoom(image, zoom_factors, order=order, mode=ndi_mode,
+  File "/usr/local/lib/python3.8/dist-packages/scipy/ndimage/interpolation.py", line 817, in zoom
+    _nd_image.zoom_shift(filtered, zoom, None, output, order, mode, cval, npad,
+KeyboardInterrupt
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 367, in put
+    with self._wlock:
+  File "/usr/lib/python3.8/multiprocessing/synchronize.py", line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+  File "/usr/lib/python3.8/multiprocessing/synchronize.py", line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+Process ForkPoolWorker-12:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 362, in put
+    obj = _ForkingPickler.dumps(obj)
+  File "/usr/lib/python3.8/multiprocessing/reduction.py", line 51, in dumps
+    cls(buf, protocol).dump(obj)

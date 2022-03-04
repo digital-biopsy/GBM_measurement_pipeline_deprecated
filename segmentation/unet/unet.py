@@ -285,7 +285,7 @@ class UpBlock(nn.Module):
 class UNet(nn.Module):
     def __init__(self,
                  in_channels: int = 1,
-                 out_channels: int = 2,
+                 out_channels: int = 1,
                  n_blocks: int = 4,
                  start_filters: int = 32,
                  activation: str = 'relu',

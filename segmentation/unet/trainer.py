@@ -11,7 +11,6 @@ import numpy as np
 import torch
 import wandb
 
-
 class Trainer:
     def __init__(self,
                  model: torch.nn.Module,
@@ -60,6 +59,10 @@ class Trainer:
             if self.validation_dataLoader is not None:
                 self._validate()
             
+            if self.epoch % 2 == 0:
+                model_name = "unet_" + str(self.epoch) + "_epochs.pt"
+                torch.save(self.model.state_dict(), pathlib.Path.cwd() / model_name)
+
             wandb.log({
                 "validation_loss": self.val_loss,
                 "training_loss": self.train_loss

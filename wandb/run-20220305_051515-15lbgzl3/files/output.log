@@ -1,0 +1,33 @@
+
+######################### Loading and Augmenting Images #########################
+Process ForkPoolWorker-17:
+Process ForkPoolWorker-5:
+Process ForkPoolWorker-13:
+Process ForkPoolWorker-4:
+Process ForkPoolWorker-9:
+Process ForkPoolWorker-10:
+Process ForkPoolWorker-14:
+Process ForkPoolWorker-16:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 367, in put
+    with self._wlock:
+  File "/usr/lib/python3.8/multiprocessing/synchronize.py", line 95, in __enter__
+    return self._semlock.__enter__()
+Process ForkPoolWorker-6:
+KeyboardInterrupt
+Process ForkPoolWorker-11:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/usr/lib/python3.8/multiprocessing/queues.py", line 367, in put
+    with self._wlock:

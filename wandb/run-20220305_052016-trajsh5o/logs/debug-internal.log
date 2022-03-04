@@ -1,0 +1,56 @@
+2022-03-05 05:20:16,881 INFO    MainThread:16501 [internal.py:wandb_internal():89] W&B internal server running at pid: 16501, started at: 2022-03-05 05:20:16.881378
+2022-03-05 05:20:16,884 DEBUG   HandlerThread:16501 [handler.py:handle_request():131] handle_request: check_version
+2022-03-05 05:20:16,884 INFO    WriterThread:16501 [datastore.py:open_for_write():77] open: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/run-trajsh5o.wandb
+2022-03-05 05:20:16,889 DEBUG   SenderThread:16501 [sender.py:send():235] send: header
+2022-03-05 05:20:16,889 DEBUG   SenderThread:16501 [sender.py:send_request():249] send_request: check_version
+2022-03-05 05:20:17,299 DEBUG   SenderThread:16501 [sender.py:send():235] send: run
+2022-03-05 05:20:17,727 INFO    SenderThread:16501 [dir_watcher.py:__init__():169] watching files in: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files
+2022-03-05 05:20:17,728 INFO    SenderThread:16501 [sender.py:_start_run_threads():809] run started: trajsh5o with start time 1646428816
+2022-03-05 05:20:17,728 DEBUG   SenderThread:16501 [sender.py:send():235] send: summary
+2022-03-05 05:20:17,728 INFO    SenderThread:16501 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-03-05 05:20:17,731 DEBUG   HandlerThread:16501 [handler.py:handle_request():131] handle_request: run_start
+2022-03-05 05:20:17,740 DEBUG   HandlerThread:16501 [meta.py:__init__():36] meta init
+2022-03-05 05:20:17,740 DEBUG   HandlerThread:16501 [meta.py:__init__():50] meta init done
+2022-03-05 05:20:17,740 DEBUG   HandlerThread:16501 [meta.py:probe():210] probe
+2022-03-05 05:20:17,748 DEBUG   HandlerThread:16501 [meta.py:_setup_git():200] setup git
+2022-03-05 05:20:17,774 DEBUG   HandlerThread:16501 [meta.py:_setup_git():207] setup git done
+2022-03-05 05:20:17,775 DEBUG   HandlerThread:16501 [meta.py:_save_pip():54] save pip
+2022-03-05 05:20:17,775 DEBUG   HandlerThread:16501 [meta.py:_save_pip():68] save pip done
+2022-03-05 05:20:17,775 DEBUG   HandlerThread:16501 [meta.py:probe():248] probe done
+2022-03-05 05:20:17,843 DEBUG   SenderThread:16501 [sender.py:send():235] send: files
+2022-03-05 05:20:17,844 INFO    SenderThread:16501 [sender.py:_save_file():944] saving file wandb-metadata.json with policy now
+2022-03-05 05:20:17,854 DEBUG   HandlerThread:16501 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-05 05:20:17,855 DEBUG   SenderThread:16501 [sender.py:send_request():249] send_request: stop_status
+2022-03-05 05:20:18,815 INFO    Thread-8  :16501 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/wandb-metadata.json
+2022-03-05 05:20:18,816 INFO    Thread-8  :16501 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/output.log
+2022-03-05 05:20:18,816 INFO    Thread-8  :16501 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/requirements.txt
+2022-03-05 05:20:18,817 INFO    Thread-8  :16501 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/wandb-summary.json
+2022-03-05 05:20:19,110 INFO    Thread-11 :16501 [upload_job.py:push():137] Uploaded file /tmp/tmpp6dgw82gwandb/1mbnfi1i-wandb-metadata.json
+2022-03-05 05:20:20,810 INFO    Thread-8  :16501 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/output.log
+2022-03-05 05:20:33,427 DEBUG   HandlerThread:16501 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-05 05:20:33,427 DEBUG   SenderThread:16501 [sender.py:send_request():249] send_request: stop_status
+2022-03-05 05:20:47,911 WARNING MainThread:16501 [internal.py:wandb_internal():152] Internal process interrupt: 1
+2022-03-05 05:20:48,413 DEBUG   SenderThread:16501 [sender.py:send():235] send: stats
+2022-03-05 05:20:48,912 INFO    Thread-8  :16501 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/output.log
+2022-03-05 05:20:48,924 DEBUG   HandlerThread:16501 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-05 05:20:48,925 DEBUG   SenderThread:16501 [sender.py:send_request():249] send_request: stop_status
+2022-03-05 05:20:54,130 WARNING MainThread:16501 [internal.py:wandb_internal():152] Internal process interrupt: 2
+2022-03-05 05:20:54,131 ERROR   MainThread:16501 [internal.py:wandb_internal():155] Internal process interrupted.
+2022-03-05 05:20:54,233 INFO    HandlerThread:16501 [handler.py:finish():739] shutting down handler
+2022-03-05 05:20:54,315 INFO    SenderThread:16501 [sender.py:finish():1075] shutting down sender
+2022-03-05 05:20:54,315 INFO    SenderThread:16501 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-03-05 05:20:54,879 INFO    WriterThread:16501 [datastore.py:close():281] close: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/run-trajsh5o.wandb
+2022-03-05 05:20:54,915 INFO    SenderThread:16501 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/output.log
+2022-03-05 05:20:54,915 INFO    SenderThread:16501 [dir_watcher.py:finish():313] scan: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files
+2022-03-05 05:20:54,915 INFO    SenderThread:16501 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/config.yaml config.yaml
+2022-03-05 05:20:54,916 INFO    SenderThread:16501 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/wandb-summary.json wandb-summary.json
+2022-03-05 05:20:54,925 INFO    SenderThread:16501 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/requirements.txt requirements.txt
+2022-03-05 05:20:54,931 INFO    SenderThread:16501 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/wandb-metadata.json wandb-metadata.json
+2022-03-05 05:20:54,932 INFO    SenderThread:16501 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/output.log output.log
+2022-03-05 05:20:54,933 INFO    SenderThread:16501 [file_pusher.py:finish():177] shutting down file pusher
+2022-03-05 05:20:54,941 INFO    SenderThread:16501 [file_pusher.py:join():182] waiting for file pusher
+2022-03-05 05:20:55,923 INFO    Thread-13 :16501 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/wandb-summary.json
+2022-03-05 05:20:55,926 INFO    Thread-12 :16501 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/config.yaml
+2022-03-05 05:20:56,020 INFO    Thread-15 :16501 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/output.log
+2022-03-05 05:20:56,279 INFO    Thread-14 :16501 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220305_052016-trajsh5o/files/requirements.txt
+2022-03-05 05:20:57,206 INFO    MainThread:16501 [internal.py:handle_exit():79] Internal process exited

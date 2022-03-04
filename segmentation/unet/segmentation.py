@@ -15,6 +15,7 @@ from transformations import (
     FunctionWrapperDouble,
 )
 from unet import UNet
+from loss import IoULoss
 from trainer import Trainer
 from inference import predict
 from skimage.io import imread
@@ -31,6 +32,7 @@ class Segmentation:
     def __init__(self, data_path, epochs, weight, fit_steps, device, verbose=False):
         self.path = data_path
         self.verbose = verbose
+        self.init = False
 
         # hyperparameters
         self.epochs = epochs
@@ -186,7 +188,7 @@ class Segmentation:
         # model
         if self.verbose:
             model = UNet(in_channels=self.channel_dims, #3
-                        out_channels=2,
+                        out_channels=1,
                         n_blocks=4,
                         start_filters=32,
                         activation='relu',
@@ -202,7 +204,7 @@ class Segmentation:
 
         device = torch.device(self.device)
         self.model = UNet(in_channels=self.channel_dims, #3
-             out_channels=2,
+             out_channels=1,
              n_blocks=4,
              start_filters=32,
              activation='relu',
@@ -213,10 +215,14 @@ class Segmentation:
         # criterion
         weights = [1, self.cross_entropy_weight]
         self.class_weights = torch.FloatTensor(weights).cuda()
-        self.criterion = torch.nn.CrossEntropyLoss(weight=self.class_weights) #CrossEntropyLoss
+        # self.criterion = torch.nn.CrossEntropyLoss(weight=self.class_weights) #CrossEntropyLoss
+        self.criterion = IoULoss() #IoULoss
 
         # optimizer
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.learning_rate) #learning rate
+        
+        # done initialization
+        self.init = True
 
     def train_model(self):
         """Train the model and find the best learning rate."""
@@ -226,8 +232,8 @@ class Segmentation:
                         device=device,
                         criterion=self.criterion,
                         optimizer=self.optimizer,
-                        training_DataLoader=self.dataloader_training,
-                        validation_DataLoader=self.dataloader_validation,
+                        training_dataLoader=self.dataloader_training,
+                        validation_dataLoader=self.dataloader_validation,
                         lr_scheduler=None,
                         epochs=self.epochs,
                         epoch=0,
@@ -237,8 +243,8 @@ class Segmentation:
         # start training
         training_losses, validation_losses, lr_rates = trainer.run_trainer()
         # save the model
-        model_name = "unet.pt"
-        torch.save(self.model.state_dict(), pathlib.Path.cwd() / model_name)
+        # model_name = "unet.pt"
+        # torch.save(self.model.state_dict(), pathlib.Path.cwd() / model_name)
 
         #find best learning rate
         from lr_rate_finder import LearningRateFinder
@@ -256,7 +262,7 @@ class Segmentation:
             figsize=(10, 4),
         )
     
-    def load_val_images(self):
+    def load_val_images(self, model_name):
         """Load and preprocess validation images"""
         print('#'*25 + 'Loading Validation Images' + '#'*25)
         # root directory
@@ -284,7 +290,6 @@ class Segmentation:
         # device
         device = torch.device(self.device)
 
-        model_name = "unet.pt"
         model_weights = torch.load(pathlib.Path.cwd() / model_name, map_location=device)
         self.model.load_state_dict(model_weights)
 

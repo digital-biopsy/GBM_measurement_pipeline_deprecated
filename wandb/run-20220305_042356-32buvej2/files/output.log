@@ -1,0 +1,42 @@
+
+######################### Loading and Augmenting Images #########################
+Progress:   0%|                                                                                                                           | 0/40 [00:00<?, ?it/s]/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)                                                      | 0/912 [00:00<?, ?it/s]
+Progress:   0%|                                                                                                                           | 0/40 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "main.py", line 71, in <module>
+    train_model(
+  File "main.py", line 57, in train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/segmentation.py", line 238, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 58, in run_trainer
+    self._train()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 89, in _train
+    self.focalTverskyLoss(out, target)
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 118, in focalTverskyLoss
+    tverskyIndex = true_pos / (true_pos + alpha*false_neg + beta*false_pos)
+NameError: name 'true_pos' is not defined
+######################### Start Training #########################
+tensor([[[[ 1.0518,  2.9827,  2.2689,  ...,  1.0280,  2.9898, -0.1834],
+          [ 3.2254,  5.3026,  0.9025,  ...,  6.9226, -0.0346,  3.5576],
+          [ 3.4763,  8.3436,  4.2815,  ...,  2.9886, -0.0443,  1.4399],
+          ...,
+          [ 7.8327, 10.1069,  4.6556,  ..., 12.7383,  1.6316,  6.3546],
+          [10.4929,  7.0876, 12.5021,  ..., 10.1150,  7.8465,  4.0691],
+          [ 4.5051,  4.4803,  6.0540,  ...,  7.0106,  4.6010,  4.7725]],
+         [[ 1.4890,  2.5158,  0.4754,  ..., -2.4112, -2.0380, -0.4196],
+          [ 2.6927,  2.0381,  1.3137,  ..., -1.0444, -1.6604,  2.9217],
+          [ 0.9824,  5.0723, -0.2440,  ..., -0.2542, -1.9788,  1.3156],
+          ...,
+          [-2.9675, -0.4274, -4.0131,  ..., -7.1657, -3.8094,  2.9890],
+          [-3.5476, -0.5274, -1.9208,  ..., -6.3436, -0.2927,  0.9070],
+          [ 4.4851,  9.6057,  5.1965,  ..., -1.5646,  2.3610, -3.1963]]]],
+       device='cuda:0', grad_fn=<AddBackward0>)
+tensor([[[1, 1, 1,  ..., 0, 0, 0],
+         [1, 1, 1,  ..., 0, 0, 0],
+         [1, 1, 1,  ..., 0, 0, 0],
+         ...,
+         [1, 1, 1,  ..., 1, 1, 1],
+         [1, 1, 1,  ..., 1, 1, 1],
+         [1, 1, 1,  ..., 1, 1, 1]]], device='cuda:0')
