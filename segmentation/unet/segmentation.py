@@ -237,7 +237,7 @@ class Segmentation:
         # start training
         training_losses, validation_losses, lr_rates = trainer.run_trainer()
         # save the model
-        model_name = "model_" + str(self.epochs) + "epochs.pt"
+        model_name = "unet.pt"
         torch.save(self.model.state_dict(), pathlib.Path.cwd() / model_name)
 
         #find best learning rate
@@ -284,7 +284,7 @@ class Segmentation:
         # device
         device = torch.device(self.device)
 
-        model_name = "membrane_model_40epochs.pt"
+        model_name = "unet.pt"
         model_weights = torch.load(pathlib.Path.cwd() / model_name, map_location=device)
         self.model.load_state_dict(model_weights)
 
