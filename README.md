@@ -3,6 +3,7 @@ This is the segmentation tool for digital biopsy project. It also contains some 
 ## To Do List
 - [x] Randomize the train test split.
 - [x] Add data (input/target/test) into .gitignore.
+- [ ] Current model does not work on cpu devices.
 - [ ] Train test split already included in the code, change current test folder to validation
 - [ ] Intergrate the image tiling with the training script.
 - [ ] Add grayscale augmentation methods to prevent overfitting on color.

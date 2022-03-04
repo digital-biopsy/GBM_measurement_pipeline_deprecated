@@ -13,12 +13,27 @@ from data_prep import UnetPrep
 from eval_results import Evaluate
 from segmentation import Segmentation
 
+ENV = {
+  'server': '/root/research/',
+  'local': '/Users/ericwang/Desktop/Research/Digital-Biopsy/'
+}
+DATASET = {
+  '4wks': 'train-data-4wks/',
+  '16wks': 'train-data-16wks/'
+}
+DEVICE = {
+  'server': 'cuda',
+  'local': 'cpu'
+}
+dataset = '16wks'
+env = 'server'
+
 # initialize image preprocess
 def preprocess_data(verbose):
   Preprocess = UnetPrep(verbose)
-  Preprocess.sliding_step = 512
+  Preprocess.sliding_step = 256
   # Preprocess.seg_type = '-SDDlabels' # change to -GBMlabel when cropping GBMs
-  Preprocess.data_path = '/root/research/train-data/' # change to train-data when cropping GBMs
+  Preprocess.data_path = ENV[env] + DATASET[dataset] # change to train-data when cropping GBMs
   Preprocess.update_image_stats()
   Preprocess.update_image_list()
   Preprocess.generate_image_tiles()
@@ -58,7 +73,7 @@ if __name__ == '__main__':
       nums_epochs = 40,
       cross_entropy_weight = 0.045,
       fit_steps = 500,
-      device = "cuda"
+      device = DEVICE[env]
     )
   elif args.evaluation:
     evaluate_results()
