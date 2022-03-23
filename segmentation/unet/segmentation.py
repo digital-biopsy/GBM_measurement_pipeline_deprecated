@@ -29,7 +29,7 @@ from customdatasets3 import SegmentationDataSet3
 from sklearn.model_selection import train_test_split
 
 class Segmentation:
-    def __init__(self, data_path, epochs, weight, fit_steps, device, verbose=False):
+    def __init__(self, data_path, epochs, weight, fit_steps, out_channels, batch_size, channel_dims, device, verbose=False):
         self.path = data_path
         self.verbose = verbose
         self.init = False
@@ -39,9 +39,11 @@ class Segmentation:
         self.cross_entropy_weight = weight
         self.fit_steps = fit_steps
         self.device = device
+        self.out_channels = out_channels
+        self.batch_size = batch_size
 
         # constants
-        self.channel_dims = 1
+        self.channel_dims = channel_dims
         self.out_shape = 512
         self.learning_rate = 0.01
 
@@ -166,10 +168,10 @@ class Segmentation:
         )
 
         # dataloader training
-        self.dataloader_training = DataLoader(dataset=dataset_train, batch_size=1, shuffle=True)
+        self.dataloader_training = DataLoader(dataset=dataset_train, batch_size=self.batch_size, shuffle=True)
 
         # dataloader validation
-        self.dataloader_validation = DataLoader(dataset=dataset_valid, batch_size=1, shuffle=True)
+        self.dataloader_validation = DataLoader(dataset=dataset_valid, batch_size=self.batch_size, shuffle=True)
 
         if self.verbose:
             x, y = next(iter(self.dataloader_training))
@@ -188,7 +190,7 @@ class Segmentation:
         # model
         if self.verbose:
             model = UNet(in_channels=self.channel_dims, #3
-                        out_channels=1,
+                        out_channels=self.out_channels,
                         n_blocks=4,
                         start_filters=32,
                         activation='relu',
@@ -204,7 +206,7 @@ class Segmentation:
 
         device = torch.device(self.device)
         self.model = UNet(in_channels=self.channel_dims, #3
-             out_channels=1,
+             out_channels=self.out_channels,
              n_blocks=4,
              start_filters=32,
              activation='relu',
@@ -215,8 +217,9 @@ class Segmentation:
         # criterion
         weights = [1, self.cross_entropy_weight]
         self.class_weights = torch.FloatTensor(weights).cuda()
-        # self.criterion = torch.nn.CrossEntropyLoss(weight=self.class_weights) #CrossEntropyLoss
-        self.criterion = IoULoss() #IoULoss
+        # self.criterion = torch.nn.CrossEntropyLoss() #CrossEntropyLoss
+        self.criterion = torch.nn.CrossEntropyLoss(weight=self.class_weights) #CrossEntropyLoss
+        # self.criterion = IoULoss() #IoULoss
 
         # optimizer
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.learning_rate) #learning rate
@@ -247,20 +250,20 @@ class Segmentation:
         # torch.save(self.model.state_dict(), pathlib.Path.cwd() / model_name)
 
         #find best learning rate
-        from lr_rate_finder import LearningRateFinder
+        # from lr_rate_finder import LearningRateFinder
 
-        lrf = LearningRateFinder(self.model, self.criterion, self.optimizer, device)
-        lrf.fit(self.dataloader_training, steps=self.fit_steps)
-        lrf.plot()
+        # lrf = LearningRateFinder(self.model, self.criterion, self.optimizer, device)
+        # lrf.fit(self.dataloader_training, steps=self.fit_steps)
+        # lrf.plot()
 
-        fig = plot_training(
-            training_losses,
-            validation_losses,
-            lr_rates,
-            gaussian=True,
-            sigma=1,
-            figsize=(10, 4),
-        )
+        # fig = plot_training(
+        #     training_losses,
+        #     validation_losses,
+        #     lr_rates,
+        #     gaussian=True,
+        #     sigma=1,
+        #     figsize=(10, 4),
+        # )
     
     def load_val_images(self, model_name):
         """Load and preprocess validation images"""

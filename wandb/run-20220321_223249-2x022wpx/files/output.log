@@ -1,0 +1,66 @@
+
+######################### Loading and Augmenting Images #########################
+Progress:   0%|                                                                                                                           | 0/10 [00:00<?, ?it/s]/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)                                                      | 0/182 [00:00<?, ?it/s]
+Training: (loss 0.6985):   4%|████▎                                                                                              | 8/182 [00:00<00:17, 10.10it/s]
+######################### Start Training #########################
+<built-in method sum of Tensor object at 0x7fc68dc89140> <built-in method sum of Tensor object at 0x7fc68dc889c0>
+<built-in method sum of Tensor object at 0x7fc68dc4a680> <built-in method sum of Tensor object at 0x7fc68dc466c0>
+<built-in method sum of Tensor object at 0x7fc68dc85e00> <built-in method sum of Tensor object at 0x7fc68dc85600>
+<built-in method sum of Tensor object at 0x7fc68dba17c0> <built-in method sum of Tensor object at 0x7fc68dc4af80>
+<built-in method sum of Tensor object at 0x7fc68dc88cc0> <built-in method sum of Tensor object at 0x7fc68dba1700>
+<built-in method sum of Tensor object at 0x7fc69743c040> <built-in method sum of Tensor object at 0x7fc68dd08380>
+<built-in method sum of Tensor object at 0x7fc68dc85e00> <built-in method sum of Tensor object at 0x7fc68dc699c0>
+<built-in method sum of Tensor object at 0x7fc68dc89140> <built-in method sum of Tensor object at 0x7fc68dc4a580>
+<built-in method sum of Tensor object at 0x7fc68dc89240> <built-in method sum of Tensor object at 0x7fc68dcb7f40>
+
+Training: (loss 0.5770):  14%|██████████████                                                                                    | 26/182 [00:03<00:22,  6.81it/s]
+<built-in method sum of Tensor object at 0x7fc68dcb7f40> <built-in method sum of Tensor object at 0x7fc68dc4ab00>
+<built-in method sum of Tensor object at 0x7fc68dc69a80> <built-in method sum of Tensor object at 0x7fc68dc4a580>
+<built-in method sum of Tensor object at 0x7fc68dcba1c0> <built-in method sum of Tensor object at 0x7fc68dc699c0>
+<built-in method sum of Tensor object at 0x7fc68dc69a80> <built-in method sum of Tensor object at 0x7fc68dc466c0>
+<built-in method sum of Tensor object at 0x7fc68dcba1c0> <built-in method sum of Tensor object at 0x7fc68db44b00>
+<built-in method sum of Tensor object at 0x7fc68dd6e880> <built-in method sum of Tensor object at 0x7fc68dd6e480>
+<built-in method sum of Tensor object at 0x7fc68dd30c80> <built-in method sum of Tensor object at 0x7fc68dd6e840>
+<built-in method sum of Tensor object at 0x7fc68dc46f00> <built-in method sum of Tensor object at 0x7fc68dc46ec0>
+<built-in method sum of Tensor object at 0x7fc68dcba1c0> <built-in method sum of Tensor object at 0x7fc68dc46e40>
+<built-in method sum of Tensor object at 0x7fc68dd6ec40> <built-in method sum of Tensor object at 0x7fc68dc46dc0>
+<built-in method sum of Tensor object at 0x7fc68dd6ed40> <built-in method sum of Tensor object at 0x7fc68dd6ef40>
+<built-in method sum of Tensor object at 0x7fc68dc46280> <built-in method sum of Tensor object at 0x7fc68dc466c0>
+<built-in method sum of Tensor object at 0x7fc68dd6ef40> <built-in method sum of Tensor object at 0x7fc68dc46e40>
+<built-in method sum of Tensor object at 0x7fc68dc466c0> <built-in method sum of Tensor object at 0x7fc68dd6e840>
+<built-in method sum of Tensor object at 0x7fc68dc46240> <built-in method sum of Tensor object at 0x7fc68dc46e80>
+<built-in method sum of Tensor object at 0x7fc68dd08380> <built-in method sum of Tensor object at 0x7fc68dd6ec40>
+<built-in method sum of Tensor object at 0x7fc68dd083c0> <built-in method sum of Tensor object at 0x7fc68dc4a980>
+<built-in method sum of Tensor object at 0x7fc68dd74ec0> <built-in method sum of Tensor object at 0x7fc68dc69740>
+<built-in method sum of Tensor object at 0x7fc68dc89180> <built-in method sum of Tensor object at 0x7fc68dc4a4c0>
+<built-in method sum of Tensor object at 0x7fc68dc4a8c0> <built-in method sum of Tensor object at 0x7fc68dc4a080>
+<built-in method sum of Tensor object at 0x7fc68dc699c0> <built-in method sum of Tensor object at 0x7fc68dc4a4c0>
+<built-in method sum of Tensor object at 0x7fc68dc4a080> <built-in method sum of Tensor object at 0x7fc68dc89140>
+<built-in method sum of Tensor object at 0x7fc68dc4a2c0> <built-in method sum of Tensor object at 0x7fc68dc4a580>
+<built-in method sum of Tensor object at 0x7fc68dc89140> <built-in method sum of Tensor object at 0x7fc68dc4a080>
+<built-in method sum of Tensor object at 0x7fc68dd6ed40> <built-in method sum of Tensor object at 0x7fc68dc89f40>
+<built-in method sum of Tensor object at 0x7fc68dba1c80> <built-in method sum of Tensor object at 0x7fc68dba1c00>
+<built-in method sum of Tensor object at 0x7fc68dc4a4c0> <built-in method sum of Tensor object at 0x7fc68dba1700>
+<built-in method sum of Tensor object at 0x7fc68dc461c0> <built-in method sum of Tensor object at 0x7fc68dc46280>
+<built-in method sum of Tensor object at 0x7fc68dc46e40> <built-in method sum of Tensor object at 0x7fc68dc4a4c0>
+<built-in method sum of Tensor object at 0x7fc68dba1f00> <built-in method sum of Tensor object at 0x7fc68dba1700>
+
+Training: (loss 0.5065):  23%|██████████████████████                                                                            | 41/182 [00:05<00:21,  6.59it/s]
+<built-in method sum of Tensor object at 0x7fc68dc89140> <built-in method sum of Tensor object at 0x7fc68dc89f40>
+<built-in method sum of Tensor object at 0x7fc68dba1b00> <built-in method sum of Tensor object at 0x7fc68dbb1a80>
+<built-in method sum of Tensor object at 0x7fc68dc89140> <built-in method sum of Tensor object at 0x7fc68dba1c80>
+<built-in method sum of Tensor object at 0x7fc68dd08300> <built-in method sum of Tensor object at 0x7fc68dc89f40>
+<built-in method sum of Tensor object at 0x7fc68dba17c0> <built-in method sum of Tensor object at 0x7fc68dba1b00>
+Traceback (most recent call last):
+  File "main.py", line 94, in <module>
+    init_and_train_model(args.verbose)
+  File "main.py", line 65, in init_and_train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/segmentation.py", line 246, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 59, in run_trainer
+    self._train()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 97, in _train
+    loss_value = loss.item()
+KeyboardInterrupt

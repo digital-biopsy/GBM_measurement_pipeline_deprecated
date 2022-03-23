@@ -10,6 +10,8 @@ Original file is located at
 import numpy as np
 import torch
 import wandb
+import pathlib
+from loss import IoULoss
 
 class Trainer:
     def __init__(self,
@@ -59,7 +61,7 @@ class Trainer:
             if self.validation_dataLoader is not None:
                 self._validate()
             
-            if self.epoch % 2 == 0:
+            if self.epoch % 10 == 0:
                 model_name = "unet_" + str(self.epoch) + "_epochs.pt"
                 torch.save(self.model.state_dict(), pathlib.Path.cwd() / model_name)
 
@@ -88,6 +90,7 @@ class Trainer:
             self.optimizer.zero_grad()  # zerograd the parameters
             out = self.model(input)  # one forward pass
             loss = self.criterion(out, target)  # calculate loss
+            # _loss = IoULoss(out, target)
             loss_value = loss.item()
             train_losses.append(loss_value)
             loss.backward()  # one backward pass
@@ -113,6 +116,7 @@ class Trainer:
             with torch.no_grad():
                 out = self.model(input)
                 loss = self.criterion(out, target)
+                # _loss = IoULoss(out, target)
                 loss_value = loss.item()
                 valid_losses.append(loss_value)
 

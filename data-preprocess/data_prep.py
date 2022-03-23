@@ -74,6 +74,7 @@ class UnetPrep:
     tilecols = ((shape[1] - self.crop_size) // self.sliding_step) + 1
     tilerows = ((shape[0] - self.crop_size) // self.sliding_step) + 1
     start_idx = tilerows * tilecols * count
+    index = 1
     idx_list = []
     # iterate over columns and rows of image
     for r in range(tilerows):
@@ -86,13 +87,17 @@ class UnetPrep:
         img_crop = image[
           row_idx:(row_idx + self.crop_size), 
           col_idx:(col_idx + self.crop_size)]
-        # add binary threshold to the label
-        (thresh, lb_crop) = cv2.threshold(lb_crop, 127, 255, cv2.THRESH_BINARY)
-        # set save index
-        save_idx = str(r * tilecols + c + 1 + start_idx) + '.png'
-        cv2.imwrite(image_path + '/' + save_idx, img_crop)
-        cv2.imwrite(label_path + '/' + save_idx, lb_crop)
-        idx_list.append(save_idx)
+        if lb_crop.sum() < 5:
+          # add binary threshold to the label
+          (thresh, lb_crop) = cv2.threshold(lb_crop, 127, 255, cv2.THRESH_BINARY)
+          # set save index
+          # save_idx = str(r * tilecols + c + 1 + start_idx) + '.png'
+          print(save_idx)
+          save_idx = str(index + start_idx) + '.png'
+          cv2.imwrite(image_path + '/' + save_idx, img_crop)
+          cv2.imwrite(label_path + '/' + save_idx, lb_crop)
+          idx_list.append(save_idx)
+          index += 1
     return idx_list
 
 

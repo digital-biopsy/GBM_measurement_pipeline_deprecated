@@ -31,7 +31,7 @@ env = 'server'
 # initialize image preprocess
 def preprocess_data(verbose):
   Preprocess = UnetPrep(verbose)
-  Preprocess.sliding_step = 256
+  Preprocess.sliding_step = 512
   # Preprocess.seg_type = '-SDDlabels' # change to -GBMlabel when cropping GBMs
   Preprocess.data_path = ENV[env] + DATASET[dataset] # change to train-data when cropping GBMs
   Preprocess.update_image_stats()
@@ -44,10 +44,13 @@ def evaluate_results():
 
 def init_and_train_model(verbose):
   data_path = 'data'
-  nums_epochs = 40
+  nums_epochs = 10
   cross_entropy_weight = 0.045
   fit_steps = 500
+  out_channels = 2
   device = DEVICE[env]
+  channel_dims = 1
+  batch_size = 16
 
   global DeepSeg
   DeepSeg = Segmentation(
@@ -56,12 +59,15 @@ def init_and_train_model(verbose):
     weight=cross_entropy_weight,
     fit_steps=fit_steps,
     device=device,
+    out_channels = out_channels,
+    batch_size = batch_size,
+    channel_dims = channel_dims,
     verbose=verbose,
   )
   DeepSeg.load_and_augment()
   DeepSeg.initialize_model()
   DeepSeg.train_model()
-  DeepSeg.load_val_images()
+  DeepSeg.load_val_images('unet.pt')
 
 # def train_model(verbose):
 #   print('train_model')

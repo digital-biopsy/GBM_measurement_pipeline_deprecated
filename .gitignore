@@ -4,3 +4,4 @@ data/inputs/
 data/labels/
 data/test/
 data/val/
+*.pt
