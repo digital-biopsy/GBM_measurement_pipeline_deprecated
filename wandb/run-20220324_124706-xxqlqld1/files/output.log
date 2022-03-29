@@ -1,0 +1,148 @@
+
+######################### Loading and Augmenting Images #########################
+/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+Progress:   0%|                                                                                                                           | 0/90 [00:00<?, ?it/s]
+Training:   0%|                                                                                                                           | 0/55 [00:00<?, ?it/s]
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1         [-1, 32, 512, 512]             320
+              ReLU-2         [-1, 32, 512, 512]               0
+       BatchNorm2d-3         [-1, 32, 512, 512]              64
+            Conv2d-4         [-1, 32, 512, 512]           9,248
+              ReLU-5         [-1, 32, 512, 512]               0
+       BatchNorm2d-6         [-1, 32, 512, 512]              64
+         MaxPool2d-7         [-1, 32, 256, 256]               0
+         DownBlock-8  [[-1, 32, 256, 256], [-1, 32, 512, 512]]               0
+            Conv2d-9         [-1, 64, 256, 256]          18,496
+             ReLU-10         [-1, 64, 256, 256]               0
+      BatchNorm2d-11         [-1, 64, 256, 256]             128
+           Conv2d-12         [-1, 64, 256, 256]          36,928
+             ReLU-13         [-1, 64, 256, 256]               0
+      BatchNorm2d-14         [-1, 64, 256, 256]             128
+        MaxPool2d-15         [-1, 64, 128, 128]               0
+        DownBlock-16  [[-1, 64, 128, 128], [-1, 64, 256, 256]]               0
+           Conv2d-17        [-1, 128, 128, 128]          73,856
+             ReLU-18        [-1, 128, 128, 128]               0
+      BatchNorm2d-19        [-1, 128, 128, 128]             256
+           Conv2d-20        [-1, 128, 128, 128]         147,584
+             ReLU-21        [-1, 128, 128, 128]               0
+      BatchNorm2d-22        [-1, 128, 128, 128]             256
+        MaxPool2d-23          [-1, 128, 64, 64]               0
+        DownBlock-24  [[-1, 128, 64, 64], [-1, 128, 128, 128]]               0
+           Conv2d-25          [-1, 256, 64, 64]         295,168
+             ReLU-26          [-1, 256, 64, 64]               0
+      BatchNorm2d-27          [-1, 256, 64, 64]             512
+           Conv2d-28          [-1, 256, 64, 64]         590,080
+             ReLU-29          [-1, 256, 64, 64]               0
+      BatchNorm2d-30          [-1, 256, 64, 64]             512
+        DownBlock-31  [[-1, 256, 64, 64], [-1, 256, 64, 64]]               0
+  ConvTranspose2d-32        [-1, 128, 128, 128]         131,200
+             ReLU-33        [-1, 128, 128, 128]               0
+      BatchNorm2d-34        [-1, 128, 128, 128]             256
+      Concatenate-35        [-1, 256, 128, 128]               0
+           Conv2d-36        [-1, 128, 128, 128]         295,040
+             ReLU-37        [-1, 128, 128, 128]               0
+      BatchNorm2d-38        [-1, 128, 128, 128]             256
+           Conv2d-39        [-1, 128, 128, 128]         147,584
+             ReLU-40        [-1, 128, 128, 128]               0
+      BatchNorm2d-41        [-1, 128, 128, 128]             256
+          UpBlock-42        [-1, 128, 128, 128]               0
+  ConvTranspose2d-43         [-1, 64, 256, 256]          32,832
+             ReLU-44         [-1, 64, 256, 256]               0
+      BatchNorm2d-45         [-1, 64, 256, 256]             128
+      Concatenate-46        [-1, 128, 256, 256]               0
+           Conv2d-47         [-1, 64, 256, 256]          73,792
+             ReLU-48         [-1, 64, 256, 256]               0
+      BatchNorm2d-49         [-1, 64, 256, 256]             128
+           Conv2d-50         [-1, 64, 256, 256]          36,928
+             ReLU-51         [-1, 64, 256, 256]               0
+      BatchNorm2d-52         [-1, 64, 256, 256]             128
+          UpBlock-53         [-1, 64, 256, 256]               0
+  ConvTranspose2d-54         [-1, 32, 512, 512]           8,224
+             ReLU-55         [-1, 32, 512, 512]               0
+      BatchNorm2d-56         [-1, 32, 512, 512]              64
+      Concatenate-57         [-1, 64, 512, 512]               0
+           Conv2d-58         [-1, 32, 512, 512]          18,464
+             ReLU-59         [-1, 32, 512, 512]               0
+      BatchNorm2d-60         [-1, 32, 512, 512]              64
+           Conv2d-61         [-1, 32, 512, 512]           9,248
+             ReLU-62         [-1, 32, 512, 512]               0
+      BatchNorm2d-63         [-1, 32, 512, 512]              64
+          UpBlock-64         [-1, 32, 512, 512]               0
+           Conv2d-65          [-1, 2, 512, 512]              66
+================================================================
+Total params: 1,928,322
+Trainable params: 1,928,322
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 1.00
+Forward/backward pass size (MB): 184547280.00
+Params size (MB): 7.36
+Estimated Total Size (MB): 184547288.36
+----------------------------------------------------------------
+
+Training: (loss 1.0975):   2%|█▊                                                                                                  | 1/55 [00:01<01:22,  1.53s/it]
+torch.Size([16, 2, 512, 512])
+
+Training: (loss 0.9359):   5%|█████▍                                                                                              | 3/55 [00:04<01:07,  1.30s/it]
+torch.Size([16, 2, 512, 512])
+torch.Size([16, 512, 512])
+torch.Size([16, 2, 512, 512])
+
+Training: (loss 0.8373):   9%|█████████                                                                                           | 5/55 [00:06<01:03,  1.28s/it]
+torch.Size([16, 2, 512, 512])
+torch.Size([16, 512, 512])
+torch.Size([16, 2, 512, 512])
+torch.Size([16, 512, 512])
+torch.Size([16, 2, 512, 512])
+
+Training: (loss 0.8655):  11%|██████████▉                                                                                         | 6/55 [00:07<01:02,  1.28s/it]
+torch.Size([16, 2, 512, 512])
+torch.Size([16, 512, 512])
+torch.Size([16, 2, 512, 512])
+
+Training: (loss 0.8108):  15%|██████████████▌                                                                                     | 8/55 [00:10<01:01,  1.31s/it]
+torch.Size([16, 2, 512, 512])
+
+Training: (loss 0.7858):  16%|████████████████▎                                                                                   | 9/55 [00:11<01:01,  1.34s/it]
+torch.Size([16, 2, 512, 512])
+torch.Size([16, 512, 512])
+torch.Size([16, 2, 512, 512])
+
+Training: (loss 0.7540):  18%|██████████████████                                                                                 | 10/55 [00:13<01:02,  1.39s/it]
+torch.Size([16, 2, 512, 512])
+
+Training: (loss 0.7534):  22%|█████████████████████▌                                                                             | 12/55 [00:16<00:59,  1.39s/it]
+torch.Size([16, 2, 512, 512])
+Traceback (most recent call last):
+  File "main.py", line 91, in <module>
+    init_and_train_model(args.verbose)
+  File "main.py", line 77, in init_and_train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/segmentation.py", line 235, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 59, in run_trainer
+    self._train()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 89, in _train
+    for i, (x, y) in batch_iter:
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1180, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 561, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/research/deep-segmentation/segmentation/unet/customdatasets3.py", line 56, in __getitem__
+    x, y = self.transform(x, y)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 132, in __call__
+    inp, target = t(inp, target)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 158, in __call__
+    out_dict = self.albumentation(image=inp, mask=tar)
+  File "/usr/local/lib/python3.8/dist-packages/albumentations/core/transforms_interface.py", line 71, in __call__
+    def __call__(self, *args, force_apply: bool = False, **kwargs) -> Dict[str, Any]:
+KeyboardInterrupt

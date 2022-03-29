@@ -1,0 +1,722 @@
+
+######################### Loading and Augmenting Images #########################
+/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+Progress:   0%|                                                                                              | 0/90 [00:00<?, ?it/s]
+Training:   0%|                                                                                              | 0/55 [00:00<?, ?it/s]
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1         [-1, 32, 512, 512]             320
+              ReLU-2         [-1, 32, 512, 512]               0
+       BatchNorm2d-3         [-1, 32, 512, 512]              64
+            Conv2d-4         [-1, 32, 512, 512]           9,248
+              ReLU-5         [-1, 32, 512, 512]               0
+       BatchNorm2d-6         [-1, 32, 512, 512]              64
+         MaxPool2d-7         [-1, 32, 256, 256]               0
+         DownBlock-8  [[-1, 32, 256, 256], [-1, 32, 512, 512]]               0
+            Conv2d-9         [-1, 64, 256, 256]          18,496
+             ReLU-10         [-1, 64, 256, 256]               0
+      BatchNorm2d-11         [-1, 64, 256, 256]             128
+           Conv2d-12         [-1, 64, 256, 256]          36,928
+             ReLU-13         [-1, 64, 256, 256]               0
+      BatchNorm2d-14         [-1, 64, 256, 256]             128
+        MaxPool2d-15         [-1, 64, 128, 128]               0
+        DownBlock-16  [[-1, 64, 128, 128], [-1, 64, 256, 256]]               0
+           Conv2d-17        [-1, 128, 128, 128]          73,856
+             ReLU-18        [-1, 128, 128, 128]               0
+      BatchNorm2d-19        [-1, 128, 128, 128]             256
+           Conv2d-20        [-1, 128, 128, 128]         147,584
+             ReLU-21        [-1, 128, 128, 128]               0
+      BatchNorm2d-22        [-1, 128, 128, 128]             256
+        MaxPool2d-23          [-1, 128, 64, 64]               0
+        DownBlock-24  [[-1, 128, 64, 64], [-1, 128, 128, 128]]               0
+           Conv2d-25          [-1, 256, 64, 64]         295,168
+             ReLU-26          [-1, 256, 64, 64]               0
+      BatchNorm2d-27          [-1, 256, 64, 64]             512
+           Conv2d-28          [-1, 256, 64, 64]         590,080
+             ReLU-29          [-1, 256, 64, 64]               0
+      BatchNorm2d-30          [-1, 256, 64, 64]             512
+        DownBlock-31  [[-1, 256, 64, 64], [-1, 256, 64, 64]]               0
+  ConvTranspose2d-32        [-1, 128, 128, 128]         131,200
+             ReLU-33        [-1, 128, 128, 128]               0
+      BatchNorm2d-34        [-1, 128, 128, 128]             256
+      Concatenate-35        [-1, 256, 128, 128]               0
+           Conv2d-36        [-1, 128, 128, 128]         295,040
+             ReLU-37        [-1, 128, 128, 128]               0
+      BatchNorm2d-38        [-1, 128, 128, 128]             256
+           Conv2d-39        [-1, 128, 128, 128]         147,584
+             ReLU-40        [-1, 128, 128, 128]               0
+      BatchNorm2d-41        [-1, 128, 128, 128]             256
+          UpBlock-42        [-1, 128, 128, 128]               0
+  ConvTranspose2d-43         [-1, 64, 256, 256]          32,832
+             ReLU-44         [-1, 64, 256, 256]               0
+      BatchNorm2d-45         [-1, 64, 256, 256]             128
+      Concatenate-46        [-1, 128, 256, 256]               0
+           Conv2d-47         [-1, 64, 256, 256]          73,792
+             ReLU-48         [-1, 64, 256, 256]               0
+      BatchNorm2d-49         [-1, 64, 256, 256]             128
+           Conv2d-50         [-1, 64, 256, 256]          36,928
+             ReLU-51         [-1, 64, 256, 256]               0
+      BatchNorm2d-52         [-1, 64, 256, 256]             128
+          UpBlock-53         [-1, 64, 256, 256]               0
+  ConvTranspose2d-54         [-1, 32, 512, 512]           8,224
+             ReLU-55         [-1, 32, 512, 512]               0
+      BatchNorm2d-56         [-1, 32, 512, 512]              64
+      Concatenate-57         [-1, 64, 512, 512]               0
+           Conv2d-58         [-1, 32, 512, 512]          18,464
+             ReLU-59         [-1, 32, 512, 512]               0
+      BatchNorm2d-60         [-1, 32, 512, 512]              64
+           Conv2d-61         [-1, 32, 512, 512]           9,248
+             ReLU-62         [-1, 32, 512, 512]               0
+      BatchNorm2d-63         [-1, 32, 512, 512]              64
+          UpBlock-64         [-1, 32, 512, 512]               0
+           Conv2d-65          [-1, 2, 512, 512]              66
+================================================================
+Total params: 1,928,322
+Trainable params: 1,928,322
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 1.00
+Forward/backward pass size (MB): 184547280.00
+Params size (MB): 7.36
+Estimated Total Size (MB): 184547288.36
+----------------------------------------------------------------
+
+Training: (loss 0.8157):   9%|██████▍                                                                | 5/55 [00:01<00:18,  2.65it/s]
+tensor(-19.7642, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.7654, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-20.9246, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.4440, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.0709, device='cuda:0', grad_fn=<MinBackward1>)   tensor(33.1136, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.3923, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.0285, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.7204):  20%|██████████████                                                        | 11/55 [00:04<00:16,  2.70it/s]
+tensor(-40.2701, device='cuda:0', grad_fn=<MinBackward1>)   tensor(53.8133, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-16.7736, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.9337, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-23.0025, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.9650, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.2306, device='cuda:0', grad_fn=<MinBackward1>)   tensor(33.8743, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-22.7899, device='cuda:0', grad_fn=<MinBackward1>)   tensor(36.9587, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.7209):  29%|████████████████████▎                                                 | 16/55 [00:06<00:14,  2.78it/s]
+tensor(-17.2297, device='cuda:0', grad_fn=<MinBackward1>)   tensor(31.9571, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-24.9036, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.0797, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.8210, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.1292, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-24.0175, device='cuda:0', grad_fn=<MinBackward1>)   tensor(33.8789, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.6518):  40%|████████████████████████████                                          | 22/55 [00:08<00:12,  2.69it/s]
+tensor(-32.7747, device='cuda:0', grad_fn=<MinBackward1>)   tensor(55.7435, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.1897, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.7497, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.2400, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.6897, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.4949, device='cuda:0', grad_fn=<MinBackward1>)   tensor(34.4061, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.8019, device='cuda:0', grad_fn=<MinBackward1>)   tensor(59.2336, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.6505):  49%|██████████████████████████████████▎                                   | 27/55 [00:10<00:10,  2.71it/s]
+tensor(-23.4260, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.4728, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-27.5105, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.4443, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-23.1837, device='cuda:0', grad_fn=<MinBackward1>)   tensor(29.0008, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-19.4977, device='cuda:0', grad_fn=<MinBackward1>)   tensor(26.4129, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.6408):  60%|██████████████████████████████████████████                            | 33/55 [00:12<00:08,  2.70it/s]
+tensor(-24.8815, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.6724, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-21.1141, device='cuda:0', grad_fn=<MinBackward1>)   tensor(34.7936, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.0237, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.1346, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-24.9379, device='cuda:0', grad_fn=<MinBackward1>)   tensor(29.9384, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-23.7408, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.7013, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.6008):  69%|████████████████████████████████████████████████▎                     | 38/55 [00:14<00:06,  2.68it/s]
+tensor(-33.6999, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.1697, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-27.7185, device='cuda:0', grad_fn=<MinBackward1>)   tensor(53.8263, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-38.0025, device='cuda:0', grad_fn=<MinBackward1>)   tensor(53.1058, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-41.1123, device='cuda:0', grad_fn=<MinBackward1>)   tensor(63.9948, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5893):  80%|████████████████████████████████████████████████████████              | 44/55 [00:16<00:04,  2.75it/s]
+tensor(-20.8389, device='cuda:0', grad_fn=<MinBackward1>)   tensor(25.9056, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.9468, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.9451, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.1920, device='cuda:0', grad_fn=<MinBackward1>)   tensor(37.2743, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-37.8204, device='cuda:0', grad_fn=<MinBackward1>)   tensor(53.9291, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-22.1586, device='cuda:0', grad_fn=<MinBackward1>)   tensor(33.0101, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5726):  89%|██████████████████████████████████████████████████████████████▎       | 49/55 [00:18<00:02,  2.64it/s]
+tensor(-22.6107, device='cuda:0', grad_fn=<MinBackward1>)   tensor(34.8127, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-23.4155, device='cuda:0', grad_fn=<MinBackward1>)   tensor(34.0863, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.8947, device='cuda:0', grad_fn=<MinBackward1>)   tensor(37.9297, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.2966, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.8514, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5852):  98%|████████████████████████████████████████████████████████████████████▋ | 54/55 [00:20<00:00,  2.70it/s]
+tensor(-37.9894, device='cuda:0', grad_fn=<MinBackward1>)   tensor(52.2511, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.7546, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.2928, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.5272, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.2396, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.1049, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.8474, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Validation: (loss 0.5993):   7%|████▉                                                                | 1/14 [00:01<00:13,  1.03s/it]
+
+
+
+
+
+
+
+Training: (loss 0.5411):  11%|███████▋                                                               | 6/55 [00:02<00:17,  2.81it/s]
+tensor(-32.8172, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.9986, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.7267, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.0139, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.5888, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.5009, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.2359, device='cuda:0', grad_fn=<MinBackward1>)   tensor(34.0421, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.4290, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.5352, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5348):  20%|██████████████                                                        | 11/55 [00:04<00:16,  2.70it/s]
+tensor(-27.9345, device='cuda:0', grad_fn=<MinBackward1>)   tensor(31.3442, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.7054, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.9648, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.9068, device='cuda:0', grad_fn=<MinBackward1>)   tensor(34.5543, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-37.2837, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.7967, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5394):  31%|█████████████████████▋                                                | 17/55 [00:06<00:14,  2.65it/s]
+tensor(-27.3795, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.6397, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.1514, device='cuda:0', grad_fn=<MinBackward1>)   tensor(36.8735, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.8574, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.7834, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.3296, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.3345, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4951):  40%|████████████████████████████                                          | 22/55 [00:08<00:12,  2.70it/s]
+tensor(-28.2808, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.9280, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.1593, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.9204, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.8737, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.8870, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-23.6979, device='cuda:0', grad_fn=<MinBackward1>)   tensor(26.5124, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-39.6640, device='cuda:0', grad_fn=<MinBackward1>)   tensor(49.2228, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5206):  49%|██████████████████████████████████▎                                   | 27/55 [00:10<00:10,  2.60it/s]
+tensor(-24.6056, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.1005, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.8900, device='cuda:0', grad_fn=<MinBackward1>)   tensor(33.7811, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.4344, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.4305, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.3032, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.7206, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5135):  60%|██████████████████████████████████████████                            | 33/55 [00:12<00:08,  2.65it/s]
+tensor(-33.1239, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.9123, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.3754, device='cuda:0', grad_fn=<MinBackward1>)   tensor(33.0732, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.3664, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.9287, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.6683, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.6327, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5016):  69%|████████████████████████████████████████████████▎                     | 38/55 [00:14<00:06,  2.73it/s]
+tensor(-27.7659, device='cuda:0', grad_fn=<MinBackward1>)   tensor(34.0680, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.0940, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.7897, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.7820, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.6119, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-27.0866, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.7993, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.3519, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.7314, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4591):  80%|████████████████████████████████████████████████████████              | 44/55 [00:16<00:03,  2.78it/s]
+tensor(-24.0327, device='cuda:0', grad_fn=<MinBackward1>)   tensor(37.0605, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.8463, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.5344, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-42.5919, device='cuda:0', grad_fn=<MinBackward1>)   tensor(56.4266, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.3248, device='cuda:0', grad_fn=<MinBackward1>)   tensor(57.4553, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.0441, device='cuda:0', grad_fn=<MinBackward1>)   tensor(37.4843, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5008):  87%|█████████████████████████████████████████████████████████████         | 48/55 [00:17<00:02,  2.78it/s]
+tensor(-31.7984, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.3037, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.7705, device='cuda:0', grad_fn=<MinBackward1>)   tensor(46.7824, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-41.1077, device='cuda:0', grad_fn=<MinBackward1>)   tensor(53.9105, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-27.4333, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.8657, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4876):  96%|███████████████████████████████████████████████████████████████████▍  | 53/55 [00:19<00:00,  2.66it/s]
+tensor(-38.2308, device='cuda:0', grad_fn=<MinBackward1>)   tensor(49.0402, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.8892, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.5781, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.5650, device='cuda:0', grad_fn=<MinBackward1>)   tensor(58.2764, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.3811, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.7693, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.9088, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.4806, device='cuda:0', grad_fn=<MaxBackward1>)
+
+
+
+
+
+
+
+Training: (loss 0.4800):   2%|█▎                                                                     | 1/55 [00:00<00:19,  2.73it/s]
+
+Training: (loss 0.4639):  11%|███████▋                                                               | 6/55 [00:02<00:18,  2.62it/s]
+tensor(-28.3713, device='cuda:0', grad_fn=<MinBackward1>)   tensor(33.5344, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.6240, device='cuda:0', grad_fn=<MinBackward1>)   tensor(34.5517, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.3145, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.4270, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.3436, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.1184, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4462):  20%|██████████████                                                        | 11/55 [00:04<00:16,  2.71it/s]
+tensor(-34.1819, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.3737, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.4942, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.6626, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.5989, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.1708, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.5330, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.9762, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.8368, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.0634, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4875):  31%|█████████████████████▋                                                | 17/55 [00:06<00:13,  2.72it/s]
+tensor(-32.7155, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.9505, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.2376, device='cuda:0', grad_fn=<MinBackward1>)   tensor(52.2267, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.0568, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.2804, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.8259, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.3526, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4608):  40%|████████████████████████████                                          | 22/55 [00:08<00:12,  2.68it/s]
+tensor(-37.8179, device='cuda:0', grad_fn=<MinBackward1>)   tensor(55.3523, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.7413, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.3124, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-35.3355, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.6300, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.0598, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.8557, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.6881, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.6264, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4545):  49%|██████████████████████████████████▎                                   | 27/55 [00:10<00:10,  2.65it/s]
+tensor(-48.0249, device='cuda:0', grad_fn=<MinBackward1>)   tensor(67.1162, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-46.1029, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.4349, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-38.1575, device='cuda:0', grad_fn=<MinBackward1>)   tensor(50.9951, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.0067, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.0514, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4886):  60%|██████████████████████████████████████████                            | 33/55 [00:12<00:08,  2.70it/s]
+tensor(-35.2991, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.3887, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.0571, device='cuda:0', grad_fn=<MinBackward1>)   tensor(36.9562, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-39.1422, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.9534, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.5055, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.8123, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4953):  69%|████████████████████████████████████████████████▎                     | 38/55 [00:14<00:06,  2.68it/s]
+tensor(-31.9953, device='cuda:0', grad_fn=<MinBackward1>)   tensor(34.2683, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.9260, device='cuda:0', grad_fn=<MinBackward1>)   tensor(46.4905, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.0075, device='cuda:0', grad_fn=<MinBackward1>)   tensor(37.7879, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-42.2373, device='cuda:0', grad_fn=<MinBackward1>)   tensor(46.4294, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.7762, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.4675, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4885):  80%|████████████████████████████████████████████████████████              | 44/55 [00:16<00:04,  2.72it/s]
+tensor(-29.7139, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.9798, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.8422, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.7443, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.3835, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.7143, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.3290, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.4510, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5008):  89%|██████████████████████████████████████████████████████████████▎       | 49/55 [00:18<00:02,  2.69it/s]
+tensor(-29.7209, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.7824, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.8315, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.9914, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.3573, device='cuda:0', grad_fn=<MinBackward1>)   tensor(46.4524, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.8316, device='cuda:0', grad_fn=<MinBackward1>)   tensor(36.8836, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Validation:   0%|                                                                                            | 0/14 [00:00<?, ?it/s]
+tensor(-37.2730, device='cuda:0', grad_fn=<MinBackward1>)   tensor(52.1839, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.9437, device='cuda:0', grad_fn=<MinBackward1>)   tensor(52.6557, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.7789, device='cuda:0', grad_fn=<MinBackward1>)   tensor(61.2020, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-54.3266, device='cuda:0', grad_fn=<MinBackward1>)   tensor(70.7737, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-45.0643, device='cuda:0', grad_fn=<MinBackward1>)   tensor(63.1151, device='cuda:0', grad_fn=<MaxBackward1>)
+
+
+
+
+
+
+
+Training: (loss 0.4378):   2%|█▎                                                                     | 1/55 [00:00<00:20,  2.68it/s]
+tensor(-38.0147, device='cuda:0', grad_fn=<MinBackward1>)   tensor(53.6199, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4272):  13%|█████████                                                              | 7/55 [00:02<00:17,  2.67it/s]
+tensor(-36.4696, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.7290, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.8708, device='cuda:0', grad_fn=<MinBackward1>)   tensor(32.4299, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-39.4905, device='cuda:0', grad_fn=<MinBackward1>)   tensor(57.2914, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.8419, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.9513, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4907):  22%|███████████████▎                                                      | 12/55 [00:04<00:16,  2.58it/s]
+tensor(-31.3618, device='cuda:0', grad_fn=<MinBackward1>)   tensor(52.6740, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.5972, device='cuda:0', grad_fn=<MinBackward1>)   tensor(52.4167, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-38.0364, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.1333, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.0297, device='cuda:0', grad_fn=<MinBackward1>)   tensor(36.2533, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4433):  33%|██████████████████████▉                                               | 18/55 [00:06<00:13,  2.83it/s]
+tensor(-37.9787, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.1387, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.2905, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.6349, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-45.1831, device='cuda:0', grad_fn=<MinBackward1>)   tensor(60.4312, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.4597, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.2886, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-42.7734, device='cuda:0', grad_fn=<MinBackward1>)   tensor(56.4375, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4053):  42%|█████████████████████████████▎                                        | 23/55 [00:08<00:11,  2.71it/s]
+tensor(-35.2162, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.8338, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.8305, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.8443, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-35.0856, device='cuda:0', grad_fn=<MinBackward1>)   tensor(55.3619, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-27.8403, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.0339, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4317):  51%|███████████████████████████████████▋                                  | 28/55 [00:10<00:10,  2.58it/s]
+tensor(-36.4926, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.9391, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.5798, device='cuda:0', grad_fn=<MinBackward1>)   tensor(33.5750, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.8569, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.1639, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.5460, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.1765, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4083):  60%|██████████████████████████████████████████                            | 33/55 [00:12<00:08,  2.62it/s]
+tensor(-37.3695, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.1891, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.4429, device='cuda:0', grad_fn=<MinBackward1>)   tensor(37.1193, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.8895, device='cuda:0', grad_fn=<MinBackward1>)   tensor(36.6030, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.8333, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.6875, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-38.2630, device='cuda:0', grad_fn=<MinBackward1>)   tensor(60.1524, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4517):  71%|█████████████████████████████████████████████████▋                    | 39/55 [00:14<00:05,  2.69it/s]
+tensor(-38.1514, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.6839, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.4934, device='cuda:0', grad_fn=<MinBackward1>)   tensor(52.2625, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-38.2701, device='cuda:0', grad_fn=<MinBackward1>)   tensor(61.4296, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-37.1605, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.9026, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.6020):  80%|████████████████████████████████████████████████████████              | 44/55 [00:16<00:04,  2.70it/s]
+tensor(-37.4498, device='cuda:0', grad_fn=<MinBackward1>)   tensor(61.6458, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.5665, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.7420, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-35.8477, device='cuda:0', grad_fn=<MinBackward1>)   tensor(53.3455, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.9716, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.8908, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5257):  91%|███████████████████████████████████████████████████████████████▋      | 50/55 [00:18<00:01,  2.75it/s]
+tensor(-29.2444, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.1325, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.1148, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.5510, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.8011, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.3573, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-42.3535, device='cuda:0', grad_fn=<MinBackward1>)   tensor(50.4315, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-37.6069, device='cuda:0', grad_fn=<MinBackward1>)   tensor(58.0098, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Validation:   0%|                                                                                            | 0/14 [00:00<?, ?it/s]
+tensor(-31.1279, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.3441, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.1763, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.8132, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.7111, device='cuda:0', grad_fn=<MinBackward1>)   tensor(56.9730, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.4827, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.0701, device='cuda:0', grad_fn=<MaxBackward1>)
+
+
+
+
+
+
+
+Training: (loss 0.4375):   2%|█▎                                                                     | 1/55 [00:00<00:20,  2.62it/s]
+
+Training: (loss 0.4753):  11%|███████▋                                                               | 6/55 [00:02<00:17,  2.74it/s]
+tensor(-39.4309, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.9709, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.9317, device='cuda:0', grad_fn=<MinBackward1>)   tensor(52.6062, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.6297, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.1342, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.1904, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.3771, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4443):  22%|███████████████▎                                                      | 12/55 [00:04<00:16,  2.59it/s]
+tensor(-47.0451, device='cuda:0', grad_fn=<MinBackward1>)   tensor(66.0107, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.3174, device='cuda:0', grad_fn=<MinBackward1>)   tensor(46.2533, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-37.8536, device='cuda:0', grad_fn=<MinBackward1>)   tensor(56.1777, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-27.3043, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.4319, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3893):  31%|█████████████████████▋                                                | 17/55 [00:06<00:14,  2.58it/s]
+tensor(-29.6212, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.8805, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.1853, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.6579, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.6905, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.2224, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-27.2518, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.1269, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.5004, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.3381, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4126):  38%|██████████████████████████▋                                           | 21/55 [00:08<00:12,  2.63it/s]
+tensor(-24.7334, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.9574, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-35.7711, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.5361, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-43.5414, device='cuda:0', grad_fn=<MinBackward1>)   tensor(49.2059, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-37.5484, device='cuda:0', grad_fn=<MinBackward1>)   tensor(55.6552, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4529):  47%|█████████████████████████████████                                     | 26/55 [00:10<00:11,  2.54it/s]
+tensor(-30.3074, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.9224, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-27.9914, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.9738, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-38.1211, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.8698, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.2452, device='cuda:0', grad_fn=<MinBackward1>)   tensor(50.2049, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4335):  58%|████████████████████████████████████████▋                             | 32/55 [00:12<00:08,  2.78it/s]
+tensor(-35.5079, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.4589, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.1322, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.0243, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.9937, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.6078, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-27.0487, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.6534, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.3458, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.1647, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4167):  67%|███████████████████████████████████████████████                       | 37/55 [00:14<00:06,  2.70it/s]
+tensor(-43.5418, device='cuda:0', grad_fn=<MinBackward1>)   tensor(67.3113, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.3744, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.2908, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-44.5696, device='cuda:0', grad_fn=<MinBackward1>)   tensor(68.5422, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.8608, device='cuda:0', grad_fn=<MinBackward1>)   tensor(57.7254, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3976):  78%|██████████████████████████████████████████████████████▋               | 43/55 [00:16<00:04,  2.71it/s]
+tensor(-26.1339, device='cuda:0', grad_fn=<MinBackward1>)   tensor(36.8483, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-35.9514, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.2789, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-48.8043, device='cuda:0', grad_fn=<MinBackward1>)   tensor(77.9792, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.4456, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.0720, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4429):  87%|█████████████████████████████████████████████████████████████         | 48/55 [00:18<00:02,  2.60it/s]
+tensor(-29.6660, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.9182, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-37.0536, device='cuda:0', grad_fn=<MinBackward1>)   tensor(56.9481, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.7480, device='cuda:0', grad_fn=<MinBackward1>)   tensor(49.6466, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.0128, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.3502, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.7019, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.7246, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5043):  96%|███████████████████████████████████████████████████████████████████▍  | 53/55 [00:20<00:00,  2.72it/s]
+tensor(-37.9371, device='cuda:0', grad_fn=<MinBackward1>)   tensor(50.0246, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.9374, device='cuda:0', grad_fn=<MinBackward1>)   tensor(36.6285, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.3759, device='cuda:0', grad_fn=<MinBackward1>)   tensor(36.8554, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.7561, device='cuda:0', grad_fn=<MinBackward1>)   tensor(31.6469, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Validation: (loss 0.4535):   7%|████▉                                                                | 1/14 [00:00<00:12,  1.01it/s]
+
+
+
+
+
+
+Training:   0%|                                                                                              | 0/55 [00:00<?, ?it/s]
+
+Training: (loss 0.4563):  11%|███████▋                                                               | 6/55 [00:02<00:18,  2.70it/s]
+tensor(-30.9333, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.5476, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-44.9221, device='cuda:0', grad_fn=<MinBackward1>)   tensor(65.3967, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.2487, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.4475, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.8438, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.5748, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.7915, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.5645, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3922):  20%|██████████████                                                        | 11/55 [00:04<00:16,  2.70it/s]
+tensor(-35.7653, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.7118, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-27.8474, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.7147, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.6164, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.9209, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.4904, device='cuda:0', grad_fn=<MinBackward1>)   tensor(37.0247, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4297):  31%|█████████████████████▋                                                | 17/55 [00:06<00:13,  2.83it/s]
+tensor(-36.1298, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.0480, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.7749, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.2423, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.9441, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.3980, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.9098, device='cuda:0', grad_fn=<MinBackward1>)   tensor(46.2840, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.8347, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.0052, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4002):  42%|█████████████████████████████▎                                        | 23/55 [00:08<00:11,  2.80it/s]
+tensor(-27.2716, device='cuda:0', grad_fn=<MinBackward1>)   tensor(36.0247, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-35.7375, device='cuda:0', grad_fn=<MinBackward1>)   tensor(52.7922, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-20.2310, device='cuda:0', grad_fn=<MinBackward1>)   tensor(32.7576, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.1415, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.2206, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3601):  51%|███████████████████████████████████▋                                  | 28/55 [00:10<00:10,  2.60it/s]
+tensor(-38.4984, device='cuda:0', grad_fn=<MinBackward1>)   tensor(59.5776, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-37.4452, device='cuda:0', grad_fn=<MinBackward1>)   tensor(55.9957, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.7323, device='cuda:0', grad_fn=<MinBackward1>)   tensor(53.4483, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.3324, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.9793, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4890):  60%|██████████████████████████████████████████                            | 33/55 [00:12<00:08,  2.64it/s]
+tensor(-31.3246, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.3673, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.0964, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.1888, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.1237, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.6069, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.3141, device='cuda:0', grad_fn=<MinBackward1>)   tensor(37.9135, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.4096, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.1774, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3714):  71%|█████████████████████████████████████████████████▋                    | 39/55 [00:14<00:05,  2.73it/s]
+tensor(-45.7625, device='cuda:0', grad_fn=<MinBackward1>)   tensor(63.9774, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.8187, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.0530, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.9163, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.5338, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.1776, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.4345, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3972):  80%|████████████████████████████████████████████████████████              | 44/55 [00:16<00:04,  2.65it/s]
+tensor(-33.5019, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.6396, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.7964, device='cuda:0', grad_fn=<MinBackward1>)   tensor(46.8390, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.9888, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.7913, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.6597, device='cuda:0', grad_fn=<MinBackward1>)   tensor(46.4977, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-44.4688, device='cuda:0', grad_fn=<MinBackward1>)   tensor(60.6310, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4456):  89%|██████████████████████████████████████████████████████████████▎       | 49/55 [00:18<00:02,  2.73it/s]
+tensor(-30.4130, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.0735, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-38.3694, device='cuda:0', grad_fn=<MinBackward1>)   tensor(58.7780, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.6593, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.4536, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.2805, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.7579, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Validation:   0%|                                                                                            | 0/14 [00:00<?, ?it/s]
+tensor(-32.3663, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.6899, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-38.5856, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.6497, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.9768, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.2298, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-44.8101, device='cuda:0', grad_fn=<MinBackward1>)   tensor(65.3925, device='cuda:0', grad_fn=<MaxBackward1>)
+
+
+
+
+
+
+
+Training:   0%|                                                                                              | 0/55 [00:00<?, ?it/s]
+
+Training: (loss 0.4611):  11%|███████▋                                                               | 6/55 [00:02<00:17,  2.76it/s]
+tensor(-33.6500, device='cuda:0', grad_fn=<MinBackward1>)   tensor(46.5260, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.7770, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.3493, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.0008, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.7313, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.0348, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.2490, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4040):  20%|██████████████                                                        | 11/55 [00:03<00:16,  2.72it/s]
+tensor(-42.1231, device='cuda:0', grad_fn=<MinBackward1>)   tensor(62.2228, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.4888, device='cuda:0', grad_fn=<MinBackward1>)   tensor(57.5734, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-21.7609, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.9308, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.3769, device='cuda:0', grad_fn=<MinBackward1>)   tensor(41.0046, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.4638, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.8135, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3991):  31%|█████████████████████▋                                                | 17/55 [00:06<00:14,  2.61it/s]
+tensor(-31.3618, device='cuda:0', grad_fn=<MinBackward1>)   tensor(53.6665, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-38.3268, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.1524, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.8465, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.3707, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.7560, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.5824, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4197):  40%|████████████████████████████                                          | 22/55 [00:08<00:12,  2.65it/s]
+tensor(-48.4910, device='cuda:0', grad_fn=<MinBackward1>)   tensor(63.3992, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-37.3072, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.1242, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-21.6400, device='cuda:0', grad_fn=<MinBackward1>)   tensor(26.8371, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-21.8957, device='cuda:0', grad_fn=<MinBackward1>)   tensor(32.1357, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3755):  49%|██████████████████████████████████▎                                   | 27/55 [00:09<00:10,  2.68it/s]
+tensor(-36.8722, device='cuda:0', grad_fn=<MinBackward1>)   tensor(63.4743, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.4649, device='cuda:0', grad_fn=<MinBackward1>)   tensor(49.7846, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.7712, device='cuda:0', grad_fn=<MinBackward1>)   tensor(56.5433, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.5390, device='cuda:0', grad_fn=<MinBackward1>)   tensor(55.6472, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.0426, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.8586, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4137):  60%|██████████████████████████████████████████                            | 33/55 [00:12<00:08,  2.64it/s]
+tensor(-38.4253, device='cuda:0', grad_fn=<MinBackward1>)   tensor(59.3795, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.7859, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.8642, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.6179, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.9281, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.8272, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.7677, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3632):  69%|████████████████████████████████████████████████▎                     | 38/55 [00:14<00:06,  2.82it/s]
+tensor(-28.2022, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.8284, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.9535, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.8578, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-38.7508, device='cuda:0', grad_fn=<MinBackward1>)   tensor(52.0688, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-41.5637, device='cuda:0', grad_fn=<MinBackward1>)   tensor(56.3523, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.7900, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.8325, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3933):  80%|████████████████████████████████████████████████████████              | 44/55 [00:16<00:04,  2.54it/s]
+tensor(-29.5021, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.1820, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.7202, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.7497, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.1960, device='cuda:0', grad_fn=<MinBackward1>)   tensor(64.8892, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.9322, device='cuda:0', grad_fn=<MinBackward1>)   tensor(50.1691, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4063):  89%|██████████████████████████████████████████████████████████████▎       | 49/55 [00:18<00:02,  2.62it/s]
+tensor(-38.1701, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.5532, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.9365, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.2387, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.1731, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.9921, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-31.4319, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.8207, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Validation:   0%|                                                                                            | 0/14 [00:00<?, ?it/s]
+tensor(-34.8089, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.6251, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-41.8436, device='cuda:0', grad_fn=<MinBackward1>)   tensor(55.3763, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-41.2059, device='cuda:0', grad_fn=<MinBackward1>)   tensor(50.0990, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.0918, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.0313, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-47.9934, device='cuda:0', grad_fn=<MinBackward1>)   tensor(66.9520, device='cuda:0', grad_fn=<MaxBackward1>)
+
+
+
+
+
+
+
+Training: (loss 0.3823):   2%|█▎                                                                     | 1/55 [00:00<00:20,  2.68it/s]
+
+Training: (loss 0.4324):   9%|██████▍                                                                | 5/55 [00:01<00:18,  2.71it/s]
+tensor(-35.3154, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.6758, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-43.2399, device='cuda:0', grad_fn=<MinBackward1>)   tensor(60.3729, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.0130, device='cuda:0', grad_fn=<MinBackward1>)   tensor(53.9681, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-23.9282, device='cuda:0', grad_fn=<MinBackward1>)   tensor(40.9266, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.0041, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.6542, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4017):  20%|██████████████                                                        | 11/55 [00:04<00:16,  2.63it/s]
+tensor(-32.3501, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.6225, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-37.5179, device='cuda:0', grad_fn=<MinBackward1>)   tensor(55.5500, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.9487, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.4424, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-42.9293, device='cuda:0', grad_fn=<MinBackward1>)   tensor(59.1978, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4132):  29%|████████████████████▎                                                 | 16/55 [00:06<00:14,  2.70it/s]
+tensor(-30.0084, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.1652, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.2135, device='cuda:0', grad_fn=<MinBackward1>)   tensor(46.5042, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.6613, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.3070, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.0939, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.0981, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4055):  40%|████████████████████████████                                          | 22/55 [00:08<00:12,  2.71it/s]
+tensor(-33.1642, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.8096, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-24.6635, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.4799, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-24.9909, device='cuda:0', grad_fn=<MinBackward1>)   tensor(34.2377, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.2129, device='cuda:0', grad_fn=<MinBackward1>)   tensor(49.3895, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-37.1172, device='cuda:0', grad_fn=<MinBackward1>)   tensor(50.1484, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3576):  49%|██████████████████████████████████▎                                   | 27/55 [00:10<00:10,  2.67it/s]
+tensor(-26.2974, device='cuda:0', grad_fn=<MinBackward1>)   tensor(47.8853, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.7390, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.4773, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.6244, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.7331, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-35.5253, device='cuda:0', grad_fn=<MinBackward1>)   tensor(49.1805, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3760):  58%|████████████████████████████████████████▋                             | 32/55 [00:12<00:09,  2.39it/s]
+tensor(-40.9689, device='cuda:0', grad_fn=<MinBackward1>)   tensor(55.9115, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.8419, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.8994, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.7915, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.8300, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-23.3901, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.5689, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3674):  69%|████████████████████████████████████████████████▎                     | 38/55 [00:14<00:06,  2.69it/s]
+tensor(-37.8508, device='cuda:0', grad_fn=<MinBackward1>)   tensor(55.7488, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-44.3099, device='cuda:0', grad_fn=<MinBackward1>)   tensor(57.3727, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.4774, device='cuda:0', grad_fn=<MinBackward1>)   tensor(59.6946, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-22.7304, device='cuda:0', grad_fn=<MinBackward1>)   tensor(31.5752, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.6629, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.4649, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4241):  78%|██████████████████████████████████████████████████████▋               | 43/55 [00:16<00:04,  2.65it/s]
+tensor(-32.4996, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.1373, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-29.5083, device='cuda:0', grad_fn=<MinBackward1>)   tensor(48.7363, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.5785, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.2504, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-44.4544, device='cuda:0', grad_fn=<MinBackward1>)   tensor(65.1884, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3722):  87%|█████████████████████████████████████████████████████████████         | 48/55 [00:18<00:02,  2.67it/s]
+tensor(-37.6714, device='cuda:0', grad_fn=<MinBackward1>)   tensor(53.4105, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-22.3310, device='cuda:0', grad_fn=<MinBackward1>)   tensor(32.8105, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-25.2583, device='cuda:0', grad_fn=<MinBackward1>)   tensor(35.5117, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.1848, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.7653, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4895):  98%|████████████████████████████████████████████████████████████████████▋ | 54/55 [00:20<00:00,  2.80it/s]
+tensor(-35.2302, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.1550, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.2070, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.8735, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-36.1751, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.6424, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.3509, device='cuda:0', grad_fn=<MinBackward1>)   tensor(50.4642, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.1559, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.7721, device='cuda:0', grad_fn=<MaxBackward1>)
+
+
+
+
+
+
+
+Training: (loss 0.3791):   2%|█▎                                                                     | 1/55 [00:00<00:18,  2.93it/s]
+tensor(-37.2920, device='cuda:0', grad_fn=<MinBackward1>)   tensor(52.2272, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3935):  13%|█████████                                                              | 7/55 [00:02<00:17,  2.75it/s]
+tensor(-46.4616, device='cuda:0', grad_fn=<MinBackward1>)   tensor(66.4963, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-33.1639, device='cuda:0', grad_fn=<MinBackward1>)   tensor(45.8362, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.6920, device='cuda:0', grad_fn=<MinBackward1>)   tensor(55.4029, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.2255, device='cuda:0', grad_fn=<MinBackward1>)   tensor(39.7587, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-40.1941, device='cuda:0', grad_fn=<MinBackward1>)   tensor(57.6118, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3792):  22%|███████████████▎                                                      | 12/55 [00:04<00:15,  2.72it/s]
+tensor(-25.5681, device='cuda:0', grad_fn=<MinBackward1>)   tensor(49.0463, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-42.3083, device='cuda:0', grad_fn=<MinBackward1>)   tensor(63.4096, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-45.1251, device='cuda:0', grad_fn=<MinBackward1>)   tensor(62.2322, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-28.9141, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.1043, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.4125):  33%|██████████████████████▉                                               | 18/55 [00:06<00:13,  2.70it/s]
+tensor(-26.7228, device='cuda:0', grad_fn=<MinBackward1>)   tensor(38.9866, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-20.6521, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.8691, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-24.2891, device='cuda:0', grad_fn=<MinBackward1>)   tensor(33.5098, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-30.6564, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.0301, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.0117, device='cuda:0', grad_fn=<MinBackward1>)   tensor(46.4952, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.3507):  42%|█████████████████████████████▎                                        | 23/55 [00:08<00:11,  2.70it/s]
+tensor(-34.1110, device='cuda:0', grad_fn=<MinBackward1>)   tensor(44.5548, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.6725, device='cuda:0', grad_fn=<MinBackward1>)   tensor(49.5087, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.8969, device='cuda:0', grad_fn=<MinBackward1>)   tensor(42.4342, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.8619, device='cuda:0', grad_fn=<MinBackward1>)   tensor(54.4799, device='cuda:0', grad_fn=<MaxBackward1>)
+Traceback (most recent call last):
+  File "main.py", line 125, in <module>
+    init_and_train_model(args.verbose)
+  File "main.py", line 93, in init_and_train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/segmentation.py", line 235, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 58, in run_trainer
+    self._train()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 88, in _train
+    for i, (x, y) in batch_iter:
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1180, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 561, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/research/deep-segmentation/segmentation/unet/customdatasets3.py", line 56, in __getitem__
+    x, y = self.transform(x, y)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 132, in __call__
+    inp, target = t(inp, target)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 114, in __call__
+    if self.target: tar = self.function(tar)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 35, in create_dense_target
+    dummy[mask] = idx
+KeyboardInterrupt
+tensor(-41.9006, device='cuda:0', grad_fn=<MinBackward1>)   tensor(51.7698, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-26.7317, device='cuda:0', grad_fn=<MinBackward1>)   tensor(50.3672, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-32.3941, device='cuda:0', grad_fn=<MinBackward1>)   tensor(43.1908, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-34.6738, device='cuda:0', grad_fn=<MinBackward1>)   tensor(50.7808, device='cuda:0', grad_fn=<MaxBackward1>)

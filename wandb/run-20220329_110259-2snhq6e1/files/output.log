@@ -1,0 +1,73 @@
+tensor(-10.2512, device='cuda:0', grad_fn=<MinBackward1>) tensor(41.0957, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-10.3086, device='cuda:0', grad_fn=<MinBackward1>) tensor(80.2054, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-10.2643, device='cuda:0', grad_fn=<MinBackward1>) tensor(56.7104, device='cuda:0', grad_fn=<MaxBackward1>)
+Progress:   0%|                                                                                                                           | 0/90 [00:00<?, ?it/s]
+
+Training: (loss 0.7151):   6%|██████▎                                                                                            | 7/110 [00:03<00:48,  2.12it/s]
+tensor(-9.7563, device='cuda:0', grad_fn=<MinBackward1>) tensor(58.5655, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-12.1732, device='cuda:0', grad_fn=<MinBackward1>) tensor(49.1904, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-10.4821, device='cuda:0', grad_fn=<MinBackward1>) tensor(65.5988, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-10.9663, device='cuda:0', grad_fn=<MinBackward1>) tensor(43.0830, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-9.7369, device='cuda:0', grad_fn=<MinBackward1>) tensor(75.8102, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-13.0601, device='cuda:0', grad_fn=<MinBackward1>) tensor(67.9530, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.7146):   9%|████████▉                                                                                         | 10/110 [00:05<01:02,  1.61it/s]
+tensor(-9.7464, device='cuda:0', grad_fn=<MinBackward1>) tensor(78.1269, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-10.3837, device='cuda:0', grad_fn=<MinBackward1>) tensor(61.4859, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-10.1585, device='cuda:0', grad_fn=<MinBackward1>) tensor(64.4213, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.6867):  13%|████████████▍                                                                                     | 14/110 [00:07<00:46,  2.07it/s]
+tensor(-8.7588, device='cuda:0', grad_fn=<MinBackward1>) tensor(88.8856, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-11.4072, device='cuda:0', grad_fn=<MinBackward1>) tensor(70.4237, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-9.3211, device='cuda:0', grad_fn=<MinBackward1>) tensor(66.3769, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-13.8929, device='cuda:0', grad_fn=<MinBackward1>) tensor(53.7335, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.6096):  17%|████████████████▉                                                                                 | 19/110 [00:09<00:40,  2.23it/s]
+tensor(-9.4385, device='cuda:0', grad_fn=<MinBackward1>) tensor(64.3578, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-10.9255, device='cuda:0', grad_fn=<MinBackward1>) tensor(45.5360, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.7362):  20%|███████████████████▌                                                                              | 22/110 [00:11<00:52,  1.69it/s]
+tensor(-9.3106, device='cuda:0', grad_fn=<MinBackward1>) tensor(66.7063, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-13.0351, device='cuda:0', grad_fn=<MinBackward1>) tensor(104.7428, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-9.5672, device='cuda:0', grad_fn=<MinBackward1>) tensor(59.9624, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.6473):  24%|███████████████████████▏                                                                          | 26/110 [00:13<00:46,  1.81it/s]
+tensor(-9.3720, device='cuda:0', grad_fn=<MinBackward1>) tensor(58.5067, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-9.4108, device='cuda:0', grad_fn=<MinBackward1>) tensor(45.2328, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-9.5328, device='cuda:0', grad_fn=<MinBackward1>) tensor(57.7211, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.5951):  27%|██████████████████████████▋                                                                       | 30/110 [00:15<00:37,  2.14it/s]
+tensor(-10.2313, device='cuda:0', grad_fn=<MinBackward1>) tensor(69.6859, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-9.5554, device='cuda:0', grad_fn=<MinBackward1>) tensor(69.7318, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-9.5135, device='cuda:0', grad_fn=<MinBackward1>) tensor(73.7113, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-10.2268, device='cuda:0', grad_fn=<MinBackward1>) tensor(69.6123, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.6140):  32%|███████████████████████████████▏                                                                  | 35/110 [00:17<00:33,  2.24it/s]
+tensor(-11.0462, device='cuda:0', grad_fn=<MinBackward1>) tensor(68.6634, device='cuda:0', grad_fn=<MaxBackward1>)
+
+Training: (loss 0.6196):  34%|████████████████████████████████▉                                                                 | 37/110 [00:18<00:41,  1.75it/s]
+tensor(-9.6847, device='cuda:0', grad_fn=<MinBackward1>) tensor(91.2667, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-10.5059, device='cuda:0', grad_fn=<MinBackward1>) tensor(55.0704, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-10.9921, device='cuda:0', grad_fn=<MinBackward1>) tensor(65.6071, device='cuda:0', grad_fn=<MaxBackward1>)
+Traceback (most recent call last):
+  File "main.py", line 132, in <module>
+    init_and_train_model(args.verbose)
+  File "main.py", line 81, in init_and_train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/segmentation.py", line 242, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 59, in run_trainer
+    self._train()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 94, in _train
+    print(sum_out.min(), sum_out.max())
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor.py", line 203, in __repr__
+    return torch._tensor_str._str(self)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor_str.py", line 406, in _str
+    return _str_intern(self)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor_str.py", line 381, in _str_intern
+    tensor_str = _tensor_str(self, indent)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor_str.py", line 242, in _tensor_str
+    formatter = _Formatter(get_summarized_data(self) if summarize else self)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor_str.py", line 90, in __init__
+    nonzero_finite_vals = torch.masked_select(tensor_view, torch.isfinite(tensor_view) & tensor_view.ne(0))
+KeyboardInterrupt

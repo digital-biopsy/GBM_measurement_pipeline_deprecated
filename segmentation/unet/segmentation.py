@@ -1,5 +1,8 @@
+import os
+import cv2
 import torch
 import wandb
+import shutil
 import pathlib
 import numpy as np
 import albumentations
@@ -15,7 +18,6 @@ from transformations import (
     FunctionWrapperDouble,
 )
 from unet import UNet
-from loss import IoULoss
 from trainer import Trainer
 from inference import predict
 from skimage.io import imread
@@ -29,7 +31,19 @@ from customdatasets3 import SegmentationDataSet3
 from sklearn.model_selection import train_test_split
 
 class Segmentation:
-    def __init__(self, data_path, epochs, weight, fit_steps, out_channels, batch_size, channel_dims, device, verbose=False):
+    def __init__(self, 
+                 data_path,
+                 epochs,
+                 weight,
+                 fit_steps,
+                 out_channels,
+                 batch_size,
+                 channel_dims,
+                 device,
+                 criterion,
+                 start_filters,
+                 loss_func,
+                 verbose=False):
         self.path = data_path
         self.verbose = verbose
         self.init = False
@@ -41,22 +55,16 @@ class Segmentation:
         self.device = device
         self.out_channels = out_channels
         self.batch_size = batch_size
+        self.criterion = criterion
+        self.start_filters = start_filters
+        self.loss_func = loss_func
 
         # constants
         self.channel_dims = channel_dims
         self.out_shape = 512
         self.learning_rate = 0.01
 
-        # initialize weights and bias
-        wandb.init(
-            project="digital-biopsy",
-            entity="zhaoze",
-            config = {
-            "learning_rate": self.learning_rate,
-            "cross_entropy_weight": self.cross_entropy_weight,
-            "epochs": self.epochs,
-            "fit_steps": self.fit_steps
-        })
+        self.initialize_model()
     
     def load_and_augment(self):
         """Load and preprocess the training images"""
@@ -187,39 +195,18 @@ class Segmentation:
             plt.show()
 
     def initialize_model(self):
-        # model
-        if self.verbose:
-            model = UNet(in_channels=self.channel_dims, #3
-                        out_channels=self.out_channels,
-                        n_blocks=4,
-                        start_filters=32,
-                        activation='relu',
-                        normalization='batch',
-                        conv_mode='same',
-                        dim=2)
-
-            x = torch.randn(size=(1, 1, 512, 512), dtype=torch.float32)
-            with torch.no_grad():
-                out = model(x)
-            print(f"Out: {out.shape}")
-            summary(model, (1, 512, 512), device="cpu")
-
         device = torch.device(self.device)
         self.model = UNet(in_channels=self.channel_dims, #3
              out_channels=self.out_channels,
              n_blocks=4,
-             start_filters=32,
+             start_filters=self.start_filters,
              activation='relu',
              normalization='batch',
              conv_mode='same',
              dim=2).to(device)
 
-        # criterion
-        weights = [1, self.cross_entropy_weight]
-        self.class_weights = torch.FloatTensor(weights).cuda()
-        # self.criterion = torch.nn.CrossEntropyLoss() #CrossEntropyLoss
-        self.criterion = torch.nn.CrossEntropyLoss(weight=self.class_weights) #CrossEntropyLoss
-        # self.criterion = IoULoss() #IoULoss
+
+        summary(self.model, (1, 512, 512), device=self.device)
 
         # optimizer
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=self.learning_rate) #learning rate
@@ -228,8 +215,23 @@ class Segmentation:
         self.init = True
 
     def train_model(self):
-        """Train the model and find the best learning rate."""
+        # Train the model and find the best learning rate.
         print('#'*25 + ' Start Training ' + '#'*25)
+        # initialize weights and bias
+        wandb.init(
+            project="digital-biopsy",
+            entity="zhaoze",
+            config = {
+            "learning_rate": self.learning_rate,
+            "cross_entropy_weight": self.cross_entropy_weight,
+            "epochs": self.epochs,
+            "fit_steps": self.fit_steps,
+            "batch_size": self.batch_size,
+            "channel_dims": self.channel_dims,
+            "start_filters": self.start_filters,
+            "loss_func": self.loss_func
+        })
+        # starts training
         device = torch.device(self.device)
         trainer = Trainer(model=self.model,
                         device=device,
@@ -245,31 +247,33 @@ class Segmentation:
 
         # start training
         training_losses, validation_losses, lr_rates = trainer.run_trainer()
-        # save the model
-        # model_name = "unet.pt"
-        # torch.save(self.model.state_dict(), pathlib.Path.cwd() / model_name)
+        
+        # # find best learning rate
+        # self.find_lr(training_losses, validation_losses, lr_rates)
 
-        #find best learning rate
-        # from lr_rate_finder import LearningRateFinder
+    def find_lr(self, training_losses, validation_losses, lr_rates):
+        # learning rate finding script
+        from lr_rate_finder import LearningRateFinder
 
-        # lrf = LearningRateFinder(self.model, self.criterion, self.optimizer, device)
-        # lrf.fit(self.dataloader_training, steps=self.fit_steps)
-        # lrf.plot()
+        lrf = LearningRateFinder(self.model, self.criterion, self.optimizer, device)
+        lrf.fit(self.dataloader_training, steps=self.fit_steps)
+        lrf.plot()
 
-        # fig = plot_training(
-        #     training_losses,
-        #     validation_losses,
-        #     lr_rates,
-        #     gaussian=True,
-        #     sigma=1,
-        #     figsize=(10, 4),
-        # )
+        fig = plot_training(
+            training_losses,
+            validation_losses,
+            lr_rates,
+            gaussian=True,
+            sigma=1,
+            figsize=(10, 4),
+        )
+
     
-    def load_val_images(self, model_name):
-        """Load and preprocess validation images"""
-        print('#'*25 + 'Loading Validation Images' + '#'*25)
+    def load_and_predict(self, model_name):
+        # Load and preprocess validation images
+        print('#'*25 + ' Loading Validation Images ' + '#'*25)
         # root directory
-        root = pathlib.Path.cwd() / "GBM_data_shuffled" / "test"
+        root = pathlib.Path.cwd() / "data" / "test"
 
         def get_filenames_of_path(path: pathlib.Path, ext: str = "*"):
             """Returns a list of files in a directory/path. Uses pathlib."""
@@ -290,10 +294,11 @@ class Segmentation:
         resize_kwargs = {"order": 0, "anti_aliasing": False, "preserve_range": True}
         targets_res = [resize(tar, (self.out_shape, self.out_shape), **resize_kwargs) for tar in targets]
 
-        # device
+        # device and weight
         device = torch.device(self.device)
+        model_path = 'models/' + model_name + '.pt'
 
-        model_weights = torch.load(pathlib.Path.cwd() / model_name, map_location=device)
+        model_weights = torch.load(pathlib.Path.cwd() / model_path, map_location=device)
         self.model.load_state_dict(model_weights)
 
         # preprocess function
@@ -313,37 +318,14 @@ class Segmentation:
             return img
 
         output = [predict(img, self.model, preprocess, postprocess, device) for img in images_res]
-        self.view_predictions(output, images_res, targets_res)
+        self.save_predictions(output, targets_res, model_name)
     
-    def view_predictions(self, output, images_res, targets_res):
-        """View test original images and predictions side-by-side."""
-        r = 10
-        c = 4
-        figure(figsize=(20, 100))
-        plt.gray()
-        print("Output Shape: ", output[0].shape)
-        print(output[0].mean())
-        for i in range(0,r*c):
-            predicted = output[i]
-            plt.subplot(r*2,c,i*2+1)
-            plt.imshow(predicted)
-            plt.subplot(r*2,c,i*2+2)
-            if self.channel_dims == 3:
-                plt.imshow(images_res[i])
-            else:
-                plt.imshow(images_res[i][:,:,0])
-
-        inv_targets_res = targets_res
-        inv_output = output
-        figure(figsize=(20, 30))
-        for i in range(0,len(output)):
-            inv_targets_res[i] = abs(normalize_01(targets_res[i]) - 1)
-            inv_output[i] = abs(normalize_01(output[i]) - 1)
-        for i in range(0,32): #can change which display, just also change subplot line
-            plt.subplot(8,4,i+1)
-            plt.imshow(inv_targets_res[i] - inv_output[i]) 
-        #calculate new Jaccards index (should be ~0.7-0.8)
-        jaccard = []
-        for i in range(0,10): #change which images for
-            jaccard.append(jaccard_score(inv_targets_res[i], inv_output[i], labels=None, pos_label=1, average='micro', sample_weight=None, zero_division='warn'))
-        print(f'The mean Jaccard index for test images is', np.mean(jaccard))
+    def save_predictions(self, output, targets_res, model_name):
+        # Create dirs to save predictions
+        abs_path = pathlib.Path.cwd() / 'pred' / model_name
+        save_path = 'pred/' + model_name
+        model_path = 'models/' + model_name
+        os.makedirs(abs_path)
+        
+        for i in range(len(output)):
+            cv2.imwrite(save_path + '/' + str(i) + '.jpg', output[i])

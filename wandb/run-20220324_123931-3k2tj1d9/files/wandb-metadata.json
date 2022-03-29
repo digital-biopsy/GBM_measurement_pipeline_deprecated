@@ -1,0 +1,26 @@
+{
+    "os": "Linux-4.15.0-156-generic-x86_64-with-glibc2.27",
+    "python": "3.8.10",
+    "heartbeatAt": "2022-03-24T04:39:36.709721",
+    "startedAt": "2022-03-24T04:39:31.512591",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 1,
+    "cpu_count": 64,
+    "cuda": null,
+    "args": [
+        "-t"
+    ],
+    "state": "running",
+    "program": "main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": "https://github.com/digital-biopsy/deep-segmentation.git",
+        "commit": "1501e212fc4084330b53c98b735ea00140565e79"
+    },
+    "email": "zhaozewang@yahoo.com",
+    "root": "/root/research/deep-segmentation",
+    "host": "I993df7681001018c0",
+    "username": "root",
+    "executable": "/usr/local/bin/python"
+}

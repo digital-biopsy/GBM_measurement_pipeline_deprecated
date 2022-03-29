@@ -7,11 +7,11 @@ Original file is located at
     https://colab.research.google.com/drive/1FXloJXP_BImJEQT94-1TUoD4731aXLBV
 """
 
-import numpy as np
+import os
 import torch
 import wandb
 import pathlib
-from loss import IoULoss
+import numpy as np
 
 class Trainer:
     def __init__(self,
@@ -61,9 +61,10 @@ class Trainer:
             if self.validation_dataLoader is not None:
                 self._validate()
             
-            if self.epoch % 10 == 0:
-                model_name = "unet_" + str(self.epoch) + "_epochs.pt"
+            if self.epoch % 5 == 0:
+                model_name = "models/unet_" + str(self.epoch) + "_epochs.pt"
                 torch.save(self.model.state_dict(), pathlib.Path.cwd() / model_name)
+                wandb.save(os.path.join(pathlib.Path.cwd(), model_name))
 
             wandb.log({
                 "validation_loss": self.val_loss,
@@ -72,12 +73,12 @@ class Trainer:
 
             # run learning rate scheduler if defined
             if self.lr_scheduler is not None:
+                print('#'*25 + ' Finding Learning Rate ' + '#'*25)
                 if self.validation_dataLoader is not None and self.lr_scheduler.__class__.__name__ == 'ReduceLROnPlateau':
                     self.lr_scheduler.batch(self.validation_loss[i])  # learning rate scheduler step with validation loss
                 else:
                     self.lr_scheduler.batch()  # learning rate scheduler step
         return self.training_loss, self.validation_loss, self.learning_rate
-
 
     def _train(self):
         self.model.train()  # train model
@@ -89,8 +90,8 @@ class Trainer:
             input, target = x.to(self.device), y.to(self.device)  # send to device (GPU or CPU)
             self.optimizer.zero_grad()  # zerograd the parameters
             out = self.model(input)  # one forward pass
+
             loss = self.criterion(out, target)  # calculate loss
-            # _loss = IoULoss(out, target)
             loss_value = loss.item()
             train_losses.append(loss_value)
             loss.backward()  # one backward pass
@@ -116,7 +117,6 @@ class Trainer:
             with torch.no_grad():
                 out = self.model(input)
                 loss = self.criterion(out, target)
-                # _loss = IoULoss(out, target)
                 loss_value = loss.item()
                 valid_losses.append(loss_value)
 

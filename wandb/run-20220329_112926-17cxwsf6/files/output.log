@@ -1,0 +1,89 @@
+Progress:   0%|                                                                                                                           | 0/90 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Validation: (loss 0.6044):  82%|███████████████████████████████████████████████████████████████████████████████▋                 | 23/28 [00:12<00:02,  1.68it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):
+  File "main.py", line 132, in <module>
+    init_and_train_model(args.verbose)
+  File "main.py", line 81, in init_and_train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/segmentation.py", line 242, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 59, in run_trainer
+    self._train()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 89, in _train
+    input, target = x.to(self.device), y.to(self.device)  # send to device (GPU or CPU)
+KeyboardInterrupt

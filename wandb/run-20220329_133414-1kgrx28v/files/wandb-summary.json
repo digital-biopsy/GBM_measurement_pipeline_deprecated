@@ -1,0 +1,1 @@
+{"intersection": 1756701.5, "total": 3844816.25, "union": 2088114.75, "_runtime": 173, "_timestamp": 1648532227, "_step": 687, "validation_loss": 0.15144438402993338, "training_loss": 0.16479912237687544, "_wandb": {"runtime": 173}}

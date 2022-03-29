@@ -3,14 +3,33 @@ This is the segmentation tool for digital biopsy project. It also contains some 
 ## To Do List
 - [x] Randomize the train test split.
 - [x] Add data (input/target/test) into .gitignore.
-- [ ] Current model does not work on cpu devices.
-- [ ] Train test split already included in the code, change current test folder to validation
-- [ ] Intergrate the image tiling with the training script.
-- [ ] Add grayscale augmentation methods to prevent overfitting on color.
+- [ ] Test if current model work on cpu devices.
+- [x] Train test split already included in the code, delete the validation folder.
+- [x] Intergrate the image tiling with the training script.
 - [ ] Refactor code to enable training on server/local pc.
-- [ ] Modulize code and seperate original data from augmentated training data.
-- [ ] Potentially develop an end-to-end prediction method.
-- [ ] Potentially use more advanced method when segmenting podocytes.
+- [ ] Check the optimizer logic
+- [ ] Add grayscale augmentation methods to prevent overfitting on color.
+- [ ] Move parameters to 'params-meta.py'
+## To Run The Script
+#### Commands
+Data pre-processing is required before training. The data path is defined in 'params-meta.py'
+```
+python main.py -prep
+```
+Hyperparameters are defined in 'params-meta.py'
+```
+python main.py -train
+```
+The following command will predict using the trained model and save the predictions under the 'pred' folder<br>
+Note: the model must align with the weight matrices that used to predict. Changing the hyperparameters might cause runtime failures.
+```
+python main.py -pred
+```
+#### Optional command(s)
+The following optional command works with '-pred' and '-train'. This will verbosely print out some of the training progresses that help debugging.
+```
+-v
+```
 ## Git Commands
 The easiest way to use github is through [Github Desktop](https://desktop.github.com/). But here are some commands that might be helpful in case of necessary.
 #### 1. Clone the repository

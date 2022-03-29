@@ -1,0 +1,10 @@
+
+######################### Loading and Augmenting Images #########################
+Traceback (most recent call last):
+  File "main.py", line 91, in <module>
+    init_and_train_model(args.verbose)
+  File "main.py", line 76, in init_and_train_model
+    DeepSeg.initialize_model()
+  File "/root/research/deep-segmentation/segmentation/unet/segmentation.py", line 226, in initialize_model
+    summary = summary(model, (1, 512, 512), device="cpu")
+UnboundLocalError: local variable 'summary' referenced before assignment

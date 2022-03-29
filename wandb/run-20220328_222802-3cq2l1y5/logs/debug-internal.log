@@ -1,0 +1,219 @@
+2022-03-28 22:28:04,223 INFO    MainThread:4218 [internal.py:wandb_internal():89] W&B internal server running at pid: 4218, started at: 2022-03-28 22:28:04.223383
+2022-03-28 22:28:04,226 INFO    WriterThread:4218 [datastore.py:open_for_write():77] open: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/run-3cq2l1y5.wandb
+2022-03-28 22:28:04,227 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: check_version
+2022-03-28 22:28:04,231 DEBUG   SenderThread:4218 [sender.py:send():235] send: header
+2022-03-28 22:28:04,231 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: check_version
+2022-03-28 22:28:06,306 DEBUG   SenderThread:4218 [sender.py:send():235] send: run
+2022-03-28 22:28:06,641 INFO    SenderThread:4218 [dir_watcher.py:__init__():169] watching files in: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files
+2022-03-28 22:28:06,641 INFO    SenderThread:4218 [sender.py:_start_run_threads():809] run started: 3cq2l1y5 with start time 1648477683
+2022-03-28 22:28:06,641 DEBUG   SenderThread:4218 [sender.py:send():235] send: summary
+2022-03-28 22:28:06,642 INFO    SenderThread:4218 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-03-28 22:28:06,644 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: run_start
+2022-03-28 22:28:06,650 DEBUG   HandlerThread:4218 [meta.py:__init__():36] meta init
+2022-03-28 22:28:06,650 DEBUG   HandlerThread:4218 [meta.py:__init__():50] meta init done
+2022-03-28 22:28:06,651 DEBUG   HandlerThread:4218 [meta.py:probe():210] probe
+2022-03-28 22:28:06,658 DEBUG   HandlerThread:4218 [meta.py:_setup_git():200] setup git
+2022-03-28 22:28:06,679 DEBUG   HandlerThread:4218 [meta.py:_setup_git():207] setup git done
+2022-03-28 22:28:06,679 DEBUG   HandlerThread:4218 [meta.py:_save_pip():54] save pip
+2022-03-28 22:28:06,680 DEBUG   HandlerThread:4218 [meta.py:_save_pip():68] save pip done
+2022-03-28 22:28:06,680 DEBUG   HandlerThread:4218 [meta.py:probe():248] probe done
+2022-03-28 22:28:06,779 DEBUG   SenderThread:4218 [sender.py:send():235] send: files
+2022-03-28 22:28:06,779 INFO    SenderThread:4218 [sender.py:_save_file():944] saving file wandb-metadata.json with policy now
+2022-03-28 22:28:06,789 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-28 22:28:06,790 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: stop_status
+2022-03-28 22:28:07,538 INFO    Thread-11 :4218 [upload_job.py:push():137] Uploaded file /tmp/tmp_ebveft1wandb/ndzs22we-wandb-metadata.json
+2022-03-28 22:28:07,644 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/wandb-metadata.json
+2022-03-28 22:28:07,645 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/requirements.txt
+2022-03-28 22:28:07,645 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:07,645 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/wandb-summary.json
+2022-03-28 22:28:09,675 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:22,285 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-28 22:28:22,286 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: stop_status
+2022-03-28 22:28:29,687 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:31,688 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:33,689 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:35,431 DEBUG   SenderThread:4218 [sender.py:send():235] send: stats
+2022-03-28 22:28:35,690 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:37,586 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-28 22:28:37,587 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: stop_status
+2022-03-28 22:28:37,691 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:39,692 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:41,693 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:43,694 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:45,696 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:47,697 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:49,698 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:51,699 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:53,059 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-28 22:28:53,060 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: stop_status
+2022-03-28 22:28:53,700 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:55,701 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:57,702 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:28:59,704 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:01,321 DEBUG   SenderThread:4218 [sender.py:send():235] send: history
+2022-03-28 22:29:01,322 DEBUG   SenderThread:4218 [sender.py:send():235] send: summary
+2022-03-28 22:29:01,322 INFO    SenderThread:4218 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-03-28 22:29:01,705 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:01,705 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/wandb-summary.json
+2022-03-28 22:29:03,706 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:05,707 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:06,933 DEBUG   SenderThread:4218 [sender.py:send():235] send: stats
+2022-03-28 22:29:07,708 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:08,339 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-28 22:29:08,339 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: stop_status
+2022-03-28 22:29:09,710 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:11,711 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:13,712 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:15,713 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:17,714 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:19,715 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:21,716 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:23,618 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-28 22:29:23,619 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: stop_status
+2022-03-28 22:29:23,717 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:25,718 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:27,719 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:29,721 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:31,722 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:33,690 DEBUG   SenderThread:4218 [sender.py:send():235] send: history
+2022-03-28 22:29:33,691 DEBUG   SenderThread:4218 [sender.py:send():235] send: summary
+2022-03-28 22:29:33,692 INFO    SenderThread:4218 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-03-28 22:29:33,723 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:33,723 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/wandb-summary.json
+2022-03-28 22:29:35,724 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:37,724 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:38,243 DEBUG   SenderThread:4218 [sender.py:send():235] send: stats
+2022-03-28 22:29:38,906 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-28 22:29:38,907 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: stop_status
+2022-03-28 22:29:39,726 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:41,727 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:43,728 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:45,729 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:47,730 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:49,731 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:51,732 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:53,733 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:54,267 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-28 22:29:54,268 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: stop_status
+2022-03-28 22:29:55,735 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:57,736 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:29:59,440 WARNING MainThread:4218 [internal.py:wandb_internal():152] Internal process interrupt: 1
+2022-03-28 22:29:59,737 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:30:01,738 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:30:02,391 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:02,391 DEBUG   SenderThread:4218 [sender.py:send():235] send: telemetry
+2022-03-28 22:30:02,392 DEBUG   SenderThread:4218 [sender.py:send():235] send: exit
+2022-03-28 22:30:02,392 INFO    SenderThread:4218 [sender.py:send_exit():371] handling exit code: 255
+2022-03-28 22:30:02,392 INFO    SenderThread:4218 [sender.py:send_exit():373] handling runtime: 115
+2022-03-28 22:30:02,393 INFO    SenderThread:4218 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-03-28 22:30:02,393 INFO    SenderThread:4218 [sender.py:send_exit():379] send defer
+2022-03-28 22:30:02,394 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:02,395 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: defer
+2022-03-28 22:30:02,395 INFO    HandlerThread:4218 [handler.py:handle_request_defer():154] handle defer: 0
+2022-03-28 22:30:02,395 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: defer
+2022-03-28 22:30:02,396 INFO    SenderThread:4218 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-03-28 22:30:02,396 INFO    SenderThread:4218 [sender.py:transition_state():392] send defer: 1
+2022-03-28 22:30:02,396 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: defer
+2022-03-28 22:30:02,397 INFO    HandlerThread:4218 [handler.py:handle_request_defer():154] handle defer: 1
+2022-03-28 22:30:02,478 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: defer
+2022-03-28 22:30:02,478 INFO    SenderThread:4218 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-03-28 22:30:02,478 INFO    SenderThread:4218 [sender.py:transition_state():392] send defer: 2
+2022-03-28 22:30:02,479 DEBUG   SenderThread:4218 [sender.py:send():235] send: stats
+2022-03-28 22:30:02,480 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: defer
+2022-03-28 22:30:02,480 INFO    HandlerThread:4218 [handler.py:handle_request_defer():154] handle defer: 2
+2022-03-28 22:30:02,481 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: defer
+2022-03-28 22:30:02,481 INFO    SenderThread:4218 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-03-28 22:30:02,481 INFO    SenderThread:4218 [sender.py:transition_state():392] send defer: 3
+2022-03-28 22:30:02,482 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: defer
+2022-03-28 22:30:02,482 INFO    HandlerThread:4218 [handler.py:handle_request_defer():154] handle defer: 3
+2022-03-28 22:30:02,483 DEBUG   SenderThread:4218 [sender.py:send():235] send: summary
+2022-03-28 22:30:02,484 INFO    SenderThread:4218 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-03-28 22:30:02,484 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: defer
+2022-03-28 22:30:02,484 INFO    SenderThread:4218 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-03-28 22:30:02,484 INFO    SenderThread:4218 [sender.py:transition_state():392] send defer: 4
+2022-03-28 22:30:02,485 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: defer
+2022-03-28 22:30:02,485 INFO    HandlerThread:4218 [handler.py:handle_request_defer():154] handle defer: 4
+2022-03-28 22:30:02,486 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: defer
+2022-03-28 22:30:02,486 INFO    SenderThread:4218 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-03-28 22:30:02,498 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:02,738 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:30:02,739 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/wandb-summary.json
+2022-03-28 22:30:02,812 INFO    SenderThread:4218 [sender.py:transition_state():392] send defer: 5
+2022-03-28 22:30:02,812 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:02,813 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: defer
+2022-03-28 22:30:02,814 INFO    HandlerThread:4218 [handler.py:handle_request_defer():154] handle defer: 5
+2022-03-28 22:30:02,814 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: defer
+2022-03-28 22:30:02,814 INFO    SenderThread:4218 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-03-28 22:30:02,815 INFO    SenderThread:4218 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-03-28 22:30:02,915 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:03,739 INFO    Thread-8  :4218 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/config.yaml
+2022-03-28 22:30:03,740 INFO    SenderThread:4218 [dir_watcher.py:finish():313] scan: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files
+2022-03-28 22:30:03,741 INFO    SenderThread:4218 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/config.yaml config.yaml
+2022-03-28 22:30:03,741 INFO    SenderThread:4218 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/wandb-summary.json wandb-summary.json
+2022-03-28 22:30:03,751 INFO    SenderThread:4218 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/requirements.txt requirements.txt
+2022-03-28 22:30:03,759 INFO    SenderThread:4218 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/wandb-metadata.json wandb-metadata.json
+2022-03-28 22:30:03,760 INFO    SenderThread:4218 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log output.log
+2022-03-28 22:30:03,770 INFO    SenderThread:4218 [sender.py:transition_state():392] send defer: 6
+2022-03-28 22:30:03,770 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:03,771 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: defer
+2022-03-28 22:30:03,771 INFO    HandlerThread:4218 [handler.py:handle_request_defer():154] handle defer: 6
+2022-03-28 22:30:03,780 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: defer
+2022-03-28 22:30:03,780 INFO    SenderThread:4218 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-03-28 22:30:03,781 INFO    SenderThread:4218 [file_pusher.py:finish():177] shutting down file pusher
+2022-03-28 22:30:03,872 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:03,873 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:03,975 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:03,975 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:04,077 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:04,077 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:04,179 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:04,180 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:04,282 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:04,283 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:04,385 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:04,385 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:04,488 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:04,488 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:04,509 INFO    Thread-13 :4218 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/wandb-summary.json
+2022-03-28 22:30:04,591 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:04,591 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:04,599 INFO    Thread-15 :4218 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/output.log
+2022-03-28 22:30:04,612 INFO    Thread-14 :4218 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/requirements.txt
+2022-03-28 22:30:04,693 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:04,694 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:04,744 INFO    Thread-12 :4218 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/files/config.yaml
+2022-03-28 22:30:04,796 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:04,797 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:04,899 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:04,899 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:04,945 INFO    Thread-7  :4218 [sender.py:transition_state():392] send defer: 7
+2022-03-28 22:30:04,946 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: defer
+2022-03-28 22:30:04,946 INFO    HandlerThread:4218 [handler.py:handle_request_defer():154] handle defer: 7
+2022-03-28 22:30:04,946 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: defer
+2022-03-28 22:30:04,946 INFO    SenderThread:4218 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-03-28 22:30:05,001 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:05,654 INFO    SenderThread:4218 [sender.py:transition_state():392] send defer: 8
+2022-03-28 22:30:05,654 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:05,655 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: defer
+2022-03-28 22:30:05,656 INFO    HandlerThread:4218 [handler.py:handle_request_defer():154] handle defer: 8
+2022-03-28 22:30:05,656 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: defer
+2022-03-28 22:30:05,656 INFO    SenderThread:4218 [sender.py:send_request_defer():388] handle sender defer: 8
+2022-03-28 22:30:05,657 INFO    SenderThread:4218 [sender.py:transition_state():392] send defer: 9
+2022-03-28 22:30:05,657 DEBUG   SenderThread:4218 [sender.py:send():235] send: final
+2022-03-28 22:30:05,658 DEBUG   SenderThread:4218 [sender.py:send():235] send: footer
+2022-03-28 22:30:05,659 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: defer
+2022-03-28 22:30:05,659 INFO    HandlerThread:4218 [handler.py:handle_request_defer():154] handle defer: 9
+2022-03-28 22:30:05,659 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: defer
+2022-03-28 22:30:05,659 INFO    SenderThread:4218 [sender.py:send_request_defer():388] handle sender defer: 9
+2022-03-28 22:30:05,757 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: poll_exit
+2022-03-28 22:30:05,757 DEBUG   SenderThread:4218 [sender.py:send_request():249] send_request: poll_exit
+2022-03-28 22:30:05,758 INFO    SenderThread:4218 [file_pusher.py:join():182] waiting for file pusher
+2022-03-28 22:30:06,648 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: get_summary
+2022-03-28 22:30:06,650 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: sampled_history
+2022-03-28 22:30:06,652 DEBUG   HandlerThread:4218 [handler.py:handle_request():131] handle_request: shutdown
+2022-03-28 22:30:06,652 INFO    HandlerThread:4218 [handler.py:finish():739] shutting down handler
+2022-03-28 22:30:06,659 INFO    WriterThread:4218 [datastore.py:close():281] close: /root/research/deep-segmentation/wandb/run-20220328_222802-3cq2l1y5/run-3cq2l1y5.wandb
+2022-03-28 22:30:07,647 INFO    SenderThread:4218 [sender.py:finish():1075] shutting down sender
+2022-03-28 22:30:07,647 INFO    SenderThread:4218 [file_pusher.py:finish():177] shutting down file pusher
+2022-03-28 22:30:07,647 INFO    SenderThread:4218 [file_pusher.py:join():182] waiting for file pusher
+2022-03-28 22:30:07,650 INFO    MainThread:4218 [internal.py:handle_exit():79] Internal process exited
