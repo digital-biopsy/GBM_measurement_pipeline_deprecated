@@ -7,7 +7,7 @@ import shutil
 import argparse
 sys.path.append(os.path.join(sys.path[0], 'data-preprocess'))
 sys.path.append(os.path.join(sys.path[0], 'evaluation'))
-sys.path.append(os.path.join(sys.path[0], 'segmentation', 'unet'))
+sys.path.append(os.path.join(sys.path[0], 'segmentation'))
 from re import A
 from ast import arg
 # import local files
@@ -19,7 +19,18 @@ from data_prep import UnetPrep
 from eval_results import Evaluate
 from segmentation import Segmentation
 
-ENV = {
+# ============================== parameters ==============================
+# global parameters
+env = 'server'
+DEVICE = {
+  'server': 'cuda',
+  'local': 'cpu'
+}
+
+# pre-processing parameters
+dataset = '16wks'
+sliding_step = 256
+PATH = {
   'server': '/hy-tmp/',
   'local': '/Users/ericwang/Desktop/Research/Digital-Biopsy/'
 }
@@ -27,31 +38,23 @@ DATASET = {
   '4wks': 'train-data-4wks/',
   '16wks': 'train-data-16wks/'
 }
-DEVICE = {
-  'server': 'cuda',
-  'local': 'cpu'
-}
-dataset = '16wks'
 
-env = 'server'
-data_path = 'data'
+# model parameters
 nums_epochs = 90
-cross_entropy_weight = 0.09
 fit_steps = 500
 channel_dims = 1
 out_channels = 1
 device = DEVICE[env]
-batch_size = 8
-sliding_step = 256
+batch_size = 2
 start_filters = 64
 
-# criterion
-SMOOTH = 1e-6
-
-loss_func = 'Tversky'
+# loss functions
+loss_func = 'WCE'
+cross_entropy_weight = 0.095
 
 if loss_func == 'WCE':
-  weights = [1-cross_entropy_weight, cross_entropy_weight]
+  out_channels = 2
+  weights = [1, cross_entropy_weight]
   class_weights = torch.FloatTensor(weights).cuda()
   criterion = torch.nn.CrossEntropyLoss(weight=class_weights) #CrossEntropyLoss
 elif loss_func == 'IoU':
@@ -65,13 +68,15 @@ elif loss_func == 'Tversky':
 else:
   print('please use a valid loss function')
 
-models = ['15']
+# prediction parameters
+models = ['5', '10']
 
+# ============================== run-time functions ==============================
 # initialize image preprocess
 def preprocess_data(verbose):
   Preprocess = UnetPrep(verbose)
   Preprocess.sliding_step = sliding_step
-  Preprocess.data_path = ENV[env] + DATASET[dataset] # change to train-data when cropping GBMs
+  Preprocess.data_path = PATH[env] + DATASET[dataset] # change to train-data when cropping GBMs
   Preprocess.update_image_stats()
   Preprocess.update_image_list()
   Preprocess.generate_image_tiles()
@@ -82,7 +87,7 @@ def evaluate_results():
 
 def init_and_train_model(verbose):
   DeepSeg = Segmentation(
-    data_path=data_path,
+    data_path='data',
     epochs=nums_epochs,
     weight=cross_entropy_weight,
     fit_steps=fit_steps,
@@ -103,7 +108,7 @@ def init_and_train_model(verbose):
 
 def predict_results(verbose):
   DeepSeg = Segmentation(
-    data_path=data_path,
+    data_path='data',
     epochs=nums_epochs,
     weight=cross_entropy_weight,
     fit_steps=fit_steps,
@@ -121,24 +126,7 @@ def predict_results(verbose):
   os.makedirs(abs_path)
   for m in models:
     m_name = 'unet_' + m + '_epochs'
-    DeepSeg.load_and_predict(m_name)
-
-# def init_and_train_model(verbose):
-#   DeepSeg = Segmentation(
-#     data_path=data_path,
-#     epochs=nums_epochs,
-#     weight=cross_entropy_weight,
-#     fit_steps=fit_steps,
-#     device=device,
-#     out_channels = out_channels,
-#     batch_size = batch_size,
-#     channel_dims = channel_dims,
-#     verbose=verbose,
-#     criterion=criterion
-#   )
-#   DeepSeg.load_and_augment()
-#   DeepSeg.reload_model()
-#   DeepSeg.train_model()
+    DeepSeg.load_and_predict(m_name, out_channels)
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Process train arguments')
@@ -154,7 +142,11 @@ if __name__ == '__main__':
   if args.preprocess:
     preprocess_data(args.verbose)
   elif args.init_train:
-    init_and_train_model(args.verbose)
+    val = input("Train will delete weight vectors previously trained, are you sure to proceed? [y/n]: ")
+    if val == 'y':
+      init_and_train_model(args.verbose)
+    elif val != 'n':
+      print('invalid input')
   # elif args.cont_train:
   #   print(args.integers)
   elif args.predict:

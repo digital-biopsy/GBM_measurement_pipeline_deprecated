@@ -74,7 +74,11 @@ class Segmentation:
         def get_filenames_of_path(path: pathlib.Path, ext: str = "*"):
             """Returns a list of files in a directory/path. Uses pathlib."""
             filenames = [file for file in path.glob(ext) if file.is_file()]
-            return sorted(filenames)
+            def get_key(fp):
+                filename = os.path.splitext(os.path.basename(fp))[0]
+                int_part = filename.split()[0]
+                return int(int_part)
+            return sorted(filenames, key=get_key)
 
         # for some reason the augmented data is (0,255) and won't normalize...
         # input and target files
@@ -269,7 +273,7 @@ class Segmentation:
         )
 
     
-    def load_and_predict(self, model_name):
+    def load_and_predict(self, model_name, out_channels):
         # Load and preprocess validation images
         print('#'*25 + ' Loading Validation Images ' + '#'*25)
         # root directory
@@ -278,7 +282,11 @@ class Segmentation:
         def get_filenames_of_path(path: pathlib.Path, ext: str = "*"):
             """Returns a list of files in a directory/path. Uses pathlib."""
             filenames = [file for file in path.glob(ext) if file.is_file()]
-            return sorted(filenames)
+            def get_key(fp):
+                filename = os.path.splitext(os.path.basename(fp))[0]
+                int_part = filename.split()[0]
+                return int(int_part)
+            return sorted(filenames, key=get_key)
 
         # input and target files
         images_names = get_filenames_of_path(root / "inputs")
@@ -311,8 +319,10 @@ class Segmentation:
 
         # postprocess function
         def postprocess(img: torch.tensor):
-            img = torch.argmax(img, dim=1)  # perform argmax to generate 1 channel
+            if out_channels > 1:
+                img = torch.argmax(img, dim=1)  # perform argmax to generate 1 channel
             img = img.cpu().numpy()  # send to cpu and transform to numpy.ndarray
+            img = np.where(img > 0.5, 1, 0)
             img = np.squeeze(img)  # remove batch dim and channel dim -> [H, W]
             img = re_normalize(img)  # scale it to the range [0-255]
             return img
@@ -328,4 +338,4 @@ class Segmentation:
         os.makedirs(abs_path)
         
         for i in range(len(output)):
-            cv2.imwrite(save_path + '/' + str(i) + '.jpg', output[i])
+            cv2.imwrite(save_path + '/' + str(i+1) + '.jpg', output[i])

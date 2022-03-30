@@ -67,13 +67,13 @@ class UnetPrep:
     return True
 
 
-  def crop(self, image, label, count, image_path, label_path):
+  def crop(self, image, label, count, image_path, label_path, start_idx):
     # find image shape
     shape = image.shape
     # calculate image/label number to make each file name identical
     tilecols = ((shape[1] - self.crop_size) // self.sliding_step) + 1
     tilerows = ((shape[0] - self.crop_size) // self.sliding_step) + 1
-    start_idx = tilerows * tilecols * count
+    start_idx
     index = 1
     idx_list = []
     # iterate over columns and rows of image
@@ -98,7 +98,7 @@ class UnetPrep:
           cv2.imwrite(label_path + '/' + save_idx, lb_crop)
           idx_list.append(save_idx)
           index += 1
-    return idx_list
+    return idx_list, (index + start_idx - 1)
 
 
   def save_info(self, idx_list, img_path, input_dir, label_dir):
@@ -126,6 +126,7 @@ class UnetPrep:
 
   def crop_image_label(self, inputs, labels, input_dir, label_dir):
     if self.check_matches(inputs, labels, 'files crop'):
+      start_index = 0
       for i in range(len(inputs)):
         # read images/labels in gray scale
         raw = cv2.imread(inputs[i], cv2.IMREAD_GRAYSCALE)
@@ -138,7 +139,7 @@ class UnetPrep:
         if raw.shape == label.shape:
           abs_input_dir = os.path.join(sys.path[0], self.train_dir, input_dir)
           abs_label_dir = os.path.join(sys.path[0], self.train_dir, label_dir)
-          idx_list = self.crop(raw, label, i, abs_input_dir, abs_label_dir)
+          idx_list, start_index = self.crop(raw, label, i, abs_input_dir, abs_label_dir, start_index)
           self.save_info(idx_list, inputs[i], input_dir, label_dir)
         else:
           print('image size and label size does not match')

@@ -22,7 +22,7 @@ def predict(img,
     with torch.no_grad():
         out = model(x)  # send through model/network
 
-    out_softmax = torch.softmax(out, dim=1)  # perform softmax on outputs
-    result = postprocess(out_softmax)  # postprocess outputs
+    # out_softmax = torch.softmax(out, dim=1)  # perform softmax on outputs
+    result = postprocess(out)  # postprocess outputs
 
     return result

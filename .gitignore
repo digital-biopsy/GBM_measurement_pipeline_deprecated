@@ -6,3 +6,4 @@ data/test/
 data/val/
 pred/*
 *.pt
+**/.ipynb_checkpoints
