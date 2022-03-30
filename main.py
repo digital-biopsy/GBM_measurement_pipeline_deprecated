@@ -69,7 +69,7 @@ else:
   print('please use a valid loss function')
 
 # prediction parameters
-models = ['5', '10']
+models = ['40', '45']
 
 # ============================== run-time functions ==============================
 # initialize image preprocess
