@@ -9,12 +9,13 @@ from sklearn.model_selection import train_test_split
 class UnetPrep:
 
   # initialize class
-  def __init__(self, verbose=False):
+  def __init__(self, verbose=False, split_ratio=0.2):
     # parameters
     self.verbose = verbose
     self.sliding_step = 256
     self.crop_size = 512
     self.shrink_factor = 0.5
+    self.split_ratio = split_ratio
 
     # change to your local data path (where raw image/labels are stored)
     self.seg_type = '-GBMlabels'
@@ -165,12 +166,19 @@ class UnetPrep:
     self.check_matches(inputs, labels, 'files read')
 
     # random split dataset
-    x_train, x_test, y_train, y_test = train_test_split(
-      inputs, labels, test_size=0.2, random_state=42)
+    if self.split_ratio == 0:
+      x_train = inputs
+      y_train = labels
+    elif self.split_ratio == 1:
+      x_test = inputs
+      y_test = labels
+    else:
+      x_train, x_test, y_train, y_test = train_test_split(
+        inputs, labels, test_size=self.split_ratio, random_state=42)
 
     # crop images
-    self.crop_image_label(x_train, y_train, 'inputs', 'labels')
-    self.crop_image_label(x_test, y_test, 'test/inputs', 'test/labels')
+    if self.split_ratio != 1: self.crop_image_label(x_train, y_train, 'inputs', 'labels')
+    if self.split_ratio != 0: self.crop_image_label(x_test, y_test, 'test/inputs', 'test/labels')
 
     csv_path = os.path.join(sys.path[0], self.train_dir, 'tile_stats.csv')
     self.tile_stats.to_csv(csv_path)

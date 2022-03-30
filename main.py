@@ -28,15 +28,17 @@ DEVICE = {
 }
 
 # pre-processing parameters
-dataset = '16wks'
-sliding_step = 256
+dataset = 'ILK'
+split_ratio = 1
+sliding_step = 512
 PATH = {
   'server': '/hy-tmp/',
   'local': '/Users/ericwang/Desktop/Research/Digital-Biopsy/'
 }
 DATASET = {
   '4wks': 'train-data-4wks/',
-  '16wks': 'train-data-16wks/'
+  '16wks': 'train-data-16wks/',
+  'ILK': 'train-data-ILK/'
 }
 
 # model parameters
@@ -69,12 +71,12 @@ else:
   print('please use a valid loss function')
 
 # prediction parameters
-models = ['40', '45']
+models = ['45']
 
 # ============================== run-time functions ==============================
 # initialize image preprocess
 def preprocess_data(verbose):
-  Preprocess = UnetPrep(verbose)
+  Preprocess = UnetPrep(verbose, split_ratio)
   Preprocess.sliding_step = sliding_step
   Preprocess.data_path = PATH[env] + DATASET[dataset] # change to train-data when cropping GBMs
   Preprocess.update_image_stats()
