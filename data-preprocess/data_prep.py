@@ -20,6 +20,7 @@ class UnetPrep:
     # change to your local data path (where raw image/labels are stored)
     self.seg_type = '-GBMlabels'
     self.data_path = ''
+    self.datasets = []
     self.train_dir = 'data'
 
     # import image info and save to tile info
@@ -28,11 +29,11 @@ class UnetPrep:
 
   def update_image_stats(self):
     # update image stats (read csv) after data_path is defined
-    self.img_stats = pd.read_csv(os.path.join(self.data_path, 'stats.csv'))
+    self.img_stats = pd.read_csv(os.path.join(self.data_path + self.datasets[0], 'stats.csv'))
 
-  def get_image_list(self, sub_dir):
+  def get_image_list(self, root_path, sub_dir):
     # save image list path
-    data_path = os.path.join(self.data_path, sub_dir)
+    data_path = os.path.join(root_path, sub_dir)
 
     file_name = os.path.join(sys.path[0], self.train_dir, sub_dir + '.txt')
     file = open(file_name, 'w')
@@ -186,5 +187,7 @@ class UnetPrep:
 
   def update_image_list(self):
     # generate image and label file lists
-    self.get_image_list('labels')
-    self.get_image_list('inputs')
+    for d in self.datasets:
+      root_path = self.data_path + d
+      self.get_image_list(root_path, 'labels')
+      self.get_image_list(root_path, 'inputs')

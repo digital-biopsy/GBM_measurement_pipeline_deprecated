@@ -61,9 +61,9 @@ class Trainer:
             if self.validation_dataLoader is not None:
                 self._validate()
             
-            if self.epoch % 5 == 0:
+            if self.epoch % 1 == 0:
                 model_name = "models/unet_" + str(self.epoch) + "_epochs.pt"
-                torch.save(self.model.state_dict(), pathlib.Path.cwd() / model_name)
+                torch.save(self.model.state_dict(), os.path.join(pathlib.Path.cwd(), model_name))
                 wandb.save(os.path.join(pathlib.Path.cwd(), model_name))
 
             wandb.log({

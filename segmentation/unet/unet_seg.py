@@ -30,7 +30,7 @@ from sklearn.metrics import jaccard_score
 from customdatasets3 import SegmentationDataSet3
 from sklearn.model_selection import train_test_split
 
-class Segmentation:
+class UnetSeg:
     def __init__(self, 
                  data_path,
                  epochs,

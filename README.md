@@ -9,7 +9,7 @@ This is the segmentation tool for digital biopsy project. It also contains some 
 - [ ] Refactor code to enable training on server/local pc.
 - [ ] Check the optimizer logic
 - [ ] Add grayscale augmentation methods to prevent overfitting on color.
-- [ ] Move parameters to 'params-meta.py'
+- [x] Move parameters to 'params_meta.py'
 ## To Run The Script
 #### Commands
 Data pre-processing is required before training. The data path is defined in 'params-meta.py'
