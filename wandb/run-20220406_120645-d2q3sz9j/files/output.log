@@ -1,0 +1,123 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Saving files without folders. If you want to preserve sub directories pass base_path to wandb.save, i.e. wandb.save("/mnt/folder/file.h5", base_path="/mnt")
+Progress:   0%|                                                                                               | 0/1 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Progress:   0%|                                                                                               | 0/1 [00:38<?, ?it/s]
+Traceback (most recent call last):
+  File "main.py", line 130, in <module>
+    arg = args.verbose
+  File "main.py", line 107, in ask_if_proceed
+    if (arg is not None): callback(arg)
+  File "main.py", line 43, in k_fold
+    train_model(DeepSeg, save_dir)
+  File "main.py", line 73, in train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/unet_seg.py", line 250, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 65, in run_trainer
+    self._validate()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 126, in _validate
+    batch_iter.set_description(f'Validation: (loss {loss_value:.4f})')
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1393, in set_description
+    self.refresh()
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1346, in refresh
+    self.display()
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1494, in display
+    self.sp(self.__str__() if msg is None else msg)
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1150, in __str__
+    return self.format_meter(**self.format_dict)
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 540, in format_meter
+    return disp_trim(res, ncols) if ncols else res
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 345, in disp_trim
+    if len(data) == disp_len(data):
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 338, in disp_len
+    return _text_width(RE_ANSI.sub('', data))
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 330, in _text_width
+    return sum(2 if east_asian_width(ch) in 'FW' else 1 for ch in _unicode(s))
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 330, in <genexpr>
+    return sum(2 if east_asian_width(ch) in 'FW' else 1 for ch in _unicode(s))
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "main.py", line 130, in <module>
+    arg = args.verbose
+  File "main.py", line 107, in ask_if_proceed
+    if (arg is not None): callback(arg)
+  File "main.py", line 43, in k_fold
+    train_model(DeepSeg, save_dir)
+  File "main.py", line 73, in train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/unet_seg.py", line 250, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 65, in run_trainer
+    self._validate()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 126, in _validate
+    batch_iter.set_description(f'Validation: (loss {loss_value:.4f})')
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1393, in set_description
+    self.refresh()
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1346, in refresh
+    self.display()
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1494, in display
+    self.sp(self.__str__() if msg is None else msg)
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1150, in __str__
+    return self.format_meter(**self.format_dict)
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 540, in format_meter
+    return disp_trim(res, ncols) if ncols else res
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 345, in disp_trim
+    if len(data) == disp_len(data):
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 338, in disp_len
+    return _text_width(RE_ANSI.sub('', data))
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 330, in _text_width
+    return sum(2 if east_asian_width(ch) in 'FW' else 1 for ch in _unicode(s))
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 330, in <genexpr>
+    return sum(2 if east_asian_width(ch) in 'FW' else 1 for ch in _unicode(s))
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "main.py", line 130, in <module>
+    arg = args.verbose
+  File "main.py", line 107, in ask_if_proceed
+    if (arg is not None): callback(arg)
+  File "main.py", line 43, in k_fold
+    train_model(DeepSeg, save_dir)
+  File "main.py", line 73, in train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/unet_seg.py", line 250, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 65, in run_trainer
+    self._validate()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 126, in _validate
+    batch_iter.set_description(f'Validation: (loss {loss_value:.4f})')
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1393, in set_description
+    self.refresh()
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1346, in refresh
+    self.display()
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1494, in display
+    self.sp(self.__str__() if msg is None else msg)
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1150, in __str__
+    return self.format_meter(**self.format_dict)
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 540, in format_meter
+    return disp_trim(res, ncols) if ncols else res
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 345, in disp_trim
+    if len(data) == disp_len(data):
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 338, in disp_len
+    return _text_width(RE_ANSI.sub('', data))
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 330, in _text_width
+    return sum(2 if east_asian_width(ch) in 'FW' else 1 for ch in _unicode(s))
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/utils.py", line 330, in <genexpr>
+    return sum(2 if east_asian_width(ch) in 'FW' else 1 for ch in _unicode(s))
+KeyboardInterrupt

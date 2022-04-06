@@ -1,0 +1,50 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Saving files without folders. If you want to preserve sub directories pass base_path to wandb.save, i.e. wandb.save("/mnt/folder/file.h5", base_path="/mnt")
+Progress:   0%|                                                                                              | 0/90 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):
+  File "main.py", line 119, in <module>
+    ask_if_proceed(callback, arg)
+  File "main.py", line 92, in ask_if_proceed
+    if (arg is not None): callback(arg)
+  File "main.py", line 65, in init_and_train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/unet_seg.py", line 251, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 62, in run_trainer
+    self._train()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 100, in _train
+    loss.backward()  # one backward pass
+  File "/usr/local/lib/python3.8/dist-packages/torch/_tensor.py", line 255, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/autograd/__init__.py", line 147, in backward
+    Variable._execution_engine.run_backward(
+KeyboardInterrupt

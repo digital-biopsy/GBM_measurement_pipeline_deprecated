@@ -10,7 +10,7 @@ np.random.seed(123)
 import warnings
 import numpy as np
 from keras import backend as K
-from keras.optimizers import Adam, Nadam
+from tensorflow.keras.optimizers import Adam, Nadam
 import tensorflow as tf
 def el(y_true, y_pred):
     l = keras.losses.BinaryCrossentropy(y_true,y_pred)

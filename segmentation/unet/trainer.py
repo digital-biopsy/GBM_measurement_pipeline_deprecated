@@ -12,6 +12,7 @@ import torch
 import wandb
 import pathlib
 import numpy as np
+from termcolor import colored
 
 class Trainer:
     def __init__(self,
@@ -25,7 +26,8 @@ class Trainer:
                  epochs: int = 100,
                  epoch: int = 0,
                  notebook: bool = False,
-                 verbose: bool = False
+                 verbose: bool = False,
+                 current_dir: str = ''
                  ):
 
         self.model = model
@@ -38,6 +40,7 @@ class Trainer:
         self.epochs = epochs
         self.epoch = epoch
         self.notebook = notebook
+        self.current_dir = current_dir
 
         self.training_loss = []
         self.validation_loss = []
@@ -61,10 +64,10 @@ class Trainer:
             if self.validation_dataLoader is not None:
                 self._validate()
             
-            if self.epoch % 1 == 0:
-                model_name = "models/unet_" + str(self.epoch) + "_epochs.pt"
+            if self.epoch % 5 == 0:
+                model_name = "models/" + self.current_dir + "unet_" + str(self.epoch) + "_epochs.pt"
                 torch.save(self.model.state_dict(), os.path.join(pathlib.Path.cwd(), model_name))
-                wandb.save(os.path.join(pathlib.Path.cwd(), model_name))
+                wandb.save(os.path.join(pathlib.Path.cwd(), model_name), base_path='models')
 
             wandb.log({
                 "validation_loss": self.val_loss,
@@ -73,7 +76,7 @@ class Trainer:
 
             # run learning rate scheduler if defined
             if self.lr_scheduler is not None:
-                print('#'*25 + ' Finding Learning Rate ' + '#'*25)
+                print(colored(('#'*25 + ' Finding Learning Rate ' + '#'*25), 'green'))
                 if self.validation_dataLoader is not None and self.lr_scheduler.__class__.__name__ == 'ReduceLROnPlateau':
                     self.lr_scheduler.batch(self.validation_loss[i])  # learning rate scheduler step with validation loss
                 else:

@@ -1,6 +1,7 @@
 import os
 import sys
 import torch
+from termcolor import colored
 sys.path.append(os.path.join(sys.path[0], 'segmentation/unet'))
 from unet_loss import IoULoss, FocalLoss, DiceLoss, TverskyLoss
 
@@ -14,7 +15,7 @@ DEVICE = {
 
 # pre-processing parameters
 datasets = ['ILK', '4wks']
-split_ratio = 0.2 # 0 if all in inputs, 1 if all in tests, 0.2 by default
+kfold = 5 # 0 if all in inputs, 1 if all in tests, 5 by default (80% train 20% test)
 sliding_step = 300
 PATH = {
   'server': '/hy-tmp/',
@@ -27,7 +28,7 @@ DATASET = {
 }
 
 # model parameters
-nums_epochs = 90
+nums_epochs = 15
 fit_steps = 500
 channel_dims = 1
 out_channels = 1
@@ -53,7 +54,7 @@ elif loss_func == 'Focal':
 elif loss_func == 'Tversky':
   criterion = TverskyLoss()
 else:
-  print('please use a valid loss function')
+  print(colored('please use a valid loss function', 'red'))
 
 # prediction parameters
 models = ['45']

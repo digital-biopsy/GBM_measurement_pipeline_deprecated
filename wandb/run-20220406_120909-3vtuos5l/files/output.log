@@ -1,0 +1,75 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Saving files without folders. If you want to preserve sub directories pass base_path to wandb.save, i.e. wandb.save("/mnt/folder/file.h5", base_path="/mnt")
+Progress:   0%|                                                                                              | 0/15 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):
+  File "main.py", line 131, in <module>
+    ask_if_proceed(callback, arg)
+  File "main.py", line 107, in ask_if_proceed
+    if (arg is not None): callback(arg)
+  File "main.py", line 43, in k_fold
+    train_model(DeepSeg, save_dir)
+  File "main.py", line 73, in train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/unet_seg.py", line 250, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 62, in run_trainer
+    self._train()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 93, in _train
+    input, target = x.to(self.device), y.to(self.device)  # send to device (GPU or CPU)
+KeyboardInterrupt

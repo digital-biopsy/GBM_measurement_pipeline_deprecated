@@ -7,6 +7,7 @@ import pathlib
 import numpy as np
 import albumentations
 import matplotlib as mpl
+from termcolor import colored
 import matplotlib.pyplot as plt
 from re import S
 from transformations import (
@@ -43,10 +44,12 @@ class UnetSeg:
                  criterion,
                  start_filters,
                  loss_func,
-                 verbose=False):
+                 verbose=False,
+                 current_dir=''):
         self.path = data_path
         self.verbose = verbose
         self.init = False
+        self.current_dir = current_dir
 
         # hyperparameters
         self.epochs = epochs
@@ -64,11 +67,10 @@ class UnetSeg:
         self.out_shape = 512
         self.learning_rate = 0.01
 
-        self.initialize_model()
     
     def load_and_augment(self):
         """Load and preprocess the training images"""
-        print('#'*25 + ' Loading and Augmenting Images ' + '#'*25)
+        print(colored(('#'*25 + ' Loading and Augmenting Images ' + '#'*25), 'green'))
         root = pathlib.Path.cwd()/self.path
 
         def get_filenames_of_path(path: pathlib.Path, ext: str = "*"):
@@ -220,21 +222,15 @@ class UnetSeg:
 
     def train_model(self):
         # Train the model and find the best learning rate.
-        print('#'*25 + ' Start Training ' + '#'*25)
+        print(colored(('#'*25 + ' Start Training ' + '#'*25), 'green'))
         # initialize weights and bias
         wandb.init(
             project="digital-biopsy",
             entity="zhaoze",
             config = {
-            "learning_rate": self.learning_rate,
-            "cross_entropy_weight": self.cross_entropy_weight,
-            "epochs": self.epochs,
-            "fit_steps": self.fit_steps,
-            "batch_size": self.batch_size,
-            "channel_dims": self.channel_dims,
-            "start_filters": self.start_filters,
-            "loss_func": self.loss_func
+                'model': 'unet'
         })
+        wandb.save(os.path.join(pathlib.Path.cwd(),'params_meta.py'))
         # starts training
         device = torch.device(self.device)
         trainer = Trainer(model=self.model,
@@ -247,13 +243,15 @@ class UnetSeg:
                         epochs=self.epochs,
                         epoch=0,
                         notebook=False,
-                        verbose=self.verbose)
+                        verbose=self.verbose,
+                        current_dir=self.current_dir)
 
         # start training
         training_losses, validation_losses, lr_rates = trainer.run_trainer()
         
         # # find best learning rate
         # self.find_lr(training_losses, validation_losses, lr_rates)
+        wandb.finish()
 
     def find_lr(self, training_losses, validation_losses, lr_rates):
         # learning rate finding script
@@ -275,7 +273,7 @@ class UnetSeg:
     
     def load_and_predict(self, model_name, out_channels):
         # Load and preprocess validation images
-        print('#'*25 + ' Loading Validation Images ' + '#'*25)
+        print(colored(('#'*25 + ' Loading Validation Images ' + '#'*25), 'green'))
         # root directory
         root = pathlib.Path.cwd() / "data" / "test"
 

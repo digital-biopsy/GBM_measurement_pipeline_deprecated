@@ -6,6 +6,7 @@ import shutil
 import argparse
 from re import A
 from ast import arg
+from termcolor import colored
 
 # import local files
 sys.path.append(os.path.join(sys.path[0], 'data-preprocess'))
@@ -18,30 +19,34 @@ from eval_results import Evaluate
 
 # ============================== run-time functions ==============================
 # initialize image preprocess
-def preprocess_data(verbose, task):
-  print('#'*25, ' preprocessing dataset using %s mode ' % task, '#'*25)
-  if task == 'shuffle':
-    Preprocess = UnetPrep(verbose, pm.split_ratio)
-    Preprocess.sliding_step = pm.sliding_step
-    Preprocess.data_path = pm.PATH[pm.env]
-    Preprocess.datasets = [pm.DATASET[d] for d in pm.datasets]
-    Preprocess.update_image_stats()
-    Preprocess.update_image_list()
-    Preprocess.generate_image_tiles()
-  elif task == '5fold':
-    Preprocess = UnetPrep(verbose, pm.split_ratio)
-    Preprocess.sliding_step = pm.sliding_step
-    Preprocess.data_path = pm.PATH[pm.env]
-    Preprocess.datasets = [pm.DATASET[d] for d in pm.datasets]
-    Preprocess.update_image_stats()
-    Preprocess.update_image_list()
-    Preprocess.generate_image_tiles()
+def setup_preprocess(verbose):
+  Preprocess = UnetPrep(verbose)
+  Preprocess.sliding_step = pm.sliding_step
+  Preprocess.data_path = pm.PATH[pm.env]
+  Preprocess.datasets = [pm.DATASET[d] for d in pm.datasets]
+  Preprocess.update_image_stats()
+  return Preprocess
+
+def preprocess_data(verbose):
+  print(colored(('#'*25 + ' Preprocessing Dataset ' + '#'*25), 'green'))
+  Preprocess = setup_preprocess(verbose)
+  Preprocess.update_image_list()
+  Preprocess.generate_image_tiles(0,pm.kfold)
+
+def k_fold(verbose):
+  print(colored(('#'*25 + ' Start Training with k-fold Validation ' + '#'*25), 'green'))
+  Preprocess = setup_preprocess(verbose)
+  DeepSeg = init_model(verbose)
+  for n in range(pm.kfold):
+    save_dir = 'fold_%s/' % str(n+1)
+    Preprocess.generate_image_tiles(n,pm.kfold)
+    train_model(DeepSeg, save_dir)
     
 def evaluate_results():
   Eval = Evaluate()
   Eval.evaluate()
 
-def init_and_train_model(verbose):
+def init_model(verbose):
   DeepSeg = UnetSeg(
     data_path = 'data',
     epochs = pm.nums_epochs,
@@ -54,13 +59,25 @@ def init_and_train_model(verbose):
     channel_dims = pm.channel_dims,
     verbose = verbose,
     start_filters = pm.start_filters,
-    criterion = pm.criterion
+    criterion = pm.criterion,
   )
-  model_dir = pathlib.Path.cwd() / 'models'
+  DeepSeg.load_and_augment()
+  return DeepSeg
+
+def train_model(DeepSeg, save_dir):
+  model_dir = pathlib.Path.cwd() / 'models' / save_dir
   if not os.path.exists(model_dir):
       os.makedirs(model_dir)
-  DeepSeg.load_and_augment()
+  DeepSeg.current_dir = save_dir
+  DeepSeg.initialize_model()
   DeepSeg.train_model()
+
+
+def init_and_train_model(verbose, current_fold=0):
+  save_dir = ''
+  DeepSeg = init_model(verbose)
+  train_model(DeepSeg, save_dir)
+
 
 def predict_results(verbose):
   DeepSeg = UnetSeg(
@@ -84,11 +101,21 @@ def predict_results(verbose):
     m_name = 'unet_' + m + '_epochs'
     DeepSeg.load_and_predict(m_name, pm.out_channels)
 
+def ask_if_proceed(callback, arg):
+    val = input(colored("This command will delete previously trained models, are you sure to proceed? [y/n]: ", 'yellow'))
+    if val == 'y':
+      if (arg is not None): callback(arg)
+      else: callback()
+    elif val != 'n':
+      print(colored('invalid input', 'red'))
+
+
 if __name__ == '__main__':
+  print('start parser')
   parser = argparse.ArgumentParser(description='Process train arguments')
   parser.add_argument('-prep', '--preprocess', action='store_true', help='preprocess dataset')
-  parser.add_argument('-prep_opt', '--prep_opt', default='shuffle', help='shuffle | 5fold')
   parser.add_argument('-train', '--init_train', action='store_true', help='train and initialize model')
+  parser.add_argument('-kfold', '--kfold', action='store_true', help='train under kfold')
   # parser.add_argument('-c', '--cont_train', action='store_true', help='continue training')
   # parser.add_argument('--integers', type=str, help='epoch num to continue training')
   parser.add_argument('-pred', '--predict', action='store_true', help='predict output')
@@ -96,16 +123,16 @@ if __name__ == '__main__':
   parser.add_argument('-eval', '--evaluation', action='store_true', help='evaluate the model')
   args = parser.parse_args()
 
-  assert (args.prep_opt in ['shuffle', '5fold']), 'preproceesing should be shuffle or 5fold'
-
   if args.preprocess:
-    preprocess_data(args.verbose, args.prep_opt)
+    preprocess_data(args.verbose)
+  elif args.kfold:
+    callback = k_fold
+    arg = args.verbose
+    ask_if_proceed(callback, arg)
   elif args.init_train:
-    val = input("This might delete previously trained models, are you sure to proceed? [y/n]: ")
-    if val == 'y':
-      init_and_train_model(args.verbose)
-    elif val != 'n':
-      print('invalid input')
+    callback = init_and_train_model
+    arg = args.verbose
+    ask_if_proceed(callback, arg)
   elif args.predict:
     predict_results(args.verbose)
   elif args.evaluation:
@@ -113,4 +140,4 @@ if __name__ == '__main__':
   # elif args.cont_train:
   #   print(args.integers)
   else:
-    print('please input arg(s)')
+    print(colored('please input arg(s)', 'red'))

@@ -1,0 +1,82 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Saving files without folders. If you want to preserve sub directories pass base_path to wandb.save, i.e. wandb.save("/mnt/folder/file.h5", base_path="/mnt")
+Progress:   0%|                                                                                              | 0/90 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):
+  File "main.py", line 120, in <module>
+    callback = init_and_train_model
+  File "main.py", line 93, in ask_if_proceed
+    val = input(colored("This command will delete previously trained models, are you sure to proceed? [y/n]: ", 'yellow'))
+  File "main.py", line 66, in init_and_train_model
+    os.makedirs(model_dir)
+  File "/root/research/deep-segmentation/segmentation/unet/unet_seg.py", line 251, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 65, in run_trainer
+    self._validate()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 117, in _validate
+    for i, (x, y) in batch_iter:
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1180, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 561, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/research/deep-segmentation/segmentation/unet/customdatasets3.py", line 56, in __getitem__
+    x, y = self.transform(x, y)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 132, in __call__
+    inp, target = t(inp, target)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 113, in __call__
+    if self.input: inp = self.function(inp)
+  File "/usr/local/lib/python3.8/dist-packages/skimage/transform/_warps.py", line 187, in resize
+    out = ndi.zoom(image, zoom_factors, order=order, mode=ndi_mode,
+  File "/usr/local/lib/python3.8/dist-packages/scipy/ndimage/interpolation.py", line 817, in zoom
+    _nd_image.zoom_shift(filtered, zoom, None, output, order, mode, cval, npad,
