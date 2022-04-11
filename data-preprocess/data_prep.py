@@ -2,9 +2,11 @@ import os
 import sys
 import cv2
 import shutil
+import pathlib
 import pandas as pd
 import numpy as np
 from random import shuffle
+from itertools import compress
 from termcolor import colored
 from sklearn.model_selection import train_test_split
 
@@ -34,12 +36,14 @@ class UnetPrep:
     self.img_stats = pd.read_csv(os.path.join(self.data_path + self.datasets[0], 'stats.csv'))
 
 
-  def __get_image_list__(self, root_path, sub_dir):
+  def __get_image_list__(self, root_path, sub_dir, sub_name):
     # save image list path
     data_path = os.path.join(root_path, sub_dir)
 
-    file_name = os.path.join(sys.path[0], self.train_dir, sub_dir + '.txt')
-    file = open(file_name, 'w')
+    file_name = 'kfold/' + sub_dir + '_' + sub_name + '.txt'
+    file = pathlib.Path(os.path.join(sys.path[0], self.train_dir, file_name))
+    file.touch(exist_ok=True)
+    file = open(file, 'w')
 
     for root, _, files in os.walk(data_path):
       files = sorted(files)
@@ -50,27 +54,64 @@ class UnetPrep:
     file.close()
   
 
-  def __shuffle_image_list__(self, input_dir, label_dir):
-    inputs = self.__read_files_list__(input_dir)
-    labels = self.__read_files_list__(label_dir)
+  def __read_image_list__(self, input_dir, label_dir, k):
+    input_list, label_list, tar_list, tar_unique = [], [], [], []
+    for sub in self.datasets:
+      sub_name = sub.split('-')[-1].split('/')[0]
+      ipt = self.__read_files_list__(input_dir+'_'+sub_name)
+      lbl = self.__read_files_list__(label_dir+'_'+sub_name)
 
-    idx_list = list(range(len(inputs)))
-    shuffle(idx_list)
+      input_list.append(ipt)
+      label_list.append(lbl)
+      
+      target_idx = [i.split('/')[-1].split('-')[0] for i in ipt]
+      tar_list.append(target_idx)
 
-    input_file_name = os.path.join(sys.path[0], self.train_dir, input_dir + '.txt')
-    label_file_name = os.path.join(sys.path[0], self.train_dir, label_dir + '.txt')
-    input_file = open(input_file_name, 'w')
-    label_file = open(label_file_name, 'w')
+      tar_unq = list(set(target_idx))
+      shuffle_idx = list(range(k))
+      shuffle(shuffle_idx)
+      tar_unique.append([tar_unq[shuffle_idx[n]] for n in range(k)])
+    
+    return [input_list, label_list, tar_list, tar_unique]
 
-    for i in idx_list[:-1]:
+
+  def __shuffle_image_list__(self, input_dir, label_dir, k):
+    [input_list, label_list, tar_list, tar_unique] = self.__read_image_list__(input_dir, label_dir, k)
+
+    for n in range(k):
+      save_dir = 'fold_%s/' % str(n+1)
+      save_dir = pathlib.Path.cwd() / 'data' / 'kfold' / save_dir
+      if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+      
+      inputs, labels = [], []
+      for i in range(len(self.datasets)):
+        cur_tar = tar_unique[i]
+        filter = [tar_list[i][j]==cur_tar[n] for j in range(len(tar_list[i]))]
+        ipt = list(compress(input_list[i], filter))
+        lbl = list(compress(label_list[i], filter))
+        inputs += ipt
+        labels += lbl
+
+      self.__save_image_data__(save_dir, inputs, labels)
+
+  
+  def __save_image_data__(self, save_dir, inputs, labels):
+    input_file = pathlib.Path(os.path.join(sys.path[0], save_dir, 'inputs.txt'))
+    label_file = pathlib.Path(os.path.join(sys.path[0], save_dir, 'labels.txt'))
+    input_file.touch(exist_ok=True)
+    label_file.touch(exist_ok=True)
+    input_file = open(input_file, 'w')
+    label_file = open(label_file, 'w')
+
+    for i in range(len(inputs)-1):
       input_file.write(inputs[i] + '\n')
       label_file.write(labels[i] + '\n')
-
     input_file.write(inputs[-1]) # avoid writing a blank line at the end of the file
     label_file.write(labels[-1]) # avoid writing a blank line at the end of the file
     input_file.close()
     label_file.close()
-  
+
 
   def __make_train_dirs__(self):
     path_list = ['inputs', 'labels', 'test/inputs', 'test/labels']
@@ -214,10 +255,11 @@ class UnetPrep:
     self.tile_stats.to_csv(csv_path)
 
 
-  def update_image_list(self):
+  def update_image_list(self, k):
     # generate image and label file lists
     for d in self.datasets:
       root_path = self.data_path + d
-      self.__get_image_list__(root_path, 'labels')
-      self.__get_image_list__(root_path, 'inputs')
-    # self.__shuffle_image_list__('labels', 'inputs')
+      sub_name = d.split('-')[-1].split('/')[0]
+      self.__get_image_list__(root_path, 'labels', sub_name)
+      self.__get_image_list__(root_path, 'inputs', sub_name)
+    self.__shuffle_image_list__('kfold/labels', 'kfold/inputs', k)

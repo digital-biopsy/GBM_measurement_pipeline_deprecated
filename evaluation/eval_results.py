@@ -10,7 +10,7 @@ class Evaluate:
     def __init__(self):
         self.train_dir = 'data'
         self.labels = pd.read_csv(os.path.join(sys.path[0], self.train_dir, 'tile_stats.csv'))
-        self.drop_nan_vals()
+        # self.drop_nan_vals()
 
     def drop_nan_vals(self):
         self.labels = self.labels.dropna()

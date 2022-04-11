@@ -30,7 +30,7 @@ def setup_preprocess(verbose):
 def preprocess_data(verbose):
   print(colored(('#'*25 + ' Preprocessing Dataset ' + '#'*25), 'green'))
   Preprocess = setup_preprocess(verbose)
-  Preprocess.update_image_list()
+  Preprocess.update_image_list(pm.kfold)
   Preprocess.generate_image_tiles(0,pm.kfold)
 
 def k_fold(verbose):
@@ -111,7 +111,6 @@ def ask_if_proceed(callback, arg):
 
 
 if __name__ == '__main__':
-  print('start parser')
   parser = argparse.ArgumentParser(description='Process train arguments')
   parser.add_argument('-prep', '--preprocess', action='store_true', help='preprocess dataset')
   parser.add_argument('-train', '--init_train', action='store_true', help='train and initialize model')
