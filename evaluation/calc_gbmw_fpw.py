@@ -32,7 +32,7 @@ class GBMW_FPW():
         predicted = [imread(img_name) for img_name in images_names_pred]
         images_names_orig = self.get_filenames_of_path(root / "inputs")
         original = [imread(img_name) for img_name in images_names_orig]
-        return predicted,original
+        return predicted, original
 
     def blur_mask(self, predicted, blur_const):
         blur = filters.gaussian(predicted, blur_const)

@@ -20,10 +20,12 @@ from eval_results import Evaluate
 # ============================== run-time functions ==============================
 # initialize image preprocess
 def setup_preprocess(verbose):
-  Preprocess = UnetPrep(verbose)
-  Preprocess.sliding_step = pm.sliding_step
-  Preprocess.data_path = pm.PATH[pm.env]
-  Preprocess.datasets = [pm.DATASET[d] for d in pm.datasets]
+  Preprocess = UnetPrep(
+    data_path = pm.PATH[pm.env],
+    datasets = [pm.DATASET[d] for d in pm.datasets],
+    sliding_step = pm.sliding_step,
+    verbose = verbose
+  )
   Preprocess.update_image_stats()
   return Preprocess
 
@@ -31,7 +33,7 @@ def preprocess_data(verbose):
   print(colored(('#'*25 + ' Preprocessing Dataset ' + '#'*25), 'green'))
   Preprocess = setup_preprocess(verbose)
   Preprocess.update_image_list(pm.kfold)
-  Preprocess.generate_image_tiles(0,pm.kfold)
+  Preprocess.generate_image_tiles(1,pm.kfold)
 
 def k_fold(verbose):
   print(colored(('#'*25 + ' Start Training with k-fold Validation ' + '#'*25), 'green'))
@@ -94,11 +96,13 @@ def predict_results(verbose):
     start_filters = pm.start_filters,
     criterion = pm.criterion
   )
-  abs_path = pathlib.Path.cwd() / 'data' / 'pred'
+  DeepSeg.initialize_model()
+  cur_fold = 'fold_%s/' % str(1)
+  abs_path = pathlib.Path.cwd() / 'pred'
   if not os.path.exists(abs_path):
       os.makedirs(abs_path)
   for m in pm.models:
-    m_name = 'unet_' + m + '_epochs'
+    m_name = cur_fold + 'unet_' + m + '_epochs'
     DeepSeg.load_and_predict(m_name, pm.out_channels)
 
 def ask_if_proceed(callback, arg):
@@ -114,7 +118,7 @@ if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Process train arguments')
   parser.add_argument('-prep', '--preprocess', action='store_true', help='preprocess dataset')
   parser.add_argument('-train', '--init_train', action='store_true', help='train and initialize model')
-  parser.add_argument('-kfold', '--kfold', action='store_true', help='train under kfold')
+  parser.add_argument('-kfold', '--kfold', action='store_true', help='train using kfold cross-validation')
   # parser.add_argument('-c', '--cont_train', action='store_true', help='continue training')
   # parser.add_argument('--integers', type=str, help='epoch num to continue training')
   parser.add_argument('-pred', '--predict', action='store_true', help='predict output')

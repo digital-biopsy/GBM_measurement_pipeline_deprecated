@@ -57,4 +57,4 @@ else:
   print(colored('please use a valid loss function', 'red'))
 
 # prediction parameters
-models = ['45']
+models = ['15']

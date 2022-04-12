@@ -3,7 +3,7 @@ __pycache__/
 data/inputs/
 data/labels/
 data/test/
-data/val/
+data/kfold/
 pred/*
 *.pt
 **/.ipynb_checkpoints

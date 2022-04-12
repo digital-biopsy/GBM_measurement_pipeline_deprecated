@@ -13,17 +13,17 @@ from sklearn.model_selection import train_test_split
 class UnetPrep:
 
   # initialize class
-  def __init__(self, verbose=False):
+  def __init__(self, data_path, datasets, sliding_step, verbose=False):
     # parameters
     self.verbose = verbose
-    self.sliding_step = 256
+    self.sliding_step = sliding_step
     self.crop_size = 512
     self.shrink_factor = 0.5
 
     # change to your local data path (where raw image/labels are stored)
     self.seg_type = '-GBMlabels'
-    self.data_path = ''
-    self.datasets = []
+    self.data_path = data_path
+    self.datasets = datasets
     self.train_dir = 'data'
 
     # import image info and save to tile info
@@ -35,13 +35,39 @@ class UnetPrep:
     # update image stats (read csv) after data_path is defined
     self.img_stats = pd.read_csv(os.path.join(self.data_path + self.datasets[0], 'stats.csv'))
 
+  def __get_image_list__(self, sub_dir):
+    """
+    Get image list without using kfold.
+    """
+    file_name = os.path.join(sys.path[0], self.train_dir, sub_dir + '.txt')
+    if os.path.exists(file_name): 
+      os.remove(file_name)
+    file = open(file_name, 'w')
 
-  def __get_image_list__(self, root_path, sub_dir, sub_name):
+    for dataset in self.datasets:
+      data_path = os.path.join(self.data_path + dataset, sub_dir)
+
+      for root, _, files in os.walk(data_path):
+        files = sorted(files)
+        for name in files:
+          if name != '.DS_Store':
+            file.write(os.path.join(root, name) + '\n')
+        # file.write(os.path.join(root, files[-1])) # avoid write a blank line
+    remove_chars = len(os.linesep)
+    file.truncate(file.tell() - remove_chars)
+    file.close()
+  
+  def __get_kfold_image_list__(self, root_path, sub_dir, sub_name):
+    """
+    Get images list in kfold fashion
+    """
     # save image list path
     data_path = os.path.join(root_path, sub_dir)
-
-    file_name = 'kfold/' + sub_dir + '_' + sub_name + '.txt'
-    file = pathlib.Path(os.path.join(sys.path[0], self.train_dir, file_name))
+    file_name = sub_dir + '_' + sub_name + '.txt'
+    file_dir = os.path.join(sys.path[0], self.train_dir, 'kfold')
+    if not os.path.isdir(file_dir):
+      os.makedirs(file_dir)
+    file = pathlib.Path(os.path.join(file_dir, file_name))
     file.touch(exist_ok=True)
     file = open(file, 'w')
 
@@ -55,6 +81,10 @@ class UnetPrep:
   
 
   def __read_image_list__(self, input_dir, label_dir, k):
+    """
+    Read dataset and return input list, label list, tar-image 
+    correspondance list, and target (animal) list.
+    """
     input_list, label_list, tar_list, tar_unique = [], [], [], []
     for sub in self.datasets:
       sub_name = sub.split('-')[-1].split('/')[0]
@@ -75,14 +105,23 @@ class UnetPrep:
     return [input_list, label_list, tar_list, tar_unique]
 
 
-  def __shuffle_image_list__(self, input_dir, label_dir, k):
+  def __shuffle_image_list__(self, k):
+    """
+    Shuffle image list with respect to its corresponding animal. i.e. images belond to
+    the same animal will stay together after being shuffled.
+    """
+    input_dir = 'kfold/inputs'
+    label_dir = 'kfold/labels'
     [input_list, label_list, tar_list, tar_unique] = self.__read_image_list__(input_dir, label_dir, k)
+
+    # clear dir
+    kfold_dir = pathlib.Path.cwd() / 'data' / 'kfold'
+    if not os.path.exists(kfold_dir): os.makedirs(kfold_dir)
 
     for n in range(k):
       save_dir = 'fold_%s/' % str(n+1)
-      save_dir = pathlib.Path.cwd() / 'data' / 'kfold' / save_dir
-      if not os.path.exists(save_dir):
-        os.makedirs(save_dir)
+      save_dir = kfold_dir / save_dir
+      if not os.path.exists(save_dir): os.makedirs(save_dir)
       
       inputs, labels = [], []
       for i in range(len(self.datasets)):
@@ -97,6 +136,7 @@ class UnetPrep:
 
   
   def __save_image_data__(self, save_dir, inputs, labels):
+    """Save image list into the inputs.txt and labels.txt in its correspoding kfold folder"""
     input_file = pathlib.Path(os.path.join(sys.path[0], save_dir, 'inputs.txt'))
     label_file = pathlib.Path(os.path.join(sys.path[0], save_dir, 'labels.txt'))
     input_file.touch(exist_ok=True)
@@ -113,7 +153,10 @@ class UnetPrep:
     label_file.close()
 
 
-  def __make_train_dirs__(self):
+  def __make_data_dirs__(self):
+    """
+    Sets up data directories
+    """
     path_list = ['inputs', 'labels', 'test/inputs', 'test/labels']
     for path in path_list:
       abs_path = os.path.join(sys.path[0], self.train_dir, path)
@@ -125,6 +168,9 @@ class UnetPrep:
 
 
   def __check_matches__(self, input_list, label_list, callback):
+    """
+    Check if image and label name are matched before cropping them
+    """
     for i in range(len(input_list)):
       file_name = input_list[i].split('inputs/')[1].split('.jpg')[0]
       label_name = label_list[i].split('labels/')[1].split('.png')[0]
@@ -136,7 +182,9 @@ class UnetPrep:
 
 
   def __crop__(self, image, label, count, image_path, label_path, start_idx):
-    # find image shape
+    """
+    Crop and save image/label tile
+    """
     shape = image.shape
     # calculate image/label number to make each file name identical
     tilecols = ((shape[1] - self.crop_size) // self.sliding_step) + 1
@@ -193,6 +241,9 @@ class UnetPrep:
 
 
   def __crop_image_label__(self, inputs, labels, input_dir, label_dir):
+    """
+    Cropping manager, match the image and its corresponding label before feeding them into the cropping function
+    """
     if self.__check_matches__(inputs, labels, 'files crop'):
       start_index = 0
       for i in range(len(inputs)):
@@ -214,8 +265,11 @@ class UnetPrep:
 
 
   def __read_files_list__(self, sub_dir):
-    # read image list path
-    file_name = os.path.join(sys.path[0], self.train_dir, sub_dir + '.txt')
+    """
+    Read image files from the image paths previously stored in the txt files
+    """
+    file_name = pathlib.Path(os.path.join(sys.path[0], self.train_dir, sub_dir + '.txt'))
+    file_name.touch(exist_ok=True)
     file = open(file_name, "r")
     data_list = file.read().split("\n")
     file.close()
@@ -224,34 +278,33 @@ class UnetPrep:
   
   # methods
   def generate_image_tiles(self, n=0, k=5):
+    """
+    Process images into image tiles
+    """
     # create training directories
-    self.__make_train_dirs__()
+    self.__make_data_dirs__()
 
-    # read files into arrays
-    inputs = self.__read_files_list__('inputs')
-    labels = self.__read_files_list__('labels')
-    self.__check_matches__(inputs, labels, 'files read')
+    x_train, y_train, x_test, y_test = [], [], [], []
+    for fold in range(k):
+      # read files into arrays
+      fold_dir = 'kfold/fold_%s/' % str(fold+1)
+      inputs = self.__read_files_list__(fold_dir + 'inputs')
+      labels = self.__read_files_list__(fold_dir + 'labels')
+      self.__check_matches__(inputs, labels, 'files read')
 
-    # random split dataset
-    if k == 0:
-      x_train = inputs
-      y_train = labels
-      x_test, y_test = [], []
-    else:
-      group_len = len(inputs) // k
-      idx_start = n*group_len
-      idx_end = (n+1)*group_len
-      x_train = inputs[0:idx_start] + inputs[idx_end:]
-      x_test = inputs[idx_start:idx_end]
-      y_train = labels[0:idx_start] + labels[idx_end:]
-      y_test = labels[idx_start:idx_end]
-
+      if fold == n:
+        x_test += inputs
+        y_test += labels
+      else:
+        x_train += inputs
+        y_train += labels
+  
     # crop images
     self.__crop_image_label__(x_train, y_train, 'inputs', 'labels')
     self.__crop_image_label__(x_test, y_test, 'test/inputs', 'test/labels')
 
     csv_path = os.path.join(sys.path[0], self.train_dir, 'tile_stats.csv')
-    os.remove(csv_path)
+    if os.path.isfile(csv_path): os.remove(csv_path)
     self.tile_stats.to_csv(csv_path)
 
 
@@ -260,6 +313,6 @@ class UnetPrep:
     for d in self.datasets:
       root_path = self.data_path + d
       sub_name = d.split('-')[-1].split('/')[0]
-      self.__get_image_list__(root_path, 'labels', sub_name)
-      self.__get_image_list__(root_path, 'inputs', sub_name)
-    self.__shuffle_image_list__('kfold/labels', 'kfold/inputs', k)
+      self.__get_kfold_image_list__(root_path, 'labels', sub_name)
+      self.__get_kfold_image_list__(root_path, 'inputs', sub_name)
+    self.__shuffle_image_list__(k)
