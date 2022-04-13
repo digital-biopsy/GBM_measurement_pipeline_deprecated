@@ -40,6 +40,7 @@ class GBMW_FPW():
     
     def get_images(self):
         pred_dir = self.pred_root / self.fold_dir / self.model_dir
+        # pred_dir = pathlib.Path.cwd() / "data" / "test" / "labels"
         images_names = self.get_filenames_of_path(self.img_dir)
         predicted_names = self.get_filenames_of_path(pred_dir)
         # read images and store them in memory
@@ -136,12 +137,14 @@ class GBMW_FPW():
         total_area = np.empty((len(predicted)), dtype='object')
         fpw_nm = np.empty((len(predicted)), dtype='object')
         total_sd = np.empty((len(predicted)), dtype='object')
+        print(len(predicted), len(original))
         for i in range(0,len(predicted)):
             predict = predicted[i]
+            flip_predict = np.invert(predict)
             orig = original[i]
             
-            masked_MFPW = self.blur_mask(predict, self.FPW_blur_const)
-            masked_GBMW = self.blur_mask(predict, self.GBMW_blur_const)
+            masked_MFPW = self.blur_mask(flip_predict, self.FPW_blur_const)
+            masked_GBMW = self.blur_mask(flip_predict, self.GBMW_blur_const)
             mask_FPW[i] = masked_MFPW #can remove, just to see masks
             mask_GBMW[i] = masked_GBMW
             num_segments = self.number_segments(masked_MFPW)
@@ -187,6 +190,7 @@ class GBMW_FPW():
             else:
                 gbmw_nm[i] = sum(np.multiply(tile_segs_area,tile_segs_gbmw))/sum(tile_segs_area)/self.pixels_per_nm
                 total_area[i] = sum(tile_segs_area)
+                # gbmw_nm[i] = sum(tile_segs_gbmw)/len(tile_segs_gbmw)
 
         self.save_csv(images_names, gbmw_nm, fpw_nm)
 
@@ -198,6 +202,7 @@ class GBMW_FPW():
         for idx, img in enumerate(images_names):
             tile_name = os.path.basename(img)
             tile_data = self.img_data.loc[self.img_data['tile_index']==tile_name]
+            print(tile_data)
             tile_data = tile_data.loc[tile_data['input_directory']=='test/inputs'].iloc[0]
             animal = tile_data[1].split('-')[0]
             gbmw = tile_data[5]
@@ -209,10 +214,13 @@ class GBMW_FPW():
                 animal_data[animal] = new_animal
                 target_data[animal] = new_target
 
-            if gbmw != -1 and not math.isnan(gbmw):
+            # print('img', tile_data[1], 'gbmw', gbmw_nm[idx], 'gbmw target', gbmw)
+            # print('img', tile_data[1], 'fpw', fpw_nm[idx], 'fpw target', fpw)
+            if gbmw != -1 and not math.isnan(gbmw) and gbmw_nm[idx] != 0 and not math.isnan(gbmw_nm[idx]):
                 target_data[animal]['gbmw'].append(gbmw)
                 animal_data[animal]['gbmw'].append(gbmw_nm[idx])
-            if fpw != -1 and not math.isnan(fpw):
+            
+            if fpw != -1 and not math.isnan(fpw) and fpw_nm[idx] != 0 and not math.isnan(fpw_nm[idx]):
                 target_data[animal]['fpw'].append(fpw)
                 animal_data[animal]['fpw'].append(fpw_nm[idx])
         
@@ -224,6 +232,8 @@ class GBMW_FPW():
             target_mgbmw = np.mean(target_data[key]['gbmw'])
             mfpw = np.mean(animal_data[key]['fpw'])
             mgbmw = np.mean(animal_data[key]['gbmw'])
+            print('key ', key, 'target ', target_mfpw, target_mgbmw)
+            print('key ', key, 'pred ', mfpw, mgbmw)
             target_row = pd.DataFrame([[key, target_mfpw, target_mgbmw]], columns = target_data_csv.columns)
             target_data_csv = pd.concat([target_data_csv, target_row], ignore_index=True)
             animal_row = pd.DataFrame([[key, mfpw, mgbmw]], columns = target_data_csv.columns)

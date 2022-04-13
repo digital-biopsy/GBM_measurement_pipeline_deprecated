@@ -34,7 +34,7 @@ def preprocess_data(verbose):
     print(colored(('#'*25 + ' Preprocessing Dataset ' + '#'*25), 'green'))
     Preprocess = setup_preprocess(verbose)
     Preprocess.update_image_list(pm.kfold)
-    Preprocess.generate_image_tiles(5,pm.kfold)
+    Preprocess.generate_image_tiles(0,pm.kfold)
 
 def k_fold(verbose):
     print(colored(('#'*25 + ' Start Training with k-fold Validation ' + '#'*25), 'green'))
@@ -46,9 +46,11 @@ def k_fold(verbose):
         train_model(DeepSeg, save_dir)
     
 def evaluate_results():
-    # Eval = Evaluate()
-    # Eval.evaluate()
-    print('evaluating')
+    n = 4
+    Preprocess = setup_preprocess(verbose=False)
+    Preprocess.generate_image_tiles(n,pm.kfold)
+    CalcGBMW = GBMW_FPW()
+    CalcGBMW.calc('fold_%s' % str(n+1), 'unet_15_epochs')
 
 
 def init_model(verbose):
@@ -99,7 +101,7 @@ def predict_results(verbose):
         start_filters = pm.start_filters,
         criterion = pm.criterion
     )
-    CalcGBMW = GBMW_FPW()
+    # CalcGBMW = GBMW_FPW()
     DeepSeg.initialize_model()
     Preprocess = setup_preprocess(verbose)
     abs_path = pathlib.Path.cwd() / 'pred'
@@ -112,7 +114,7 @@ def predict_results(verbose):
         for m in pm.models:
             m_name = cur_fold + 'unet_' + m + '_epochs'
             DeepSeg.load_and_predict(m_name, pm.out_channels)
-            CalcGBMW.calc(cur_fold, 'unet_' + m + '_epochs')
+            # CalcGBMW.calc(cur_fold, 'unet_' + m + '_epochs')
 
 def ask_if_proceed(callback, arg):
     val = input(colored("This command will delete previously trained models, are you sure to proceed? [y/n]: ", 'yellow'))
