@@ -1,0 +1,32 @@
+2022-04-12 23:14:47,714 INFO    MainThread:5091 [internal.py:wandb_internal():89] W&B internal server running at pid: 5091, started at: 2022-04-12 23:14:47.713783
+2022-04-12 23:14:47,716 DEBUG   HandlerThread:5091 [handler.py:handle_request():131] handle_request: check_version
+2022-04-12 23:14:47,717 INFO    WriterThread:5091 [datastore.py:open_for_write():77] open: /root/research/deep-segmentation/wandb/run-20220412_231446-xfohstat/run-xfohstat.wandb
+2022-04-12 23:14:47,721 DEBUG   SenderThread:5091 [sender.py:send():235] send: header
+2022-04-12 23:14:47,721 DEBUG   SenderThread:5091 [sender.py:send_request():249] send_request: check_version
+2022-04-12 23:14:47,966 DEBUG   SenderThread:5091 [sender.py:send():235] send: run
+2022-04-12 23:14:48,568 INFO    SenderThread:5091 [dir_watcher.py:__init__():169] watching files in: /root/research/deep-segmentation/wandb/run-20220412_231446-xfohstat/files
+2022-04-12 23:14:48,568 INFO    SenderThread:5091 [sender.py:_start_run_threads():809] run started: xfohstat with start time 1649776486
+2022-04-12 23:14:48,568 DEBUG   SenderThread:5091 [sender.py:send():235] send: summary
+2022-04-12 23:14:48,568 INFO    SenderThread:5091 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-12 23:14:48,570 DEBUG   HandlerThread:5091 [handler.py:handle_request():131] handle_request: run_start
+2022-04-12 23:14:49,151 WARNING MainThread:5091 [internal.py:wandb_internal():152] Internal process interrupt: 1
+2022-04-12 23:14:49,574 INFO    Thread-8  :5091 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220412_231446-xfohstat/files/wandb-summary.json
+2022-04-12 23:14:50,834 DEBUG   HandlerThread:5091 [meta.py:__init__():36] meta init
+2022-04-12 23:14:50,834 DEBUG   HandlerThread:5091 [meta.py:__init__():50] meta init done
+2022-04-12 23:14:50,834 DEBUG   HandlerThread:5091 [meta.py:probe():210] probe
+2022-04-12 23:14:50,841 DEBUG   HandlerThread:5091 [meta.py:_setup_git():200] setup git
+2022-04-12 23:14:50,894 DEBUG   HandlerThread:5091 [meta.py:_setup_git():207] setup git done
+2022-04-12 23:14:50,894 DEBUG   HandlerThread:5091 [meta.py:_save_pip():54] save pip
+2022-04-12 23:14:50,895 DEBUG   HandlerThread:5091 [meta.py:_save_pip():68] save pip done
+2022-04-12 23:14:50,895 DEBUG   HandlerThread:5091 [meta.py:probe():248] probe done
+2022-04-12 23:14:50,900 DEBUG   SenderThread:5091 [sender.py:send():235] send: files
+2022-04-12 23:14:50,901 INFO    SenderThread:5091 [sender.py:_save_file():944] saving file wandb-metadata.json with policy now
+2022-04-12 23:14:51,690 INFO    Thread-8  :5091 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220412_231446-xfohstat/files/wandb-metadata.json
+2022-04-12 23:14:51,690 INFO    Thread-8  :5091 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220412_231446-xfohstat/files/requirements.txt
+2022-04-12 23:14:51,915 INFO    Thread-11 :5091 [upload_job.py:push():137] Uploaded file /tmp/tmpa4btxfekwandb/3jv5q56m-wandb-metadata.json
+2022-04-12 23:14:54,731 WARNING MainThread:5091 [internal.py:wandb_internal():152] Internal process interrupt: 2
+2022-04-12 23:14:54,732 ERROR   MainThread:5091 [internal.py:wandb_internal():155] Internal process interrupted.
+2022-04-12 23:14:54,902 INFO    MainThread:5091 [internal.py:handle_exit():79] Internal process exited
+2022-04-12 23:14:54,902 INFO    WriterThread:5091 [datastore.py:close():281] close: /root/research/deep-segmentation/wandb/run-20220412_231446-xfohstat/run-xfohstat.wandb
+2022-04-12 23:14:54,903 INFO    SenderThread:5091 [sender.py:finish():1075] shutting down sender
+2022-04-12 23:14:54,903 INFO    SenderThread:5091 [dir_watcher.py:finish():283] shutting down directory watcher

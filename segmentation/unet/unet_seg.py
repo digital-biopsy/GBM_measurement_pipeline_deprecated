@@ -290,7 +290,6 @@ class UnetSeg:
         images_names = get_filenames_of_path(root / "inputs")
         targets_names = get_filenames_of_path(root / "labels")
 
-
         # read images and store them in memory
         images = [imread(img_name) for img_name in images_names]
         targets = [imread(tar_name) for tar_name in targets_names]
@@ -332,7 +331,7 @@ class UnetSeg:
         # Create dirs to save predictions
         abs_path = pathlib.Path.cwd() / 'pred' / model_name
         save_path = 'pred/' + model_name
-        model_path = 'models/' + model_name
+        if os.path.exists(abs_path): shutil.rmtree(abs_path) # clear path
         os.makedirs(abs_path)
         
         for i in range(len(output)):

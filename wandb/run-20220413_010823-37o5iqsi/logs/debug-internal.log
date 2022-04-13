@@ -1,0 +1,1057 @@
+2022-04-13 01:08:24,966 INFO    MainThread:29138 [internal.py:wandb_internal():89] W&B internal server running at pid: 29138, started at: 2022-04-13 01:08:24.966455
+2022-04-13 01:08:24,969 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: check_version
+2022-04-13 01:08:24,970 INFO    WriterThread:29138 [datastore.py:open_for_write():77] open: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/run-37o5iqsi.wandb
+2022-04-13 01:08:24,974 DEBUG   SenderThread:29138 [sender.py:send():235] send: header
+2022-04-13 01:08:24,974 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: check_version
+2022-04-13 01:08:25,239 DEBUG   SenderThread:29138 [sender.py:send():235] send: run
+2022-04-13 01:08:25,666 INFO    SenderThread:29138 [dir_watcher.py:__init__():169] watching files in: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files
+2022-04-13 01:08:25,667 INFO    SenderThread:29138 [sender.py:_start_run_threads():809] run started: 37o5iqsi with start time 1649783303
+2022-04-13 01:08:25,667 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:08:25,667 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: run_start
+2022-04-13 01:08:25,668 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:08:26,670 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:08:27,688 DEBUG   HandlerThread:29138 [meta.py:__init__():36] meta init
+2022-04-13 01:08:27,689 DEBUG   HandlerThread:29138 [meta.py:__init__():50] meta init done
+2022-04-13 01:08:27,689 DEBUG   HandlerThread:29138 [meta.py:probe():210] probe
+2022-04-13 01:08:27,696 DEBUG   HandlerThread:29138 [meta.py:_setup_git():200] setup git
+2022-04-13 01:08:27,746 DEBUG   HandlerThread:29138 [meta.py:_setup_git():207] setup git done
+2022-04-13 01:08:27,747 DEBUG   HandlerThread:29138 [meta.py:_save_pip():54] save pip
+2022-04-13 01:08:27,748 DEBUG   HandlerThread:29138 [meta.py:_save_pip():68] save pip done
+2022-04-13 01:08:27,748 DEBUG   HandlerThread:29138 [meta.py:probe():248] probe done
+2022-04-13 01:08:27,753 DEBUG   SenderThread:29138 [sender.py:send():235] send: files
+2022-04-13 01:08:27,753 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-metadata.json with policy now
+2022-04-13 01:08:27,764 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:08:27,765 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:08:28,175 DEBUG   SenderThread:29138 [sender.py:send():235] send: files
+2022-04-13 01:08:28,175 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file params_meta.py with policy live
+2022-04-13 01:08:28,669 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:28,670 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-metadata.json
+2022-04-13 01:08:28,670 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/requirements.txt
+2022-04-13 01:08:28,671 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/params_meta.py
+2022-04-13 01:08:29,152 INFO    Thread-12 :29138 [upload_job.py:push():137] Uploaded file /tmp/tmp7r29l9jzwandb/2zvqmi0r-params_meta.py
+2022-04-13 01:08:29,187 INFO    Thread-11 :29138 [upload_job.py:push():137] Uploaded file /tmp/tmp7r29l9jzwandb/299h9v6s-wandb-metadata.json
+2022-04-13 01:08:30,670 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:32,671 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:34,672 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:36,673 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:38,674 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:40,675 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:42,676 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:43,177 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:08:43,177 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:08:44,677 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:46,678 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:48,680 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:50,681 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:52,682 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:54,683 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:56,684 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:08:57,024 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:08:58,598 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:08:58,599 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:08:58,686 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:00,687 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:02,688 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:04,689 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:06,690 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:08,692 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:10,693 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:12,694 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:14,016 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:09:14,016 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:09:14,695 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:16,696 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:18,697 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:20,698 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:22,699 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:24,700 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:26,702 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:27,885 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:09:28,703 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:29,460 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:09:29,461 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:09:30,704 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:32,705 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:34,706 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:36,707 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:38,708 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:40,709 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:42,710 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:44,711 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:44,844 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:09:44,844 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:09:46,713 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:46,896 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:09:46,897 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:09:46,898 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:09:47,713 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:09:48,714 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:50,715 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:52,716 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:54,717 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:56,719 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:09:58,093 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:09:58,720 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:00,486 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:10:00,487 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:10:00,721 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:02,722 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:04,723 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:06,724 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:08,725 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:10,726 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:12,728 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:14,729 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:16,180 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:10:16,180 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:10:16,730 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:18,731 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:20,732 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:22,733 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:24,734 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:26,736 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:28,737 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:29,002 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:10:30,738 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:31,579 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:10:31,579 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:10:32,739 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:34,740 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:36,741 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:38,743 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:40,744 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:42,745 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:44,746 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:46,748 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:47,021 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:10:47,021 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:10:48,749 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:50,750 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:52,751 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:54,753 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:56,754 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:10:58,755 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:00,757 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:00,769 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:11:02,479 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:11:02,479 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:11:02,758 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:04,758 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:06,526 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:11:06,526 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:11:06,527 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:11:06,759 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:06,760 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:11:08,761 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:10,762 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:12,763 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:14,764 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:16,766 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:17,892 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:11:17,893 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:11:18,767 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:20,768 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:22,769 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:24,771 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:26,772 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:28,774 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:30,775 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:32,777 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:33,044 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:11:33,307 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:11:33,308 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:11:34,778 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:36,780 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:38,781 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:40,782 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:42,783 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:44,784 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:46,785 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:48,723 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:11:48,724 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:11:48,786 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:50,787 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:52,788 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:54,790 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:56,791 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:11:58,792 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:00,793 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:02,794 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:04,242 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:12:04,242 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:12:04,795 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:04,924 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:12:06,797 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:08,798 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:10,799 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:12,800 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:14,802 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:16,803 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:18,804 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:19,645 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:12:19,646 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:12:20,806 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:22,807 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:24,808 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:26,131 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:12:26,131 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:12:26,133 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:12:26,809 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:26,810 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:12:28,811 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:30,812 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:32,814 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:34,815 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:35,077 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:12:35,095 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:12:35,095 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:12:36,816 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:38,817 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:40,818 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:42,819 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:44,820 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:46,821 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:48,822 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:50,509 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:12:50,510 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:12:50,823 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:52,824 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:54,825 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:56,826 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:12:58,827 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:00,829 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:02,830 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:04,831 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:05,624 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:13:05,909 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:13:05,909 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:13:06,833 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:08,834 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:10,835 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:12,836 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:14,837 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:16,838 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:18,840 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:20,841 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:21,336 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:13:21,337 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:13:22,843 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:24,844 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:26,845 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:28,847 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:30,848 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:32,849 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:34,850 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:35,809 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:13:36,798 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:13:36,799 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:13:36,852 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:38,853 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:40,854 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:42,856 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:44,857 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:46,303 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:13:46,303 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:13:46,304 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:13:46,860 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:46,861 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:13:48,859 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:50,860 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:52,207 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:13:52,207 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:13:52,861 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:54,862 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:56,863 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:13:58,864 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:00,866 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:02,867 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:04,869 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:06,870 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:07,404 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:14:07,621 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:14:07,622 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:14:08,871 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:10,872 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:12,873 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:14,875 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:16,876 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:18,877 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:20,878 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:22,879 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:23,040 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:14:23,041 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:14:24,880 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:26,881 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:28,882 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:30,883 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:32,884 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:34,886 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:36,887 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:38,456 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:14:38,457 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:14:38,875 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:14:38,888 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:40,889 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:42,891 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:44,892 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:46,893 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:48,894 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:50,895 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:52,898 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:53,877 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:14:53,878 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:14:54,898 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:56,899 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:14:58,901 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:00,902 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:02,904 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:04,905 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:06,406 DEBUG   SenderThread:29138 [sender.py:send():235] send: files
+2022-04-13 01:15:06,406 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file fold_4/unet_5_epochs.pt with policy live
+2022-04-13 01:15:06,408 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:15:06,409 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:15:06,410 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:15:06,905 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:06,906 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:15:06,906 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/fold_4/unet_5_epochs.pt
+2022-04-13 01:15:06,907 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/fold_4
+2022-04-13 01:15:08,907 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:09,279 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:15:09,279 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:15:09,579 INFO    Thread-13 :29138 [upload_job.py:push():137] Uploaded file /tmp/tmp7r29l9jzwandb/1ebwfmof-fold_4/unet_5_epochs.pt
+2022-04-13 01:15:10,160 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:15:10,908 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:12,909 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:14,910 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:16,912 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:18,914 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:20,915 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:22,916 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:24,717 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:15:24,717 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:15:24,917 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:26,919 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:28,920 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:30,921 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:32,923 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:34,924 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:36,925 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:38,927 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:40,113 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:15:40,114 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:15:40,928 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:40,980 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:15:42,929 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:44,930 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:46,932 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:48,933 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:50,935 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:52,936 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:54,938 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:55,513 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:15:55,513 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:15:56,939 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:15:58,940 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:00,941 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:02,943 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:04,944 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:06,945 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:08,947 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:10,923 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:16:10,923 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:16:10,948 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:11,323 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:16:12,949 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:14,950 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:16,952 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:18,953 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:20,955 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:22,956 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:24,957 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:26,325 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:16:26,325 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:16:26,763 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:16:26,764 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:16:26,765 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:16:26,958 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:26,959 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:16:28,960 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:30,961 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:32,963 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:34,964 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:36,965 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:38,967 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:40,968 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:41,409 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:16:41,765 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:16:41,766 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:16:42,969 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:44,970 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:46,972 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:48,973 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:50,975 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:52,976 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:54,977 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:56,979 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:16:57,171 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:16:57,172 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:16:58,980 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:00,981 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:02,983 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:04,984 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:06,986 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:08,987 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:10,988 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:12,570 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:17:12,571 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:17:12,990 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:13,081 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:17:14,991 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:16,992 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:18,993 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:20,995 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:22,996 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:24,997 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:26,999 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:27,979 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:17:27,980 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:17:30,001 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:32,002 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:34,003 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:36,004 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:38,005 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:40,007 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:42,008 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:43,373 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:17:43,373 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:17:44,010 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:44,771 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:17:46,011 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:46,865 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:17:46,866 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:17:46,867 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:17:47,012 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:17:48,013 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:49,013 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:50,014 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:52,015 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:54,016 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:56,017 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:58,019 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:17:58,790 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:17:58,791 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:18:00,021 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:02,022 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:04,023 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:06,025 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:08,027 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:10,028 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:12,030 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:14,032 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:14,206 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:18:14,206 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:18:15,612 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:18:16,033 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:18,035 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:20,036 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:22,038 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:24,039 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:26,041 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:28,042 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:29,622 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:18:29,622 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:18:30,045 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:32,046 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:34,047 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:36,049 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:38,050 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:40,052 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:42,053 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:44,054 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:45,046 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:18:45,047 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:18:46,056 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:47,048 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:18:48,058 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:50,059 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:52,061 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:54,062 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:56,063 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:18:58,065 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:00,065 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:00,453 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:19:00,454 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:19:02,066 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:04,068 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:06,069 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:06,516 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:19:06,517 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:19:06,518 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:19:07,070 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:19:08,071 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:09,071 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:10,072 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:12,073 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:14,074 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:15,842 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:19:15,842 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:19:16,076 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:17,224 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:19:18,077 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:20,078 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:22,079 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:24,080 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:26,082 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:28,083 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:30,084 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:31,302 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:19:31,302 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:19:32,085 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:34,087 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:36,088 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:38,090 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:40,091 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:42,092 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:44,093 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:46,094 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:46,729 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:19:46,730 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:19:48,095 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:48,653 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:19:50,097 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:52,098 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:54,099 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:56,100 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:19:58,101 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:00,102 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:02,103 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:02,137 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:20:02,137 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:20:04,105 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:06,107 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:08,108 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:10,110 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:12,111 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:14,112 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:16,113 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:17,562 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:20:17,562 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:20:18,114 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:19,520 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:20:20,116 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:22,117 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:24,118 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:26,119 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:26,634 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:20:26,635 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:20:26,636 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:20:27,120 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:20:28,121 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:29,121 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:30,122 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:32,123 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:32,988 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:20:32,988 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:20:34,125 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:36,126 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:38,128 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:40,129 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:42,130 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:44,131 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:46,132 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:48,134 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:48,444 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:20:48,445 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:20:50,135 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:50,385 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:20:52,137 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:54,138 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:56,139 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:20:58,140 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:00,142 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:02,143 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:03,863 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:21:03,864 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:21:04,145 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:06,146 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:08,147 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:10,149 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:12,150 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:14,151 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:16,153 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:18,154 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:19,269 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:21:19,269 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:21:20,155 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:21,669 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:21:22,156 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:24,157 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:26,158 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:28,160 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:30,161 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:32,162 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:34,164 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:34,668 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:21:34,668 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:21:36,166 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:38,167 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:40,168 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:42,169 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:44,171 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:46,172 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:46,885 DEBUG   SenderThread:29138 [sender.py:send():235] send: files
+2022-04-13 01:21:46,887 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file fold_4/unet_10_epochs.pt with policy live
+2022-04-13 01:21:46,888 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:21:46,889 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:21:46,890 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:21:47,173 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:21:47,173 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/fold_4/unet_10_epochs.pt
+2022-04-13 01:21:47,174 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/fold_4
+2022-04-13 01:21:48,174 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:49,174 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:50,068 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:21:50,069 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:21:50,088 INFO    Thread-14 :29138 [upload_job.py:push():137] Uploaded file /tmp/tmp7r29l9jzwandb/b9muub1u-fold_4/unet_10_epochs.pt
+2022-04-13 01:21:50,175 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:52,177 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:52,529 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:21:54,178 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:56,180 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:21:58,181 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:00,182 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:02,184 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:04,185 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:05,474 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:22:05,474 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:22:06,187 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:08,188 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:10,190 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:12,191 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:14,192 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:16,194 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:18,196 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:20,197 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:20,911 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:22:20,911 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:22:22,198 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:23,994 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:22:24,199 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:26,201 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:28,202 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:30,204 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:32,206 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:34,207 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:36,209 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:36,298 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:22:36,298 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:22:38,210 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:40,211 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:42,213 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:44,214 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:46,216 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:48,217 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:50,218 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:51,694 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:22:51,694 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:22:52,219 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:54,220 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:55,803 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:22:56,222 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:22:58,223 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:00,225 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:02,227 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:04,229 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:06,230 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:06,815 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:23:06,816 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:23:06,817 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:23:07,088 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:23:07,088 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:23:07,231 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:23:08,232 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:09,232 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:10,233 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:12,234 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:14,236 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:16,237 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:18,239 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:20,241 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:22,242 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:22,565 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:23:22,565 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:23:24,243 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:26,245 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:27,587 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:23:28,246 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:30,248 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:32,250 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:34,251 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:36,252 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:37,970 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:23:37,970 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:23:38,254 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:40,255 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:42,256 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:44,258 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:46,259 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:48,260 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:50,262 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:52,263 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:53,400 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:23:53,401 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:23:54,265 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:56,266 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:58,268 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:23:58,559 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:24:00,269 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:02,270 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:04,272 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:06,273 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:08,275 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:08,908 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:24:08,908 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:24:10,276 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:12,277 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:14,279 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:16,280 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:18,281 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:20,282 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:22,283 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:24,285 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:24,318 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:24:24,319 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:24:26,286 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:27,037 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:24:27,038 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:24:27,038 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:24:27,287 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:24:28,287 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:29,288 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:29,951 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:24:30,289 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:32,290 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:34,292 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:36,293 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:38,294 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:39,736 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:24:39,736 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:24:40,295 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:42,297 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:44,298 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:46,300 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:48,301 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:50,303 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:52,304 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:54,306 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:55,126 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:24:55,127 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:24:56,308 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:24:58,309 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:00,311 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:00,420 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:25:02,312 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:04,314 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:06,315 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:08,316 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:10,318 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:10,598 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:25:10,598 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:25:12,319 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:14,321 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:16,323 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:18,324 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:20,326 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:22,328 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:24,329 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:25,994 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:25:25,995 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:25:26,330 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:28,332 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:30,334 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:31,690 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:25:32,335 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:34,337 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:36,338 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:38,340 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:40,341 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:41,480 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:25:41,481 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:25:42,342 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:44,344 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:46,345 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:46,925 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:25:46,926 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:25:46,927 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:25:47,346 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:25:48,347 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:49,348 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:50,348 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:52,350 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:54,351 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:56,352 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:25:56,889 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:25:56,889 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:25:58,354 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:00,355 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:01,876 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:26:02,356 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:04,358 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:06,360 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:08,361 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:10,363 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:12,296 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:26:12,297 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:26:12,364 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:14,366 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:16,367 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:18,368 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:20,369 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:22,370 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:24,372 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:26,373 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:27,693 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:26:27,694 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:26:28,375 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:30,377 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:32,349 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:26:32,378 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:34,380 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:36,381 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:38,382 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:40,383 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:42,384 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:43,119 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:26:43,120 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:26:44,386 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:46,387 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:48,388 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:50,389 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:52,391 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:54,393 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:56,394 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:58,396 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:26:58,560 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:26:58,560 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:27:00,397 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:02,399 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:03,846 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:27:04,401 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:06,403 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:06,962 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:27:06,963 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:27:06,965 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:27:07,403 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:27:08,404 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:09,404 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:10,405 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:12,406 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:13,970 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:27:13,971 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:27:14,407 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:16,409 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:18,410 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:20,412 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:22,413 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:24,414 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:26,416 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:28,417 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:29,643 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:27:29,643 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:27:30,419 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:32,420 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:34,421 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:34,654 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:27:36,423 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:38,425 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:40,426 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:42,427 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:44,428 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:45,066 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:27:45,066 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:27:46,429 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:48,431 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:50,432 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:52,434 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:54,435 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:56,437 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:27:58,438 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:00,439 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:00,447 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:28:00,447 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:28:02,440 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:04,442 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:05,203 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:28:06,443 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:08,444 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:10,446 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:12,447 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:14,449 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:15,838 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: stop_status
+2022-04-13 01:28:15,838 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: stop_status
+2022-04-13 01:28:16,450 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:18,451 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:20,453 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:22,454 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:24,455 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:26,457 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:27,153 DEBUG   SenderThread:29138 [sender.py:send():235] send: files
+2022-04-13 01:28:27,154 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file fold_4/unet_15_epochs.pt with policy live
+2022-04-13 01:28:27,155 DEBUG   SenderThread:29138 [sender.py:send():235] send: history
+2022-04-13 01:28:27,155 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:28:27,156 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:28:27,458 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:28:27,458 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_created():217] file/dir created: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/fold_4/unet_15_epochs.pt
+2022-04-13 01:28:27,459 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/fold_4
+2022-04-13 01:28:28,459 INFO    Thread-8  :29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:29,806 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:29,806 DEBUG   SenderThread:29138 [sender.py:send():235] send: telemetry
+2022-04-13 01:28:29,807 DEBUG   SenderThread:29138 [sender.py:send():235] send: exit
+2022-04-13 01:28:29,807 INFO    SenderThread:29138 [sender.py:send_exit():371] handling exit code: 0
+2022-04-13 01:28:29,808 INFO    SenderThread:29138 [sender.py:send_exit():373] handling runtime: 1204
+2022-04-13 01:28:29,809 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:28:29,809 INFO    SenderThread:29138 [sender.py:send_exit():379] send defer
+2022-04-13 01:28:29,809 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:29,810 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: defer
+2022-04-13 01:28:29,811 INFO    HandlerThread:29138 [handler.py:handle_request_defer():154] handle defer: 0
+2022-04-13 01:28:29,811 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: defer
+2022-04-13 01:28:29,811 INFO    SenderThread:29138 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-04-13 01:28:29,811 INFO    SenderThread:29138 [sender.py:transition_state():392] send defer: 1
+2022-04-13 01:28:29,812 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: defer
+2022-04-13 01:28:29,812 INFO    HandlerThread:29138 [handler.py:handle_request_defer():154] handle defer: 1
+2022-04-13 01:28:30,003 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:30,003 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: defer
+2022-04-13 01:28:30,004 INFO    SenderThread:29138 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-04-13 01:28:30,004 INFO    SenderThread:29138 [sender.py:transition_state():392] send defer: 2
+2022-04-13 01:28:30,004 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:30,005 DEBUG   SenderThread:29138 [sender.py:send():235] send: stats
+2022-04-13 01:28:30,005 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: defer
+2022-04-13 01:28:30,006 INFO    HandlerThread:29138 [handler.py:handle_request_defer():154] handle defer: 2
+2022-04-13 01:28:30,006 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: defer
+2022-04-13 01:28:30,006 INFO    SenderThread:29138 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-04-13 01:28:30,007 INFO    SenderThread:29138 [sender.py:transition_state():392] send defer: 3
+2022-04-13 01:28:30,007 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: defer
+2022-04-13 01:28:30,007 INFO    HandlerThread:29138 [handler.py:handle_request_defer():154] handle defer: 3
+2022-04-13 01:28:30,008 DEBUG   SenderThread:29138 [sender.py:send():235] send: summary
+2022-04-13 01:28:30,009 INFO    SenderThread:29138 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-04-13 01:28:30,009 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: defer
+2022-04-13 01:28:30,009 INFO    SenderThread:29138 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-04-13 01:28:30,009 INFO    SenderThread:29138 [sender.py:transition_state():392] send defer: 4
+2022-04-13 01:28:30,010 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: defer
+2022-04-13 01:28:30,010 INFO    HandlerThread:29138 [handler.py:handle_request_defer():154] handle defer: 4
+2022-04-13 01:28:30,010 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: defer
+2022-04-13 01:28:30,011 INFO    SenderThread:29138 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-04-13 01:28:30,107 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:30,454 INFO    SenderThread:29138 [sender.py:transition_state():392] send defer: 5
+2022-04-13 01:28:30,454 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:30,455 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: defer
+2022-04-13 01:28:30,455 INFO    HandlerThread:29138 [handler.py:handle_request_defer():154] handle defer: 5
+2022-04-13 01:28:30,456 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: defer
+2022-04-13 01:28:30,456 INFO    SenderThread:29138 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-04-13 01:28:30,456 INFO    SenderThread:29138 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-04-13 01:28:30,461 INFO    SenderThread:29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:30,461 INFO    SenderThread:29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:28:30,461 INFO    SenderThread:29138 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/config.yaml
+2022-04-13 01:28:30,462 INFO    SenderThread:29138 [dir_watcher.py:finish():313] scan: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files
+2022-04-13 01:28:30,462 INFO    SenderThread:29138 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/config.yaml config.yaml
+2022-04-13 01:28:30,462 INFO    SenderThread:29138 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json wandb-summary.json
+2022-04-13 01:28:30,462 INFO    SenderThread:29138 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/requirements.txt requirements.txt
+2022-04-13 01:28:30,463 INFO    SenderThread:29138 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-metadata.json wandb-metadata.json
+2022-04-13 01:28:30,463 INFO    SenderThread:29138 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log output.log
+2022-04-13 01:28:30,478 INFO    SenderThread:29138 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/params_meta.py params_meta.py
+2022-04-13 01:28:30,487 INFO    SenderThread:29138 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/fold_4/unet_5_epochs.pt fold_4/unet_5_epochs.pt
+2022-04-13 01:28:30,494 INFO    SenderThread:29138 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/fold_4/unet_10_epochs.pt fold_4/unet_10_epochs.pt
+2022-04-13 01:28:30,494 INFO    SenderThread:29138 [dir_watcher.py:finish():327] scan save: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/fold_4/unet_15_epochs.pt fold_4/unet_15_epochs.pt
+2022-04-13 01:28:30,495 INFO    SenderThread:29138 [sender.py:transition_state():392] send defer: 6
+2022-04-13 01:28:30,496 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: defer
+2022-04-13 01:28:30,496 INFO    HandlerThread:29138 [handler.py:handle_request_defer():154] handle defer: 6
+2022-04-13 01:28:30,497 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: defer
+2022-04-13 01:28:30,497 INFO    SenderThread:29138 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-04-13 01:28:30,497 INFO    SenderThread:29138 [file_pusher.py:finish():177] shutting down file pusher
+2022-04-13 01:28:30,557 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:30,557 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:30,660 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:30,661 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:30,763 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:30,764 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:30,866 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:30,866 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:30,968 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:30,969 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:31,071 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:31,072 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:31,174 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:31,174 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:31,276 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:31,277 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:31,379 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:31,379 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:31,481 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:31,482 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:31,500 INFO    Thread-19 :29138 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/output.log
+2022-04-13 01:28:31,584 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:31,584 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:31,687 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:31,687 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:31,789 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:31,789 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:31,881 INFO    Thread-18 :29138 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/requirements.txt
+2022-04-13 01:28:31,891 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:31,892 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:31,994 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:31,994 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:32,099 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:32,100 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:32,135 INFO    Thread-16 :29138 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/config.yaml
+2022-04-13 01:28:32,180 INFO    Thread-17 :29138 [upload_job.py:push():137] Uploaded file /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/files/wandb-summary.json
+2022-04-13 01:28:32,203 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:32,203 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:32,305 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:32,306 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:32,408 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:32,409 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:32,511 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:32,511 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:32,613 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:32,614 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:32,716 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:32,716 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:32,818 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:32,818 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:32,922 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:32,924 INFO    Thread-15 :29138 [upload_job.py:push():137] Uploaded file /tmp/tmp7r29l9jzwandb/2z3na7h2-fold_4/unet_15_epochs.pt
+2022-04-13 01:28:32,925 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:33,027 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:33,027 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:33,130 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:33,130 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:33,132 INFO    Thread-7  :29138 [sender.py:transition_state():392] send defer: 7
+2022-04-13 01:28:33,133 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: defer
+2022-04-13 01:28:33,133 INFO    HandlerThread:29138 [handler.py:handle_request_defer():154] handle defer: 7
+2022-04-13 01:28:33,134 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: defer
+2022-04-13 01:28:33,134 INFO    SenderThread:29138 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-04-13 01:28:33,233 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:33,955 INFO    SenderThread:29138 [sender.py:transition_state():392] send defer: 8
+2022-04-13 01:28:33,956 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:33,957 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: defer
+2022-04-13 01:28:33,958 INFO    HandlerThread:29138 [handler.py:handle_request_defer():154] handle defer: 8
+2022-04-13 01:28:33,958 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: defer
+2022-04-13 01:28:33,958 INFO    SenderThread:29138 [sender.py:send_request_defer():388] handle sender defer: 8
+2022-04-13 01:28:33,959 INFO    SenderThread:29138 [sender.py:transition_state():392] send defer: 9
+2022-04-13 01:28:33,960 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: defer
+2022-04-13 01:28:33,961 DEBUG   SenderThread:29138 [sender.py:send():235] send: final
+2022-04-13 01:28:33,961 INFO    HandlerThread:29138 [handler.py:handle_request_defer():154] handle defer: 9
+2022-04-13 01:28:33,961 DEBUG   SenderThread:29138 [sender.py:send():235] send: footer
+2022-04-13 01:28:33,961 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: defer
+2022-04-13 01:28:33,962 INFO    SenderThread:29138 [sender.py:send_request_defer():388] handle sender defer: 9
+2022-04-13 01:28:34,059 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: poll_exit
+2022-04-13 01:28:34,060 DEBUG   SenderThread:29138 [sender.py:send_request():249] send_request: poll_exit
+2022-04-13 01:28:34,060 INFO    SenderThread:29138 [file_pusher.py:join():182] waiting for file pusher
+2022-04-13 01:28:35,027 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: get_summary
+2022-04-13 01:28:35,029 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: sampled_history
+2022-04-13 01:28:35,031 DEBUG   HandlerThread:29138 [handler.py:handle_request():131] handle_request: shutdown
+2022-04-13 01:28:35,031 INFO    HandlerThread:29138 [handler.py:finish():739] shutting down handler
+2022-04-13 01:28:35,961 INFO    WriterThread:29138 [datastore.py:close():281] close: /root/research/deep-segmentation/wandb/run-20220413_010823-37o5iqsi/run-37o5iqsi.wandb
+2022-04-13 01:28:36,025 INFO    SenderThread:29138 [sender.py:finish():1075] shutting down sender
+2022-04-13 01:28:36,025 INFO    SenderThread:29138 [file_pusher.py:finish():177] shutting down file pusher
+2022-04-13 01:28:36,025 INFO    SenderThread:29138 [file_pusher.py:join():182] waiting for file pusher
+2022-04-13 01:28:36,030 INFO    MainThread:29138 [internal.py:handle_exit():79] Internal process exited
