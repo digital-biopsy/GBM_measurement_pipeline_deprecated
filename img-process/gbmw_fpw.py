@@ -17,6 +17,7 @@ from skimage.morphology import skeletonize
 import os
 import pandas as pd
 from termcolor import colored
+from sklearn.metrics import jaccard_score
 
 
 class GBMW_FPW():
@@ -25,6 +26,7 @@ class GBMW_FPW():
         self.GBMW_blur_const = 3; #blur width
         self.pixels_per_nm = 0.12 #convert to nm
         self.img_dir = pathlib.Path.cwd() / "data" / "test" / "inputs"
+        self.label_dir = pathlib.Path.cwd() / "data" / "test" / "labels"
         self.pred_root = pathlib.Path.cwd() / "pred"
 
         src_dir = pathlib.Path.cwd() / "data"
@@ -42,11 +44,13 @@ class GBMW_FPW():
         pred_dir = self.pred_root / self.fold_dir / self.model_dir
         # pred_dir = pathlib.Path.cwd() / "data" / "test" / "labels"
         images_names = self.get_filenames_of_path(self.img_dir)
+        labels_names = self.get_filenames_of_path(self.label_dir)
         predicted_names = self.get_filenames_of_path(pred_dir)
         # read images and store them in memory
         images = [imread(img_name) for img_name in images_names]
         predicted = [imread(tar_name) for tar_name in predicted_names]
-        return images_names, predicted, images
+        labels = [imread(label_name) for label_name in labels_names]
+        return images_names, predicted, images, labels
 
     def blur_mask(self, predicted, blur_const):
         blur = filters.gaussian(predicted, blur_const)
@@ -97,7 +101,7 @@ class GBMW_FPW():
             fpmu = gm.means_[1][0]
             sd_sig = math.sqrt(gm.covariances_[0][0][0])
             fp_sig = math.sqrt(gm.covariances_[1][0][0])
-        else: 
+        else:
             sdmu = gm.means_[1][0]
             fpmu = gm.means_[0][0]
             sd_sig = math.sqrt(gm.covariances_[1][0][0])
@@ -125,19 +129,25 @@ class GBMW_FPW():
         gbmw = area/length
         return area,gbmw
 
+    def calc_manager(self, cur_fold, cur_model):
+        self.GBMW_blur_const = 3; #blur width
+        self.calc(cur_fold, cur_model)
+        self.GBMW_blur_const = 1; #blur width
+        self.calc(cur_fold, cur_model)
+
     def calc(self, cur_fold, cur_model):
         print(colored(('#'*25 + ' Calculating FPW and GBMW ' + '#'*25), 'green'))
         #Combined main script (ignore RunTimeWarnings)
         self.fold_dir = cur_fold
         self.model_dir = cur_model
-        [images_names, predicted, original] = self.get_images()
+        [images_names, predicted, original, labels] = self.get_images()
         mask_FPW = np.empty((len(predicted),512,512), dtype='int_')
         mask_GBMW = np.empty((len(predicted),512,512), dtype='int_')
         gbmw_nm = np.empty((len(predicted)), dtype='object')
         total_area = np.empty((len(predicted)), dtype='object')
         fpw_nm = np.empty((len(predicted)), dtype='object')
         total_sd = np.empty((len(predicted)), dtype='object')
-        print(len(predicted), len(original))
+        jaccard = np.empty((len(predicted)), dtype='object')
         for i in range(0,len(predicted)):
             predict = predicted[i]
             flip_predict = np.invert(predict)
@@ -192,54 +202,86 @@ class GBMW_FPW():
                 total_area[i] = sum(tile_segs_area)
                 # gbmw_nm[i] = sum(tile_segs_gbmw)/len(tile_segs_gbmw)
 
-        self.save_csv(images_names, gbmw_nm, fpw_nm)
+            invlabel = 1 - (labels[i]//255)
+            pred_bin = 1 - (predicted[i]//255)
+            # print(np.unique(invlabel))
+            # print(np.unique(pred_bin))
+            # print(np.mean(invlabel))
+            # print(np.mean(pred_bin))
+            j_idx = jaccard_score(invlabel, pred_bin, labels=None, pos_label=1, average='micro', sample_weight=None, zero_division='warn')
+            # print(j_idx)
+            jaccard[i] = j_idx
 
-    def save_csv(self, images_names, gbmw_nm, fpw_nm):
+        self.save_csv(images_names, gbmw_nm, fpw_nm, jaccard)
+
+    def save_csv(self, images_names, gbmw_nm, fpw_nm, jaccard):
         save_dir = self.pred_root / self.fold_dir
 
-        target_data = {}
-        animal_data = {}
+        target_animal_data = {}
+        predict_animal_data = {}
+        target_image_data = {}
+        predict_image_data = {}
         for idx, img in enumerate(images_names):
             tile_name = os.path.basename(img)
             tile_data = self.img_data.loc[self.img_data['tile_index']==tile_name]
-            print(tile_data)
             tile_data = tile_data.loc[tile_data['input_directory']=='test/inputs'].iloc[0]
             animal = tile_data[1].split('-')[0]
+            image = tile_data[1].split('.jpg')[0]
             gbmw = tile_data[5]
             fpw = tile_data[6]
+            j_idx = jaccard[idx]
 
-            if animal not in target_data:
-                new_animal = {'gbmw': [], 'fpw': []}
-                new_target = {'gbmw': [], 'fpw': []}
-                animal_data[animal] = new_animal
-                target_data[animal] = new_target
+            if animal not in target_animal_data:
+                new_animal_target = {'gbmw': [], 'fpw': []}
+                new_animal_pred = {'gbmw': [], 'fpw': [], 'jaccard': []}
+                target_animal_data[animal] = new_animal_target
+                predict_animal_data[animal] = new_animal_pred
+
+            if image not in target_image_data:
+                new_image_target = {'gbmw': [], 'fpw': []}
+                new_image_predict = {'gbmw': [], 'fpw': [], 'jaccard': []}
+                target_image_data[image] = new_image_target
+                predict_image_data[image] = new_image_predict
 
             # print('img', tile_data[1], 'gbmw', gbmw_nm[idx], 'gbmw target', gbmw)
             # print('img', tile_data[1], 'fpw', fpw_nm[idx], 'fpw target', fpw)
+            predict_image_data[image]['jaccard'].append(j_idx)
+            predict_animal_data[animal]['jaccard'].append(j_idx)
+
             if gbmw != -1 and not math.isnan(gbmw) and gbmw_nm[idx] != 0 and not math.isnan(gbmw_nm[idx]):
-                target_data[animal]['gbmw'].append(gbmw)
-                animal_data[animal]['gbmw'].append(gbmw_nm[idx])
+                target_animal_data[animal]['gbmw'].append(gbmw)
+                predict_animal_data[animal]['gbmw'].append(gbmw_nm[idx])
+                target_image_data[image]['gbmw'].append(gbmw)
+                predict_image_data[image]['gbmw'].append(gbmw_nm[idx])
             
             if fpw != -1 and not math.isnan(fpw) and fpw_nm[idx] != 0 and not math.isnan(fpw_nm[idx]):
-                target_data[animal]['fpw'].append(fpw)
-                animal_data[animal]['fpw'].append(fpw_nm[idx])
+                target_animal_data[animal]['fpw'].append(fpw)
+                predict_animal_data[animal]['fpw'].append(fpw_nm[idx])
+                target_image_data[image]['fpw'].append(fpw)
+                predict_image_data[image]['fpw'].append(fpw_nm[idx])
         
-        target_data_csv = pd.DataFrame(columns=['animal', 'fpw', 'gbmw'])
-        animal_data_csv = pd.DataFrame(columns=['animal', 'fpw', 'gbmw'])
+        animal_data_csv = pd.DataFrame(columns=['animal', 'fpw', 'target fpw', 'fpw percent error', 'gbmw', 'target gbmw', 'gbmw percent error', 'mean jaccard index'])
+        image_data_csv = pd.DataFrame(columns=['image', 'fpw', 'target fpw', 'fpw percent error', 'gbmw', 'target gbmw', 'gbmw percent error', 'mean jaccard index'])
 
-        for key in target_data.keys():
-            target_mfpw = np.mean(target_data[key]['fpw'])
-            target_mgbmw = np.mean(target_data[key]['gbmw'])
-            mfpw = np.mean(animal_data[key]['fpw'])
-            mgbmw = np.mean(animal_data[key]['gbmw'])
-            print('key ', key, 'target ', target_mfpw, target_mgbmw)
-            print('key ', key, 'pred ', mfpw, mgbmw)
-            target_row = pd.DataFrame([[key, target_mfpw, target_mgbmw]], columns = target_data_csv.columns)
-            target_data_csv = pd.concat([target_data_csv, target_row], ignore_index=True)
-            animal_row = pd.DataFrame([[key, mfpw, mgbmw]], columns = target_data_csv.columns)
+        for key in target_animal_data.keys():
+            target_mfpw = np.mean(target_animal_data[key]['fpw'])
+            target_mgbmw = np.mean(target_animal_data[key]['gbmw'])
+            mfpw = np.mean(predict_animal_data[key]['fpw'])
+            mgbmw = np.mean(predict_animal_data[key]['gbmw'])
+            mjaccard = np.mean(predict_animal_data[key]['jaccard'])
+            animal_row = pd.DataFrame([[key, mfpw, target_mfpw, 1 - mfpw/target_mfpw, mgbmw, target_mgbmw, 1 - mgbmw/target_mgbmw, mjaccard]], columns = animal_data_csv.columns)
             animal_data_csv = pd.concat([animal_data_csv, animal_row], ignore_index=True)
+
+        for key in target_image_data.keys():
+            target_mfpw = np.mean(target_image_data[key]['fpw'])
+            target_mgbmw = np.mean(target_image_data[key]['gbmw'])
+            mfpw = np.mean(predict_image_data[key]['fpw'])
+            mgbmw = np.mean(predict_image_data[key]['gbmw'])
+            mjaccard = np.mean(predict_image_data[key]['jaccard'])
+            image_row = pd.DataFrame([[key, mfpw, target_mfpw, 1 - mfpw/target_mfpw, mgbmw, target_mgbmw, 1 - mgbmw/target_mgbmw, mjaccard]], columns = image_data_csv.columns)
+            image_data_csv = pd.concat([image_data_csv, image_row], ignore_index=True)
         
-        target_path = os.path.join(save_dir, 'target_data.csv')
-        pred_path = os.path.join(save_dir, 'pred_data.csv')
-        target_data_csv.to_csv(target_path)
-        animal_data_csv.to_csv(pred_path)
+        animal_path = os.path.join(save_dir, 'animal_data_%.1f.csv'%self.GBMW_blur_const)
+        image_path = os.path.join(save_dir, 'image_data_%.1f.csv'%self.GBMW_blur_const)
+        animal_data_csv.to_csv(animal_path)
+        image_data_csv.to_csv(image_path)
