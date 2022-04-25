@@ -172,6 +172,8 @@ class UnetPrep:
         Check if image and label name are matched before cropping them
         """
         for i in range(len(input_list)):
+            # print('i value:', i)
+            # print(input_list[i], label_list[i])
             file_name = input_list[i].split('inputs/')[1].split('.jpg')[0]
             label_name = label_list[i].split('labels/')[1].split('.png')[0]
             if (file_name + self.seg_type != label_name):
@@ -293,6 +295,7 @@ class UnetPrep:
             fold_dir = 'kfold/fold_%s/' % str(fold+1)
             inputs = self.__read_files_list__(fold_dir + 'inputs')
             labels = self.__read_files_list__(fold_dir + 'labels')
+            # print(len(inputs))
             self.__check_matches__(inputs, labels, 'files read')
 
             if fold == n:

@@ -1,0 +1,44 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Saving files without folders. If you want to preserve sub directories pass base_path to wandb.save, i.e. wandb.save("/mnt/folder/file.h5", base_path="/mnt")
+Progress:   0%|                                                                                                           | 0/15 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "main.py", line 162, in <module>
+    ask_if_proceed(callback, arg)
+  File "main.py", line 134, in ask_if_proceed
+    if (arg is not None): callback(arg)
+  File "main.py", line 100, in init_and_train_model
+    train_model(DeepSeg, save_dir)
+  File "main.py", line 94, in train_model
+    DeepSeg.train_model()
+  File "/root/research/deep-segmentation/segmentation/unet/unet_seg.py", line 250, in train_model
+    training_losses, validation_losses, lr_rates = trainer.run_trainer()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 62, in run_trainer
+    self._train()
+  File "/root/research/deep-segmentation/segmentation/unet/trainer.py", line 93, in _train
+    for i, (x, y) in batch_iter:
+  File "/usr/local/lib/python3.8/dist-packages/tqdm/std.py", line 1180, in __iter__
+    for obj in iterable:
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/dataloader.py", line 561, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/usr/local/lib/python3.8/dist-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/research/deep-segmentation/segmentation/unet/customdatasets3.py", line 56, in __getitem__
+    x, y = self.transform(x, y)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 132, in __call__
+    inp, target = t(inp, target)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 114, in __call__
+    if self.target: tar = self.function(tar)
+  File "/root/research/deep-segmentation/segmentation/unet/transformations.py", line 35, in create_dense_target
+    dummy[mask] = idx
+KeyboardInterrupt
+out mean: tensor(0.5134, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>)
+target mean: tensor(0.0169, device='cuda:0', dtype=torch.float64)
+out mean: tensor(0.5143, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>)
+target mean: tensor(0.0442, device='cuda:0', dtype=torch.float64)
+out mean: tensor(0.5107, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>)
+target mean: tensor(0.0483, device='cuda:0', dtype=torch.float64)
+out mean: tensor(0.5157, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>)
+target mean: tensor(0.0282, device='cuda:0', dtype=torch.float64)

@@ -37,7 +37,7 @@ batch_size = 2
 start_filters = 64
 
 # loss functions
-loss_func = 'WCE'
+loss_func = 'IoU'
 cross_entropy_weight = 0.095
 
 if loss_func == 'WCE':
@@ -57,4 +57,4 @@ else:
   print(colored('please use a valid loss function', 'red'))
 
 # prediction parameters
-models = ['15']
+models = ['5']

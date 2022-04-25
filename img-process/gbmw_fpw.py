@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from skimage import filters
 from skimage import morphology
-import cv2 as cv
+import cv2
 from skimage import measure
 from skimage.measure import label, regionprops
 from skimage import data, util
@@ -18,7 +18,8 @@ import os
 import pandas as pd
 from termcolor import colored
 from sklearn.metrics import jaccard_score
-
+import shutil
+from PIL import Image
 
 class GBMW_FPW():
     def __init__(self):
@@ -48,7 +49,7 @@ class GBMW_FPW():
         predicted_names = self.get_filenames_of_path(pred_dir)
         # read images and store them in memory
         images = [imread(img_name) for img_name in images_names]
-        predicted = [imread(tar_name) for tar_name in predicted_names]
+        predicted = [np.invert(imread(tar_name)) for tar_name in predicted_names]
         labels = [imread(label_name) for label_name in labels_names]
         return images_names, predicted, images, labels
 
@@ -74,14 +75,14 @@ class GBMW_FPW():
         return onesegmentmask
 
     def get_num_edges(self, onesegmentmask):
-        edges = cv.Canny(onesegmentmask.astype(np.uint8),0,0.15)
+        edges = cv2.Canny(onesegmentmask.astype(np.uint8),0,0.15)
         label_img = label(edges, connectivity=edges.ndim)
         props = regionprops(label_img)
         num_edges = len(props)
         return num_edges
 
     def get_edge_vals(self, onesegmentmask,k,orig):
-        edges = cv.Canny(onesegmentmask.astype(np.uint8),0,0.15)
+        edges = cv2.Canny(onesegmentmask.astype(np.uint8),0,0.15)
         label_img = label(edges, connectivity=edges.ndim)
         props = regionprops(label_img)
         xcoords = props[k].coords[:,0]
@@ -130,14 +131,100 @@ class GBMW_FPW():
         return area,gbmw
 
     def calc_manager(self, cur_fold, cur_model):
-        self.GBMW_blur_const = 3; #blur width
+        self.GBMW_blur_const = 4; #blur width
         self.calc(cur_fold, cur_model)
-        self.GBMW_blur_const = 1; #blur width
-        self.calc(cur_fold, cur_model)
+
+    def save_results(self, cur_fold, cur_model):
+        self.fold_dir = cur_fold
+        self.model_dir = cur_model
+        [images_names, predicted, original, labels] = self.get_images()
+        save_dir = self.pred_root / self.fold_dir / 'contrasts'
+        blur_dir = save_dir / 'blurred'
+        orig_dir = save_dir / 'original'
+        pred_dir = save_dir / 'predicted'
+        label_dir = save_dir / 'label'
+
+        self.reset_dir([save_dir, blur_dir, orig_dir, pred_dir, label_dir])
+
+        img_num = 20
+        if len(predicted) >= img_num*2:
+            # fig, axs = plt.subplots(20, 4, figsize=(20,60))
+            for i in range(img_num):
+                predict = predicted[i*2]
+                label = labels[i*2]
+                orig = original[i*2]
+                flip_predict = np.invert(predict)
+
+                masked_FPW = self.blur_mask(flip_predict, self.FPW_blur_const)
+                masked_GBMW = self.blur_mask(flip_predict, self.GBMW_blur_const)
+                invlabel = 1 - (label//255)
+                pred_bin = np.rint(flip_predict//255).astype(int)
+                # print('Image')
+                # print('label', np.unique(invlabel), np.mean(invlabel))
+                # print('pred_bin', np.unique(pred_bin), np.mean(pred_bin))
+                # print('masked_GBMW', np.unique(masked_GBMW), np.mean(masked_GBMW))
+
+                pred_contrast = self.generate_jaccard_image(pred_bin, invlabel)
+                blur_contrast = self.generate_jaccard_image(masked_GBMW, invlabel)
+                image_name = f'{i}.png'
+                
+                cv2.imwrite(str(pred_dir/image_name), pred_contrast)
+                cv2.imwrite(str(blur_dir/image_name), blur_contrast)
+                cv2.imwrite(str(orig_dir/image_name), orig)
+                cv2.imwrite(str(label_dir/image_name), invlabel*255)
+                # contrast = np.invert(label - np.invert(masked_GBMW))//2
+
+                # r = i//2
+                # c = i%2
+                # axs[r,2*c].imshow(contrast)
+                # # axs[r,2*c].imshow(contrast, cmap='gray', vmin=0, vmax=255)
+                # axs[r,2*c].axis('off')
+                # # axs[r,2*c].set_title('Prediction')
+                # axs[r,2*c+1].imshow(orig, cmap='gray', vmin=0, vmax=255)
+                # axs[r,2*c+1].axis('off')
+                # # axs[r,2*c+1].set_title('Original')
+
+            # fig.tight_layout()
+            # fig.savefig(pathlib.Path.cwd() / 'pred' / 'pred_results.png')
+            # plt.close(fig)
+        else:
+            print("length of predictions aren't sufficient")
+
+    def reset_dir(self, paths):
+        for p in paths:
+            if os.path.exists(p): shutil.rmtree(p) # clear path
+            os.makedirs(p)
+
+    def generate_jaccard_image(self, inputs, targets):
+        inputs = 1 - inputs
+        targets = 1 - targets
+
+        # TP = np.bitwise_and(inputs, targets)*255
+        # FP = np.bitwise_and(inputs, inv_targets).sum()
+        # FN = np.bitwise_and(inv_inputs, targets).sum()
+        g = inputs*255
+        b = targets*255
+        r = np.ones_like(targets)*255
+        a = np.ones_like(targets)*255
+        img = np.stack([r,g,b,a], axis=2)
+        return img
+
+    def IoU(self, inputs, targets):
+        inv_inputs = 1 - inputs
+        inv_targets = 1 - targets
+        # intersection is equivalent to True Positive count
+        # union is the mutually inclusive area of all labels & predictions
+        TP = np.bitwise_and(inputs, targets).sum()
+        FP = np.bitwise_and(inputs, inv_targets).sum()
+        FN = np.bitwise_and(inv_inputs, targets).sum()
+        
+        IoU = (TP)/(TP + FP + FN)
+                
+        return IoU
 
     def calc(self, cur_fold, cur_model):
         print(colored(('#'*25 + ' Calculating FPW and GBMW ' + '#'*25), 'green'))
-        #Combined main script (ignore RunTimeWarnings)
+        # Combined main script (ignore RunTimeWarnings)
         self.fold_dir = cur_fold
         self.model_dir = cur_model
         [images_names, predicted, original, labels] = self.get_images()
@@ -148,6 +235,8 @@ class GBMW_FPW():
         fpw_nm = np.empty((len(predicted)), dtype='object')
         total_sd = np.empty((len(predicted)), dtype='object')
         jaccard = np.empty((len(predicted)), dtype='object')
+        jaccard_blur = np.empty((len(predicted)), dtype='object')
+        assert len(predicted) == len(labels), 'labels length and prediction length mismatch'
         for i in range(0,len(predicted)):
             predict = predicted[i]
             flip_predict = np.invert(predict)
@@ -204,17 +293,20 @@ class GBMW_FPW():
 
             invlabel = 1 - (labels[i]//255)
             pred_bin = 1 - (predicted[i]//255)
-            # print(np.unique(invlabel))
-            # print(np.unique(pred_bin))
-            # print(np.mean(invlabel))
-            # print(np.mean(pred_bin))
+            masked_GBMW_bin = mask_GBMW[i]
+            # print('Pred:', np.unique(pred_bin), np.mean(pred_bin))
+            # print('Label:', np.unique(invlabel), np.mean(invlabel))
+            # print('GBMW_bin:', np.unique(masked_GBMW_bin), np.mean(masked_GBMW_bin))
+            iou = self.IoU(invlabel, pred_bin)
             j_idx = jaccard_score(invlabel, pred_bin, labels=None, pos_label=1, average='micro', sample_weight=None, zero_division='warn')
-            # print(j_idx)
+            j_idx_blur = jaccard_score(invlabel, masked_GBMW_bin, labels=None, pos_label=1, average='micro', sample_weight=None, zero_division='warn')
+            # print('Jaccard:', j_idx, 'IoU:', iou)
             jaccard[i] = j_idx
+            jaccard_blur[i] = j_idx_blur
 
-        self.save_csv(images_names, gbmw_nm, fpw_nm, jaccard)
+        self.save_csv(images_names, gbmw_nm, fpw_nm, jaccard, jaccard_blur)
 
-    def save_csv(self, images_names, gbmw_nm, fpw_nm, jaccard):
+    def save_csv(self, images_names, gbmw_nm, fpw_nm, jaccard, jaccard_blur):
         save_dir = self.pred_root / self.fold_dir
 
         target_animal_data = {}
@@ -230,16 +322,17 @@ class GBMW_FPW():
             gbmw = tile_data[5]
             fpw = tile_data[6]
             j_idx = jaccard[idx]
+            j_idx_blur = jaccard_blur[idx]
 
             if animal not in target_animal_data:
                 new_animal_target = {'gbmw': [], 'fpw': []}
-                new_animal_pred = {'gbmw': [], 'fpw': [], 'jaccard': []}
+                new_animal_pred = {'gbmw': [], 'fpw': [], 'jaccard': [], 'jaccard_blur': []}
                 target_animal_data[animal] = new_animal_target
                 predict_animal_data[animal] = new_animal_pred
 
             if image not in target_image_data:
                 new_image_target = {'gbmw': [], 'fpw': []}
-                new_image_predict = {'gbmw': [], 'fpw': [], 'jaccard': []}
+                new_image_predict = {'gbmw': [], 'fpw': [], 'jaccard': [], 'jaccard_blur': []}
                 target_image_data[image] = new_image_target
                 predict_image_data[image] = new_image_predict
 
@@ -248,37 +341,47 @@ class GBMW_FPW():
             predict_image_data[image]['jaccard'].append(j_idx)
             predict_animal_data[animal]['jaccard'].append(j_idx)
 
+            predict_image_data[image]['jaccard_blur'].append(j_idx_blur)
+            predict_animal_data[animal]['jaccard_blur'].append(j_idx_blur)
+
             if gbmw != -1 and not math.isnan(gbmw) and gbmw_nm[idx] != 0 and not math.isnan(gbmw_nm[idx]):
                 target_animal_data[animal]['gbmw'].append(gbmw)
                 predict_animal_data[animal]['gbmw'].append(gbmw_nm[idx])
                 target_image_data[image]['gbmw'].append(gbmw)
                 predict_image_data[image]['gbmw'].append(gbmw_nm[idx])
             
+            # print(f'Animal: {animal}, Image: {image}, fpw: {fpw}, pred: {fpw_nm[idx]}')
             if fpw != -1 and not math.isnan(fpw) and fpw_nm[idx] != 0 and not math.isnan(fpw_nm[idx]):
                 target_animal_data[animal]['fpw'].append(fpw)
                 predict_animal_data[animal]['fpw'].append(fpw_nm[idx])
                 target_image_data[image]['fpw'].append(fpw)
                 predict_image_data[image]['fpw'].append(fpw_nm[idx])
         
-        animal_data_csv = pd.DataFrame(columns=['animal', 'fpw', 'target fpw', 'fpw percent error', 'gbmw', 'target gbmw', 'gbmw percent error', 'mean jaccard index'])
-        image_data_csv = pd.DataFrame(columns=['image', 'fpw', 'target fpw', 'fpw percent error', 'gbmw', 'target gbmw', 'gbmw percent error', 'mean jaccard index'])
+        animal_data_csv = pd.DataFrame(columns=['animal', 'fpw', 'target fpw', 'fpw percent error', 'gbmw', 'target gbmw', 'gbmw percent error', 'mean jaccard index', 'mean jaccard index blurred'])
+        image_data_csv = pd.DataFrame(columns=['image', 'fpw', 'target fpw', 'fpw percent error', 'gbmw', 'target gbmw', 'gbmw percent error', 'mean jaccard index', 'mean jaccard index blurred'])
 
         for key in target_animal_data.keys():
             target_mfpw = np.mean(target_animal_data[key]['fpw'])
             target_mgbmw = np.mean(target_animal_data[key]['gbmw'])
             mfpw = np.mean(predict_animal_data[key]['fpw'])
+            # print(f'Anmimal {key} target fpw:', target_animal_data[key]['fpw'], target_mfpw)
+            # print(f'Anmimal {key} predet fpw:', predict_animal_data[key]['fpw'], mfpw)
             mgbmw = np.mean(predict_animal_data[key]['gbmw'])
             mjaccard = np.mean(predict_animal_data[key]['jaccard'])
-            animal_row = pd.DataFrame([[key, mfpw, target_mfpw, 1 - mfpw/target_mfpw, mgbmw, target_mgbmw, 1 - mgbmw/target_mgbmw, mjaccard]], columns = animal_data_csv.columns)
+            mjaccardblur = np.mean(predict_animal_data[key]['jaccard_blur'])
+            animal_row = pd.DataFrame([[key, mfpw, target_mfpw, 1 - mfpw/target_mfpw, mgbmw, target_mgbmw, 1 - mgbmw/target_mgbmw, mjaccard, mjaccardblur]], columns = animal_data_csv.columns)
             animal_data_csv = pd.concat([animal_data_csv, animal_row], ignore_index=True)
 
         for key in target_image_data.keys():
             target_mfpw = np.mean(target_image_data[key]['fpw'])
             target_mgbmw = np.mean(target_image_data[key]['gbmw'])
             mfpw = np.mean(predict_image_data[key]['fpw'])
+            # print(f'Image {key} target fpw:', target_image_data[key]['fpw'], target_mfpw)
+            # print(f'Image {key} predet fpw:', predict_image_data[key]['fpw'], mfpw)
             mgbmw = np.mean(predict_image_data[key]['gbmw'])
             mjaccard = np.mean(predict_image_data[key]['jaccard'])
-            image_row = pd.DataFrame([[key, mfpw, target_mfpw, 1 - mfpw/target_mfpw, mgbmw, target_mgbmw, 1 - mgbmw/target_mgbmw, mjaccard]], columns = image_data_csv.columns)
+            mjaccardblur = np.mean(predict_image_data[key]['jaccard_blur'])
+            image_row = pd.DataFrame([[key, mfpw, target_mfpw, 1 - mfpw/target_mfpw, mgbmw, target_mgbmw, 1 - mgbmw/target_mgbmw, mjaccard, mjaccardblur]], columns = image_data_csv.columns)
             image_data_csv = pd.concat([image_data_csv, image_row], ignore_index=True)
         
         animal_path = os.path.join(save_dir, 'animal_data_%.1f.csv'%self.GBMW_blur_const)

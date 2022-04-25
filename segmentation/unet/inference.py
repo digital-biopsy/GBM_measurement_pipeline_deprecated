@@ -8,6 +8,7 @@ Original file is located at
 """
 
 import torch
+import numpy as np
 
 
 def predict(img,

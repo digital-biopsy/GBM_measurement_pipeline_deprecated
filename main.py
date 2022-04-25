@@ -46,14 +46,27 @@ def k_fold(verbose):
         train_model(DeepSeg, save_dir)
     
 def evaluate_results():
+    # n = 4
+    # Preprocess = setup_preprocess(verbose=False)
+    # Preprocess.generate_image_tiles(n,pm.kfold)
+    # CalcGBMW = GBMW_FPW()
+    # CalcGBMW.calc_manager('fold_%s' % str(n+1), 'unet_15_epochs')
     for n in range(pm.kfold):
         Preprocess = setup_preprocess(verbose=False)
         Preprocess.generate_image_tiles(n,pm.kfold)
         CalcGBMW = GBMW_FPW()
         CalcGBMW.calc_manager('fold_%s' % str(n+1), 'unet_15_epochs')
-    # CalcGBMW = GBMW_FPW()
-    # CalcGBMW.calc_manager('fold_%s' % str(5), 'unet_15_epochs')
+        CalcGBMW.save_results('fold_%s' % str(n+1), 'unet_15_epochs')
 
+def evaluate_save():
+    n = 4
+    CalcGBMW = GBMW_FPW()
+    CalcGBMW.save_results('fold_%s' % str(n+1), 'unet_15_epochs')
+    # for n in range(pm.kfold):
+    #     Preprocess = setup_preprocess(verbose=False)
+    #     Preprocess.generate_image_tiles(n,pm.kfold)
+    #     CalcGBMW = GBMW_FPW()
+    #     CalcGBMW.save_results('fold_%s' % str(n+1), 'unet_15_epochs')
 
 
 def init_model(verbose):
@@ -136,6 +149,7 @@ if __name__ == '__main__':
     parser.add_argument('-pred', '--predict', action='store_true', help='predict output')
     parser.add_argument('-v', '--verbose', action='store_true', help='turn on verbose')
     parser.add_argument('-eval', '--evaluation', action='store_true', help='evaluate the model')
+    parser.add_argument('-save', '--savepred', action='store_true', help='save prediction results the model')
     args = parser.parse_args()
 
     if args.preprocess:
@@ -152,6 +166,8 @@ if __name__ == '__main__':
         predict_results(args.verbose)
     elif args.evaluation:
         evaluate_results()
+    elif args.savepred:
+        evaluate_save()
     # elif args.cont_train:
     #   print(args.integers)
     else:

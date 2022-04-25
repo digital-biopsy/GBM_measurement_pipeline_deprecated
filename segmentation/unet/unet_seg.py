@@ -321,7 +321,8 @@ class UnetSeg:
             img = img.cpu().numpy()  # send to cpu and transform to numpy.ndarray
             img = np.where(img > 0.5, 1, 0)
             img = np.squeeze(img)  # remove batch dim and channel dim -> [H, W]
-            img = re_normalize(img)  # scale it to the range [0-255]
+            img = normalize_01(img)
+            # img = re_normalize(img)  # scale it to the range [0-255]
             return img
 
         output = [predict(img, self.model, preprocess, postprocess, device) for img in images_res]
