@@ -1,7 +1,7 @@
 # Digital Biopsy - Deep Segmentation
 This is the segmentation tool for digital biopsy project. It also contains some useful git command instructions for the reference. The code for unet segmentation is adapted from [here](https://github.com/johschmidt42/PyTorch-2D-3D-UNet-Tutorial).
 
-This repository is deprecated, please check the new repository [here](https://github.com/zhaozewang/GBM_measurement_pipeline.git)
+This repository is deprecated, please check the new repository [here](https://github.com/digital-biopsy/GBM_measurement_pipeline.git)
 
 ## Raw Dataset
 ### Dataset Structure
