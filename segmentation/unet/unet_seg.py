@@ -1,7 +1,6 @@
 import os
 import cv2
 import torch
-import wandb
 import shutil
 import pathlib
 import numpy as np
@@ -223,14 +222,6 @@ class UnetSeg:
     def train_model(self):
         # Train the model and find the best learning rate.
         print(colored(('#'*25 + ' Start Training ' + '#'*25), 'green'))
-        # initialize weights and bias
-        wandb.init(
-            project="digital-biopsy",
-            entity="zhaoze",
-            config = {
-                'model': 'unet'
-        })
-        wandb.save(os.path.join(pathlib.Path.cwd(),'params_meta.py'))
         # starts training
         device = torch.device(self.device)
         trainer = Trainer(model=self.model,
@@ -251,7 +242,6 @@ class UnetSeg:
         
         # # find best learning rate
         # self.find_lr(training_losses, validation_losses, lr_rates)
-        wandb.finish()
 
     def find_lr(self, training_losses, validation_losses, lr_rates):
         # learning rate finding script

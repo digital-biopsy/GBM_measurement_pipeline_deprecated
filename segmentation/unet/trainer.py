@@ -9,7 +9,6 @@ Original file is located at
 
 import os
 import torch
-import wandb
 import pathlib
 import numpy as np
 from termcolor import colored
@@ -68,12 +67,6 @@ class Trainer:
             if self.epoch % 5 == 0:
                 model_name = "models/" + self.current_dir + "unet_" + str(self.epoch) + "_epochs.pt"
                 torch.save(self.model.state_dict(), os.path.join(pathlib.Path.cwd(), model_name))
-                wandb.save(os.path.join(pathlib.Path.cwd(), model_name), base_path='models')
-
-            wandb.log({
-                "validation_loss": self.val_loss,
-                "training_loss": self.train_loss
-                })
 
             # run learning rate scheduler if defined
             if self.lr_scheduler is not None:
